@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnipiApp">
         <activity
-            android:name=".ui.dashboard.DashboardActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.syllabus.SyllabusActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.dashboard.DashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="unipi_red">#A22631</color>
+    <color name="unipi_blue">#222C54</color>
 </resources>
