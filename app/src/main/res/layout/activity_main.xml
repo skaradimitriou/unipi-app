@@ -8,14 +8,30 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
+        <ImageView
+            android:id="@+id/unipi_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:src="@mipmap/ic_launcher"
+            android:contentDescription="@string/app_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/unipi_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/app_name"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            android:textColor="@color/unipi_blue"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/unipi_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

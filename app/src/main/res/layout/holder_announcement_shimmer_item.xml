@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/announcement_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/shimmer_grey"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/shimmer_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/announcement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/shimmer_grey"
+                android:text="@string/lorem_ipsum_2"
+                android:textColor="@color/shimmer_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/announcement_date" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:background="@color/unipi_red"
+                app:layout_constraintTop_toBottomOf="@id/announcement_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</layout>

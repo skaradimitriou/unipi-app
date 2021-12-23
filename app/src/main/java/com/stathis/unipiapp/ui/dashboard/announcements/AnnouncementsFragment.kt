@@ -25,7 +25,6 @@ class AnnouncementsFragment : UnipiFragment<FragmentAnnouncementsBinding>(R.layo
          *        Implement pagination to get more announcements from page on user scroll
          */
 
-
         activity?.title = resources.getString(R.string.menu_announcements)
 
         binding.announcementsRecycler.adapter = viewModel.adapter
