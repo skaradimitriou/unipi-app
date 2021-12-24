@@ -15,7 +15,7 @@
             android:name=".ui.dashboard.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.syllabus.SyllabusActivity"
+            android:name=".ui.webview.WebviewActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"

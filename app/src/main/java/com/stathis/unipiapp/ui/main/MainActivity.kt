@@ -26,7 +26,5 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
         }
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 }

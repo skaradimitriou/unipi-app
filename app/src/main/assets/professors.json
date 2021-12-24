@@ -1,0 +1,290 @@
+[
+  {
+    "fullName": "Βίρβου Μαρία",
+    "title": "Πρόεδρος Τμήματος",
+    "office": "507, κεντρικό κτίριο",
+    "telephone": "+302104142269",
+    "email": "mvirvou@unipi.gr",
+    "image": "https://cs.unipi.gr/media/k2/users/2.jpg"
+  },
+  {
+    "fullName": "Βέργαδος Δημήτριος",
+    "title": "Αναπληρωτής Πρόεδρος Τμήματος",
+    "office": "104, Γ. Λαμπράκη 126",
+    "telephone": "+302104142479",
+    "email": "vergados@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/22.jpg"
+  },
+  {
+    "fullName": "Αποστόλου Δημήτριος",
+    "title": "Καθηγητής",
+    "office": "303, Γ. Λαμπράκη 126",
+    "telephone": "+302104142476",
+    "email": "dapost@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/7.jpg"
+  },
+  {
+    "fullName": "Βέργαδος Δημήτριος",
+    "title": "Καθηγητής",
+    "office": "104, Γ. Λαμπράκη 126",
+    "telephone": "+302104142479",
+    "email": "vergados@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/22.jpg"
+  },
+  {
+    "fullName": "Δεσπότης Δημήτριος",
+    "title": "Καθηγητής",
+    "office": "702, Γ. Λαμπράκη 126",
+    "telephone": "+302104142411",
+    "email": "despotis@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/5.jpg"
+  },
+  {
+    "fullName": "Δουληγέρης Χρήστος",
+    "title": "Καθηγητής",
+    "office": "302, κεντρικό κτίριο",
+    "telephone": "+302104142137",
+    "email": "cdoulig@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/6.jpg"
+  },
+  {
+    "fullName": "Θεοδωρίδης Ιωάννης",
+    "title": "Καθηγητής",
+    "office": "501, κεντρικό κτίριο",
+    "telephone": "+302104142449",
+    "email": "ytheod@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/4.jpg"
+  },
+  {
+    "fullName": "Μεταξιώτης Κωνσταντίνος",
+    "title": "Καθηγητής",
+    "office": "303, Γ. Λαμπράκη 126",
+    "telephone": "+302104142378",
+    "email": "kmetax@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/24.jpg"
+  },
+  {
+    "fullName": "Παναγιωτόπουλος Θεμιστοκλής",
+    "title": "Καθηγητής",
+    "office": "604, Γ. Λαμπράκη 126",
+    "telephone": "+302104142146",
+    "email": "themisp@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/16.jpg"
+  },
+  {
+    "fullName": "Σαπουνάκης Αριστείδης",
+    "title": "Καθηγητής",
+    "office": "542, κεντρικό κτίριο",
+    "telephone": "+302104142262",
+    "email": "arissap@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Τσιχριντζής Γεώργιος",
+    "title": "Καθηγητής",
+    "office": "302, κεντρικό κτίριο",
+    "telephone": "+302104142322",
+    "email": "geoatsi@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/3.jpg"
+  },
+  {
+    "fullName": "Αλέπης Ευθύμιος",
+    "title": "Αναπληρωτής Καθηγητής",
+    "office": "540, κεντρικό κτίριο",
+    "telephone": "",
+    "email": "talepis@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/35.jpg"
+  },
+  {
+    "fullName": "Βουγιουκλίδου Άννα",
+    "title": "Αναπληρώτρια Καθηγήτρια",
+    "office": "Ζέας 80-82, 4ος όροφος",
+    "telephone": "+302104142176",
+    "email": "avou@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/27.jpg"
+  },
+  {
+    "fullName": "Κοτζανικολάου Παναγιώτης",
+    "title": "Αναπληρωτής Καθηγητής",
+    "office": "302, Γ. Λαμπράκη 126",
+    "telephone": "+302104142123",
+    "email": "pkotzani@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/28.jpg"
+  },
+  {
+    "fullName": "Κωνσταντόπουλος Χαράλαμπος",
+    "title": "Αναπληρωτής Καθηγητής",
+    "office": "301, Γ. Λαμπράκη 126",
+    "telephone": "+302104142124",
+    "email": "konstant@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/23.jpg"
+  },
+  {
+    "fullName": "Πατσάκης Κωνσταντίνος",
+    "title": "Αναπληρωτής Καθηγητής",
+    "office": "540, κεντρικό κτίριο",
+    "telephone": "",
+    "email": "kpatsak@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/34.jpg"
+  },
+  {
+    "fullName": "Πολέμη Δέσποινα",
+    "title": "Αναπληρώτρια Καθηγήτρια",
+    "office": "502, κεντρικό κτίριο",
+    "telephone": "+302104142270",
+    "email": "dpolemi@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/25.jpg"
+  },
+  {
+    "fullName": "Βενέτης Ιωάννης",
+    "title": "Επίκουρος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "venetis@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/venetis.jpg"
+  },
+  {
+    "fullName": "Πικράκης Άγγελος",
+    "title": "Επίκουρος Καθηγητής",
+    "office": "505, κεντρικό κτίριο",
+    "telephone": "+302104142128",
+    "email": "pikrakis@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/29.jpeg"
+  },
+  {
+    "fullName": "Σακκόπουλος Ευάγγελος",
+    "title": "Επίκουρος Καθηγητής",
+    "office": "543, κεντρικό κτίριο",
+    "telephone": "+302104142312",
+    "email": "sakkopul@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/sakkopul.png"
+  },
+  {
+    "fullName": "Σωτηρόπουλος Διονύσιος",
+    "title": "Επίκουρος Καθηγητής",
+    "office": "543, κεντρικό κτίριο",
+    "telephone": "+302104142314",
+    "email": "dsotirop@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/dsotirop.png"
+  },
+  {
+    "fullName": "Τασούλας Ιωάννης",
+    "title": "Επίκουρος Καθηγητής",
+    "office": "542, κεντρικό κτίριο",
+    "telephone": "+302104142313",
+    "email": "jtas@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Ψαράκης Μιχαήλ",
+    "title": "Επίκουρος Καθηγητής",
+    "office": "302, Γ. Λαμπράκη 126",
+    "telephone": "+302104142425",
+    "email": "mpsarak@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/26.jpg"
+  },
+  {
+    "fullName": "Αλεξανδρής Νικόλαος",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "alexandr@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/11.jpg"
+  },
+  {
+    "fullName": "Ασημακόπουλος Νικήτας",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "assinik@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/14.jpg"
+  },
+  {
+    "fullName": "Γεωργιακόδης Μιχαήλ",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "mgeor@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Γεωργιακώδης Φώτιος",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "fotis@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Παναγιωτόπουλος Αντώνιος",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "antonios@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/13.jpg"
+  },
+  {
+    "fullName": "Παναγιωτόπουλος Ιωάννης-Χρήστος",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "jcp@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Τσικούρας Παναγιώτης-Γεώργιος",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "pgtsik@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Φούντας Ευάγγελος",
+    "title": "Ομότιμος Καθηγητής",
+    "office": "",
+    "telephone": "",
+    "email": "efountas@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Τσάκωνας Παναγιώτης",
+    "title": "Εργαστηριακό Διδακτικό Προσωπικό (Ε.ΔΙ.Π) Τμήματος",
+    "office": "305, κεντρικό κτίριο",
+    "telephone": "+302104142141",
+    "email": "ptsakon@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Χρυσαφιάδη Κωνσταντίνα",
+    "title": "Εργαστηριακό Διδακτικό Προσωπικό (Ε.ΔΙ.Π) Τμήματος",
+    "office": "207, κεντρικό κτίριο",
+    "telephone": "+302104142131",
+    "email": "kchrysafiadi@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/chrysafiadi.png"
+  },
+  {
+    "fullName": "Μανουσόπουλος Χρήστος",
+    "title": "Εργαστηριακό Διδακτικό Προσωπικό (Ε.ΔΙ.Π) Σχολής",
+    "office": "308, κεντρικό κτίριο",
+    "telephone": "+302104142125",
+    "email": "cman@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Μαυροπόδη Ρόζα",
+    "title": "Εργαστηριακό Διδακτικό Προσωπικό (Ε.ΔΙ.Π) Σχολής",
+    "office": "208, κεντρικό κτίριο",
+    "telephone": "+302104142127",
+    "email": "rosa@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  },
+  {
+    "fullName": "Παυλίδης Αρχιμήδης",
+    "title": "Εργαστηριακό Διδακτικό Προσωπικό (Ε.ΔΙ.Π) Σχολής",
+    "office": "101, Γ. Λαμπράκη 126",
+    "telephone": "+302104142478",
+    "email": "adp@unipi.gr",
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+  }
+]

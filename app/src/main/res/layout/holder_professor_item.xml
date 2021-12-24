@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <data>
         <variable
@@ -19,12 +19,25 @@
         android:padding="@dimen/dimen_10"
         android:onClick="@{(view) -> callback.onItemTap(view)}">
 
+        <ImageView
+            android:id="@+id/professor_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            loadImageFromUrl="@{model.image}"
+            android:scaleType="centerCrop"
+            android:src="@color/shimmer_grey"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/professor_date"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="@dimen/dimen_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/professor_img"
             android:text="@{model.fullName}"
             android:textColor="@color/unipi_blue"
             tools:text="@string/app_name"
@@ -32,10 +45,12 @@
 
         <TextView
             android:id="@+id/professor_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/dimen_10"
             app:layout_constraintTop_toBottomOf="@id/professor_date"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/professor_img"
             android:text="@{model.title}"
             android:textColor="@color/black"
             tools:text="@string/app_name" />
@@ -45,7 +60,7 @@
             android:layout_height="@dimen/dimen_1"
             android:layout_marginTop="@dimen/dimen_5"
             android:background="@color/unipi_red"
-            app:layout_constraintTop_toBottomOf="@id/professor_title"/>
+            app:layout_constraintTop_toBottomOf="@id/professor_img"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

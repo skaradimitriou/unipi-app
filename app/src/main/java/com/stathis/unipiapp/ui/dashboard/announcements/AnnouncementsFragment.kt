@@ -3,11 +3,13 @@ package com.stathis.unipiapp.ui.dashboard.announcements
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
+import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiFragment
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.databinding.FragmentAnnouncementsBinding
 import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.ui.webview.WebviewActivity
 import com.stathis.unipiapp.util.BASE_URL
 
 
@@ -27,7 +29,7 @@ class AnnouncementsFragment : UnipiFragment<FragmentAnnouncementsBinding>(R.layo
 
         activity?.title = resources.getString(R.string.menu_announcements)
 
-        binding.announcementsRecycler.adapter = viewModel.adapter
+        binding.setVariable(BR.adapter,viewModel.adapter)
 
         viewModel.observe(this, object : AnnouncementCallback{
             override fun openAnnouncement(model: Announcement) {

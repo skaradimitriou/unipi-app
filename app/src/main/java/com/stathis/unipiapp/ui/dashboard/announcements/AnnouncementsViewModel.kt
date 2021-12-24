@@ -66,18 +66,13 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
         val announcements = arrayListOf<Announcement>()
 
         try {
-            val url =
-                "https://www.cs.unipi.gr/index.php?option=com_k2&view=itemlist&layout=category&task=category&id=16&Itemid=673&lang=el"
+            val url = "https://www.cs.unipi.gr/index.php?option=com_k2&view=itemlist&layout=category&task=category&id=16&Itemid=673&lang=el"
             val doc = Jsoup.connect(url).timeout(60000).validateTLSCertificates(false).get()
             for (i in 0..9) {
-                val title =
-                    doc.select(".catItemView").select(".catItemHeader").select("h3").select("a")
-                        .eq(i).text()
-                val date = doc.select(".catItemView").select(".blog-item-meta")
-                    .select(".catItemDateCreated").eq(i).text()
-                val url =
-                    doc.select(".catItemView").select(".catItemHeader").select("h3").select("a")
-                        .attr("href")
+                val title = doc.select(".catItemView").select(".catItemHeader").select("h3").select("a").eq(i).text()
+                val date = doc.select(".catItemView").select(".blog-item-meta").select(".catItemDateCreated").eq(i).text()
+                val url = doc.select(".catItemView").select(".catItemHeader").select("h3").select("a").attr("href")
+
                 announcements.add(Announcement(title, date, url))
             }
 

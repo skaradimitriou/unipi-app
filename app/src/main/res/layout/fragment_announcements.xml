@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="name"
-            type="String" />
+            name="adapter"
+            type="com.stathis.unipiapp.ui.dashboard.announcements.adapter.AnnouncementAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            adapter="@{adapter}"
             android:id="@+id/announcements_recycler"
             tools:listitem="@layout/holder_announcement_item"
             tools:itemCount="10"
