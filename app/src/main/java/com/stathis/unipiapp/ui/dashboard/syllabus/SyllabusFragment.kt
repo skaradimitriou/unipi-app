@@ -27,7 +27,7 @@ class SyllabusFragment : UnipiFragment<FragmentSyllabusBinding>(R.layout.fragmen
         viewModel.observe(this, object : SemesterCallback{
             override fun onSemesterTap(model: Semester) {
                 startActivity(Intent(requireActivity(), LessonsActivity::class.java).also {
-                    it.putExtra("SEMESTER",model.title)
+                    it.putExtra("MODEL",model)
                 })
             }
         })

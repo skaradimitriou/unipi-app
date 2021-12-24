@@ -1,5 +1,9 @@
 package com.stathis.unipiapp.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Lesson(
 
     val title : String,
@@ -9,7 +13,7 @@ data class Lesson(
     val ects : Int,
     val professor: List<Professor>
 
-) : LocalModel {
+) : LocalModel, Parcelable {
     override fun equalsContent(obj: LocalModel): Boolean = when(obj) {
         is Lesson -> title == obj.title
         else -> false

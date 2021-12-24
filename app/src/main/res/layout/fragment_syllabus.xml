@@ -16,7 +16,7 @@
         tools:context=".ui.dashboard.syllabus.SyllabusFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lessons_recycler"
+            android:id="@+id/syllabus_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"

@@ -3,20 +3,332 @@
     "title": "Μαθήματα 1ου Εξαμήνου",
     "lessons": [
       {
-
+        "title": "Εισαγωγή στην Επιστήμη των Υπολογιστών",
+        "code": "ΜΠΠΛΕΥ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Αρχές Προγραμματισμού – Γλώσσα C, C++",
+        "code": "ΜΠΠΛΑΠ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Δομές Δεδομένων",
+        "code": "ΜΠΠΛΔΔ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Γλώσσες Προγραμματισμού και Μεταγλωττιστές",
+        "code": "ΜΠΠΛΓΠΜ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Λειτουργικά Συστήματα",
+        "code": "ΜΠΠΛΛΣ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ειδικά Κεφάλαια Μαθηματικών",
+        "code": "ΜΠΠΛΕΚΜ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Διακριτά Μαθηματικά",
+        "code": "ΜΠΠΛΔΜ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Λογικός Προγραμματισμός",
+        "code": "ΜΠΠΛΛΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
       }
     ]
   },
   {
     "title": "Μαθήματα 2ου Εξαμήνου",
-    "lessons": []
+    "lessons": [
+      {
+        "title": "Αντικειμενοστρεφής Προγραμματισμός -Τεχνολογίες Διαδικτύου",
+        "code": "ΜΠΠΛΑΝΠ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ταχεία Ανάπτυξη Εφαρμογών",
+        "code": "ΜΠΠΛΤΑΕ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Βάσεις και Αποθήκες Δεδομένων",
+        "code": "ΜΠΠΛΒΔ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Τεχνητή Νοηµοσύνη – Έµπειρα Συστήµατα",
+        "code": "ΜΠΠΛΤΧ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Αλληλεπίδραση Ανθρώπου – Υπολογιστή",
+        "code": "ΜΠΠΛΑΑΥ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Θεωρία και Εφαρµογές Γραφηµάτων",
+        "code": "ΜΠΠΛΘΕΓ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Γραµµικός Προγραµµατισµός",
+        "code": "ΜΠΠΛΓΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Πολυµεσικά Σήµατα και Συστήµατα",
+        "code": "ΜΠΠΛΠΣΣ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ειδικά Θέµατα Συνδυαστικής Ανάλυσης",
+        "code": "ΜΠΠΛΕΘΣΑ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      }
+    ]
   },
   {
     "title": "Μαθήματα 3ου Εξαμήνου",
-    "lessons": []
+    "lessons": [
+      {
+        "title": "Τεχνολογία Λογισµικού",
+        "code": "ΜΠΠΛΤΛ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Αναγνώριση Προτύπων",
+        "code": "ΜΠΠΛΑΠ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Αλγόριθµοι",
+        "code": "ΜΠΠΛΑ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "∆ίκτυα Υπολογιστών",
+        "code": "ΜΠΠΛΔΥ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Συστήματα Λογισμικού Διαχείρισης Επιχειρησιακών Πόρων (ERP)",
+        "code": "ΜΠΠΛΣΛΔ01",
+        "mandatory": true,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Συστήµατα Υποστήριξης Αποφάσεων",
+        "code": "ΜΠΠΛΣΥΑ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ανάπτυξη Λογισμικού για Κινητές Συσκευές",
+        "code": "ΜΠΠΛΑΛΟΓ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Γραφικά µε Υπολογιστές – Εικονική Πραγματικότητα",
+        "code": "ΜΠΠΛΓΡΥ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Κρυπτογραφία",
+        "code": "ΜΠΠΛΚΡ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      }
+    ]
   },
   {
     "title": "Μαθήματα 4ου Εξαμήνου",
-    "lessons": []
+    "lessons": [
+      {
+        "title": "Μεταπτυχιακή Διατριβή",
+        "code": "",
+        "mandatory": true,
+        "hours": 0,
+        "ects": 20,
+        "professor": []
+      },
+      {
+        "title": "Ασφάλεια Πληροφοριών",
+        "code": "ΜΠΠΛΑΠΛ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Σύγχρονα Τηλεπικοινωνιακά Δίκτυα και Υπηρεσίες",
+        "code": "ΜΠΠΛΣΤΔΙ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Εικονικές Επιχειρήσεις",
+        "code": "ΜΠΠΛΕΕ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ηλεκτρονικό Επιχειρείν",
+        "code": "ΜΠΠΛΗΕ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ιατρική Πληροφορική",
+        "code": "ΜΠΠΛΙΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ναυτιλιακή Πληροφορική",
+        "code": "ΜΠΠΛΝΑΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Νομική Πληροφορική",
+        "code": "ΜΠΠΛΝΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Περιβαλλοντική Πληροφορική",
+        "code": "ΜΠΠΛΠΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Πληροφορική στην Εκπαίδευση",
+        "code": "ΜΠΠΛΠΕ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Γεωπληροφορική",
+        "code": "ΜΠΠΛΣΓΠ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Συστημική Ανάλυση",
+        "code": "ΜΠΠΛΣΑΝ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      },
+      {
+        "title": "Ανάλυση Εικόνας και Εφαρμογές",
+        "code": "ΜΠΠΛΑΝΕ01",
+        "mandatory": false,
+        "hours": 3,
+        "ects": 5,
+        "professor": []
+      }
+    ]
   }
 ]
