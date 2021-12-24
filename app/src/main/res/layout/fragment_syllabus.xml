@@ -6,12 +6,13 @@
     <data>
         <variable
             name="adapter"
-            type="com.stathis.unipiapp.ui.dashboard.syllabus.adapter.LessonAdapter" />
+            type="com.stathis.unipiapp.ui.dashboard.syllabus.adapter.SemesterAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey_bg"
         tools:context=".ui.dashboard.syllabus.SyllabusFragment">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,7 @@
             adapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="10"
-            tools:listitem="@layout/holder_lesson_item" />
+            tools:listitem="@layout/holder_semester_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

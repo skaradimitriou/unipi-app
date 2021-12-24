@@ -11,5 +11,6 @@
     <color name="unipi_red">#A22631</color>
     <color name="unipi_blue">#222C54</color>
 
+    <color name="grey_bg">#F0F0F0</color>
     <color name="shimmer_grey">#666666</color>
 </resources>

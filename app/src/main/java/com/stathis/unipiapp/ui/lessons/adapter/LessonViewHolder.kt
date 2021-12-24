@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.dashboard.syllabus.adapter
+package com.stathis.unipiapp.ui.lessons.adapter
 
 import androidx.databinding.ViewDataBinding
 import com.stathis.unipiapp.BR

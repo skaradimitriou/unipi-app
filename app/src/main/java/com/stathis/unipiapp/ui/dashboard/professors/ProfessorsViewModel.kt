@@ -57,7 +57,7 @@ class ProfessorsViewModel(val app : Application) : UnipiViewModel(app),UnipiCall
             Log.d(app.getString(R.string.app_name),professorList.toString())
             data.postValue(professorList)
         } catch (ioException: IOException) {
-            ioException.printStackTrace()
+            //ioException.printStackTrace()
         }
     }
 

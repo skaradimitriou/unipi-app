@@ -1,20 +1,30 @@
 package com.stathis.unipiapp.ui.dashboard.syllabus
 
 import android.app.Application
+import android.util.Log
+import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
-import com.stathis.unipiapp.models.Lesson
-import com.stathis.unipiapp.ui.dashboard.syllabus.adapter.LessonAdapter
+import com.stathis.unipiapp.callbacks.SemesterCallback
+import com.stathis.unipiapp.callbacks.UnipiCallback
+import com.stathis.unipiapp.models.Semester
+import com.stathis.unipiapp.ui.dashboard.syllabus.adapter.SemesterAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
-class SyllabusViewModel(val app: Application) : UnipiViewModel(app) {
+class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
-    val adapter = LessonAdapter()
-    private val data = MutableLiveData<List<Lesson>>()
+    val adapter = SemesterAdapter(this)
+    private lateinit var callback: SemesterCallback
+    private lateinit var semesterList : MutableList<Semester>
+    private val data = MutableLiveData<List<Semester>>()
 
     init {
         getData()
@@ -27,18 +37,20 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app) {
     }
 
     private fun getLessons() {
-        val dummyList = listOf(
-            Lesson("Εισαγωγή στην Επιστήμη των Υπολογιστών"),
-            Lesson("Αρχές Προγραμματισμού – Γλώσσα C, C++"),
-            Lesson("Δομές Δεδομένων"),
-            Lesson("Γλώσσες Προγραμματισμού και Μεταγλωττιστές"),
-            Lesson("Λειτουργικά Συστήματα")
-        )
-
-        data.postValue(dummyList)
+        try {
+            val jsonString = app.assets.open("msc_informatics_lessons.json").bufferedReader().use { it.readText() }
+            val listPersonType = object : TypeToken<List<Semester>>() {}.type
+            semesterList = Gson().fromJson(jsonString, listPersonType)
+            Log.d(app.getString(R.string.app_name),semesterList.toString())
+            data.postValue(semesterList)
+        } catch (ioException: IOException) {
+            //ioException.printStackTrace()
+        }
     }
 
-    fun observe(owner: LifecycleOwner) {
+    fun observe(owner: LifecycleOwner, callback : SemesterCallback) {
+        this.callback = callback
+
         data.observe(owner, Observer {
             adapter.submitList(it)
         })
@@ -46,5 +58,10 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app) {
 
     fun release(owner: LifecycleOwner) {
         data.removeObservers(owner)
+    }
+
+    override fun onItemTap(view: View) = when(view.tag){
+        is Semester -> callback.onSemesterTap(view.tag as Semester)
+        else -> Unit
     }
 }
