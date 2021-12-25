@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.stathis.unipiapp.models.UnipiService" />
+
+        <variable
+            name="callback"
+            type="com.stathis.unipiapp.callbacks.UnipiCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10"
+        android:onClick="@{(view) -> callback.onItemTap(view)}">
+
+        <ImageView
+            android:id="@+id/service_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            loadImageFromUrl="@{model.imageUrl}"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/service_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingStart="@dimen/dimen_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/service_img"
+            android:text="@{model.title}"
+            android:textColor="@color/unipi_blue"
+            tools:text="@string/app_name"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:background="@color/unipi_red"
+            app:layout_constraintTop_toBottomOf="@id/service_img"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnipiApp">
         <activity
+            android:name=".ui.services.ServicesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.lessons.LessonsActivity"
             android:exported="false" />
         <activity

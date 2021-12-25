@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.ui.dashboard.main
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -7,6 +8,7 @@ import com.stathis.unipiapp.abstraction.UnipiFragment
 import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.databinding.FragmentMainBinding
 import com.stathis.unipiapp.models.UnipiItem
+import com.stathis.unipiapp.ui.services.ServicesActivity
 
 
 class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) {
@@ -35,9 +37,12 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
 
     override fun stopOps() {}
 
-    fun goToDepartment(){}
+    fun goToDepartment(){
+    }
 
-    fun goToServices(){}
+    fun goToServices(){
+        startActivity(Intent(requireContext(),ServicesActivity::class.java))
+    }
 
     fun goToContact(){}
 }
