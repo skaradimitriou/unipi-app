@@ -11,7 +11,8 @@ data class Professor(
     val office : String,
     val telephone : String,
     val email : String,
-    val image : String
+    val image : String,
+    val gender : String
 
     ) : LocalModel, Parcelable {
     override fun equalsContent(obj: LocalModel): Boolean = when(obj){

@@ -9,5 +9,23 @@
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
     <string name="lorem_ipsum_2">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
     <string name="url_tag">URL</string>
+    <string name="menu_main">Αρχική</string>
+    <string name="main_screen">Αρχική</string>
+
+
+    <!-- Professors Activity -->
+    <string name="male">male</string>
+    <string name="female">female</string>
+
+    <string name="send_email_to_male_professor">Είσαι σίγουρος πως θέλεις να στείλεις e-mail στον κ. %1$s;</string>
+    <string name="send_email_to_female_professor">Είσαι σίγουρος πως θέλεις να στείλεις e-mail στην κ. %1$s;</string>
+
+    <string name="email_type">message/rfc822</string>
+    <string name="sending_email">Send mail...</string>
+    <string name="no_clients_installed">There are no email clients installed.</string>
+
+    <string name="dialog_new_email">Νέο e-mail</string>
+    <string name="dialog_yes">Ναι</string>
+    <string name="dialog_cancel">Άκυρο</string>
 
 </resources>

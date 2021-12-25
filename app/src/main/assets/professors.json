@@ -5,7 +5,8 @@
     "office": "507, κεντρικό κτίριο",
     "telephone": "+302104142269",
     "email": "mvirvou@unipi.gr",
-    "image": "https://cs.unipi.gr/media/k2/users/2.jpg"
+    "image": "https://cs.unipi.gr/media/k2/users/2.jpg",
+    "gender": "female"
   },
   {
     "fullName": "Βέργαδος Δημήτριος",
@@ -13,7 +14,8 @@
     "office": "104, Γ. Λαμπράκη 126",
     "telephone": "+302104142479",
     "email": "vergados@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/22.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/22.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Αποστόλου Δημήτριος",
@@ -21,7 +23,8 @@
     "office": "303, Γ. Λαμπράκη 126",
     "telephone": "+302104142476",
     "email": "dapost@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/7.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/7.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Βέργαδος Δημήτριος",
@@ -29,7 +32,8 @@
     "office": "104, Γ. Λαμπράκη 126",
     "telephone": "+302104142479",
     "email": "vergados@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/22.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/22.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Δεσπότης Δημήτριος",
@@ -37,7 +41,8 @@
     "office": "702, Γ. Λαμπράκη 126",
     "telephone": "+302104142411",
     "email": "despotis@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/5.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/5.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Δουληγέρης Χρήστος",
@@ -45,7 +50,8 @@
     "office": "302, κεντρικό κτίριο",
     "telephone": "+302104142137",
     "email": "cdoulig@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/6.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/6.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Θεοδωρίδης Ιωάννης",
@@ -53,7 +59,8 @@
     "office": "501, κεντρικό κτίριο",
     "telephone": "+302104142449",
     "email": "ytheod@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/4.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/4.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Μεταξιώτης Κωνσταντίνος",
@@ -61,7 +68,8 @@
     "office": "303, Γ. Λαμπράκη 126",
     "telephone": "+302104142378",
     "email": "kmetax@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/24.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/24.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Παναγιωτόπουλος Θεμιστοκλής",
@@ -69,7 +77,8 @@
     "office": "604, Γ. Λαμπράκη 126",
     "telephone": "+302104142146",
     "email": "themisp@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/16.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/16.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Σαπουνάκης Αριστείδης",
@@ -77,7 +86,8 @@
     "office": "542, κεντρικό κτίριο",
     "telephone": "+302104142262",
     "email": "arissap@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Τσιχριντζής Γεώργιος",
@@ -85,7 +95,8 @@
     "office": "302, κεντρικό κτίριο",
     "telephone": "+302104142322",
     "email": "geoatsi@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/3.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/3.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Αλέπης Ευθύμιος",
@@ -93,7 +104,8 @@
     "office": "540, κεντρικό κτίριο",
     "telephone": "",
     "email": "talepis@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/35.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/35.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Βουγιουκλίδου Άννα",
@@ -101,7 +113,8 @@
     "office": "Ζέας 80-82, 4ος όροφος",
     "telephone": "+302104142176",
     "email": "avou@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/27.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/27.jpg",
+    "gender": "female"
   },
   {
     "fullName": "Κοτζανικολάου Παναγιώτης",
@@ -109,7 +122,8 @@
     "office": "302, Γ. Λαμπράκη 126",
     "telephone": "+302104142123",
     "email": "pkotzani@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/28.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/28.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Κωνσταντόπουλος Χαράλαμπος",
@@ -117,7 +131,8 @@
     "office": "301, Γ. Λαμπράκη 126",
     "telephone": "+302104142124",
     "email": "konstant@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/23.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/23.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Πατσάκης Κωνσταντίνος",
@@ -125,7 +140,8 @@
     "office": "540, κεντρικό κτίριο",
     "telephone": "",
     "email": "kpatsak@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/34.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/34.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Πολέμη Δέσποινα",
@@ -133,7 +149,8 @@
     "office": "502, κεντρικό κτίριο",
     "telephone": "+302104142270",
     "email": "dpolemi@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/25.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/25.jpg",
+    "gender": "female"
   },
   {
     "fullName": "Βενέτης Ιωάννης",
@@ -141,7 +158,8 @@
     "office": "",
     "telephone": "",
     "email": "venetis@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/venetis.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/venetis.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Πικράκης Άγγελος",
@@ -149,7 +167,8 @@
     "office": "505, κεντρικό κτίριο",
     "telephone": "+302104142128",
     "email": "pikrakis@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/29.jpeg"
+    "image" : "https://cs.unipi.gr/media/k2/users/29.jpeg",
+    "gender": "male"
   },
   {
     "fullName": "Σακκόπουλος Ευάγγελος",
@@ -157,7 +176,8 @@
     "office": "543, κεντρικό κτίριο",
     "telephone": "+302104142312",
     "email": "sakkopul@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/sakkopul.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/sakkopul.png",
+    "gender": "male"
   },
   {
     "fullName": "Σωτηρόπουλος Διονύσιος",
@@ -165,7 +185,8 @@
     "office": "543, κεντρικό κτίριο",
     "telephone": "+302104142314",
     "email": "dsotirop@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/dsotirop.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/dsotirop.png",
+    "gender": "male"
   },
   {
     "fullName": "Τασούλας Ιωάννης",
@@ -173,7 +194,8 @@
     "office": "542, κεντρικό κτίριο",
     "telephone": "+302104142313",
     "email": "jtas@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Ψαράκης Μιχαήλ",
@@ -181,7 +203,8 @@
     "office": "302, Γ. Λαμπράκη 126",
     "telephone": "+302104142425",
     "email": "mpsarak@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/26.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/26.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Αλεξανδρής Νικόλαος",
@@ -189,7 +212,8 @@
     "office": "",
     "telephone": "",
     "email": "alexandr@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/11.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/11.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Ασημακόπουλος Νικήτας",
@@ -197,7 +221,8 @@
     "office": "",
     "telephone": "",
     "email": "assinik@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/14.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/14.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Γεωργιακόδης Μιχαήλ",
@@ -205,7 +230,8 @@
     "office": "",
     "telephone": "",
     "email": "mgeor@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Γεωργιακώδης Φώτιος",
@@ -213,7 +239,8 @@
     "office": "",
     "telephone": "",
     "email": "fotis@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Παναγιωτόπουλος Αντώνιος",
@@ -221,7 +248,8 @@
     "office": "",
     "telephone": "",
     "email": "antonios@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/13.jpg"
+    "image" : "https://cs.unipi.gr/media/k2/users/13.jpg",
+    "gender": "male"
   },
   {
     "fullName": "Παναγιωτόπουλος Ιωάννης-Χρήστος",
@@ -229,7 +257,8 @@
     "office": "",
     "telephone": "",
     "email": "jcp@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Τσικούρας Παναγιώτης-Γεώργιος",
@@ -237,7 +266,8 @@
     "office": "",
     "telephone": "",
     "email": "pgtsik@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Φούντας Ευάγγελος",
@@ -245,7 +275,8 @@
     "office": "",
     "telephone": "",
     "email": "efountas@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Τσάκωνας Παναγιώτης",
@@ -253,7 +284,8 @@
     "office": "305, κεντρικό κτίριο",
     "telephone": "+302104142141",
     "email": "ptsakon@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Χρυσαφιάδη Κωνσταντίνα",
@@ -261,7 +293,8 @@
     "office": "207, κεντρικό κτίριο",
     "telephone": "+302104142131",
     "email": "kchrysafiadi@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/chrysafiadi.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/chrysafiadi.png",
+    "gender": "female"
   },
   {
     "fullName": "Μανουσόπουλος Χρήστος",
@@ -269,7 +302,8 @@
     "office": "308, κεντρικό κτίριο",
     "telephone": "+302104142125",
     "email": "cman@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   },
   {
     "fullName": "Μαυροπόδη Ρόζα",
@@ -277,7 +311,8 @@
     "office": "208, κεντρικό κτίριο",
     "telephone": "+302104142127",
     "email": "rosa@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "female"
   },
   {
     "fullName": "Παυλίδης Αρχιμήδης",
@@ -285,6 +320,7 @@
     "office": "101, Γ. Λαμπράκη 126",
     "telephone": "+302104142478",
     "email": "adp@unipi.gr",
-    "image" : "https://cs.unipi.gr/media/k2/users/18.png"
+    "image" : "https://cs.unipi.gr/media/k2/users/18.png",
+    "gender": "male"
   }
 ]

@@ -13,6 +13,8 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.ProfessorCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Professor
+import com.stathis.unipiapp.models.UnipiService
+import com.stathis.unipiapp.network.JsoupModule
 import com.stathis.unipiapp.ui.dashboard.professors.adapter.ProfessorsAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -54,11 +56,8 @@ class ProfessorsViewModel(val app : Application) : UnipiViewModel(app),UnipiCall
             val jsonString = app.assets.open("professors.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<List<Professor>>() {}.type
             professorList = Gson().fromJson(jsonString, listPersonType)
-            Log.d(app.getString(R.string.app_name),professorList.toString())
             data.postValue(professorList)
-        } catch (ioException: IOException) {
-            //ioException.printStackTrace()
-        }
+        } catch (ioException: IOException) {}
     }
 
     override fun onItemTap(view: View) {

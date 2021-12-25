@@ -12,6 +12,7 @@ import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.models.ShimmerModel
+import com.stathis.unipiapp.network.JsoupModule
 import com.stathis.unipiapp.ui.dashboard.announcements.adapter.AnnouncementAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,7 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
 
     val adapter = AnnouncementAdapter(this)
     private val data = MutableLiveData<List<Announcement>>()
+    private val error = MutableLiveData<Boolean>()
     private lateinit var callback: AnnouncementCallback
 
     init {
@@ -63,23 +65,7 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     }
 
     fun getAnnouncements() {
-        val announcements = arrayListOf<Announcement>()
-
-        try {
-            val url = "https://www.cs.unipi.gr/index.php?option=com_k2&view=itemlist&layout=category&task=category&id=16&Itemid=673&lang=el"
-            val doc = Jsoup.connect(url).timeout(60000).validateTLSCertificates(false).get()
-            for (i in 0..9) {
-                val title = doc.select(".catItemView").select(".catItemHeader").select("h3").select("a").eq(i).text()
-                val date = doc.select(".catItemView").select(".blog-item-meta").select(".catItemDateCreated").eq(i).text()
-                val url = doc.select(".catItemView").select(".catItemHeader").select("h3").select("a").attr("href")
-
-                announcements.add(Announcement(title, date, url))
-            }
-
-            data.postValue(announcements)
-        } catch (e: Exception) {
-            Log.d(app.resources.getString(R.string.app_name), e.toString())
-        }
+        JsoupModule.getAnnouncements(data,error)
     }
 
     override fun onItemTap(view: View) = when (view.tag) {
