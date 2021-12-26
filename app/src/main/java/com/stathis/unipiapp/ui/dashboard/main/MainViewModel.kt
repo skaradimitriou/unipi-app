@@ -2,6 +2,7 @@ package com.stathis.unipiapp.ui.dashboard.main
 
 import android.app.Application
 import android.view.View
+import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
@@ -19,10 +20,10 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     private fun createList() {
         val list = listOf(
-            UnipiItem("Item 1"),
-            UnipiItem("Item 2"),
-            UnipiItem("Item 3"),
-            UnipiItem("Item 4"),
+            UnipiItem(app.resources.getString(R.string.menu_announcements)),
+            UnipiItem(app.resources.getString(R.string.students)),
+            UnipiItem(app.resources.getString(R.string.department)),
+            UnipiItem(app.resources.getString(R.string.professors)),
         )
         adapter.submitList(list)
     }

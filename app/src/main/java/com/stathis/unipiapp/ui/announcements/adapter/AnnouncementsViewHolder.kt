@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.dashboard.announcements.adapter
+package com.stathis.unipiapp.ui.announcements.adapter
 
 import androidx.databinding.ViewDataBinding
 import com.stathis.unipiapp.BR

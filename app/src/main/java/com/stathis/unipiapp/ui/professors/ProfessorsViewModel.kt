@@ -1,21 +1,17 @@
-package com.stathis.unipiapp.ui.dashboard.professors
+package com.stathis.unipiapp.ui.professors
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.ProfessorCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Professor
-import com.stathis.unipiapp.models.UnipiService
-import com.stathis.unipiapp.network.JsoupModule
-import com.stathis.unipiapp.ui.dashboard.professors.adapter.ProfessorsAdapter
+import com.stathis.unipiapp.ui.professors.adapter.ProfessorsAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -16,6 +16,7 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     }
 
     override fun startOps() {
+        supportActionBar?.hide()
         binding.bottomNavigationMenu.setupWithNavController(navController)
     }
 

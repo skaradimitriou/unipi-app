@@ -1,23 +1,20 @@
-package com.stathis.unipiapp.ui.dashboard.announcements
+package com.stathis.unipiapp.ui.announcements
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.JsoupModule
-import com.stathis.unipiapp.ui.dashboard.announcements.adapter.AnnouncementAdapter
+import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.jsoup.Jsoup
 
 class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 

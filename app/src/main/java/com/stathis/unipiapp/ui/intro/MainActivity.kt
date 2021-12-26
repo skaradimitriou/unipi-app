@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.main
+package com.stathis.unipiapp.ui.intro
 
 import android.content.Intent
 import com.bumptech.glide.Glide
@@ -17,6 +17,7 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
         val url = "https://upload.wikimedia.org/wikipedia/el/3/30/UNIPI_%28logo%29.png"
         Glide.with(this).load(url).into(binding.unipiLogo)
         binding.unipiTitle.text = "Πανεπιστήμιο Πειραιώς"
+        supportActionBar?.hide()
     }
 
     override fun startOps() {

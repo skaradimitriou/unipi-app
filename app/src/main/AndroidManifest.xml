@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnipiApp">
         <activity
+            android:name=".ui.students.StudentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.professors.ProfessorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.department.DepartmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.announcements.AnnouncementsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.services.ServicesActivity"
             android:exported="false" />
         <activity
@@ -24,7 +36,7 @@
             android:name=".ui.webview.WebviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.intro.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

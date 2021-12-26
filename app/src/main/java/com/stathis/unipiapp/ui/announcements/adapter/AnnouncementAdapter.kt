@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.dashboard.announcements.adapter
+package com.stathis.unipiapp.ui.announcements.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -8,7 +8,11 @@ import com.stathis.unipiapp.abstraction.UnipiFragment
 import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.databinding.FragmentMainBinding
 import com.stathis.unipiapp.models.UnipiItem
+import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
+import com.stathis.unipiapp.ui.department.DepartmentActivity
+import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.services.ServicesActivity
+import com.stathis.unipiapp.ui.students.StudentsActivity
 
 
 class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) {
@@ -26,10 +30,10 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
 
         viewModel.addListener(object : MainScreenCallback {
             override fun onItemTap(model: UnipiItem) = when(model.title){
-                "Item 1" -> goToDepartment()
-                "Item 2" -> goToServices()
-                "Item 3" -> goToContact()
-                "Item 4" -> goToDepartment()
+                resources.getString(R.string.menu_announcements) -> goToAnnouncements()
+                resources.getString(R.string.students) -> goToStudents()
+                resources.getString(R.string.department) -> goToDepartment()
+                resources.getString(R.string.professors) -> goToProfessors()
                 else -> Unit
             }
         })
@@ -37,12 +41,19 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
 
     override fun stopOps() {}
 
+    fun goToAnnouncements(){
+        startActivity(Intent(requireContext(),AnnouncementsActivity::class.java))
+    }
+
     fun goToDepartment(){
+        startActivity(Intent(requireContext(),DepartmentActivity::class.java))
     }
 
-    fun goToServices(){
-        startActivity(Intent(requireContext(),ServicesActivity::class.java))
+    fun goToStudents(){
+        startActivity(Intent(requireContext(),StudentsActivity::class.java))
     }
 
-    fun goToContact(){}
+    fun goToProfessors(){
+        startActivity(Intent(requireContext(),ProfessorsActivity::class.java))
+    }
 }

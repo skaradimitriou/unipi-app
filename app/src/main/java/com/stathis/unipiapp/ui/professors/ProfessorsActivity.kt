@@ -1,19 +1,20 @@
-package com.stathis.unipiapp.ui.dashboard.professors
+package com.stathis.unipiapp.ui.professors
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
-import com.stathis.unipiapp.abstraction.UnipiFragment
+import com.stathis.unipiapp.R
+import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.ProfessorCallback
-import com.stathis.unipiapp.databinding.FragmentProfessorsBinding
+import com.stathis.unipiapp.databinding.ActivityProfessorsBinding
 import com.stathis.unipiapp.models.Professor
 
-
-class ProfessorsFragment : UnipiFragment<FragmentProfessorsBinding>(R.layout.fragment_professors) {
+class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.activity_professors) {
 
     private lateinit var viewModel : ProfessorsViewModel
 
@@ -22,11 +23,12 @@ class ProfessorsFragment : UnipiFragment<FragmentProfessorsBinding>(R.layout.fra
     }
 
     override fun startOps() {
-        activity?.title = resources.getString(R.string.menu_professors)
+        supportActionBar?.title = resources.getString(R.string.professors)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.adapter,viewModel.adapter)
+        binding.setVariable(BR.viewModel,viewModel)
 
-        viewModel.observe(this,object : ProfessorCallback{
+        viewModel.observe(this,object : ProfessorCallback {
             override fun onProfessorTap(model: Professor) = openPopUpWindow(model)
         })
     }
@@ -36,7 +38,7 @@ class ProfessorsFragment : UnipiFragment<FragmentProfessorsBinding>(R.layout.fra
     }
 
     private fun openPopUpWindow(professor : Professor) {
-        MaterialAlertDialogBuilder(requireContext()).also {
+        MaterialAlertDialogBuilder(this).also {
             it.setTitle(getString(R.string.dialog_new_email))
             when(professor.gender){
                 resources.getString(R.string.male) -> it.setMessage(getString(R.string.send_email_to_male_professor).format(professor.fullName))
@@ -56,7 +58,7 @@ class ProfessorsFragment : UnipiFragment<FragmentProfessorsBinding>(R.layout.fra
         try {
             startActivity(Intent.createChooser(i, getString(R.string.sending_email)))
         } catch (ex: ActivityNotFoundException) {
-            Toast.makeText(requireContext(),getString(R.string.no_clients_installed),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,getString(R.string.no_clients_installed), Toast.LENGTH_SHORT).show()
         }
     }
 }

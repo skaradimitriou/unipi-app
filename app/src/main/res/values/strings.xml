@@ -4,7 +4,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="menu_announcements">Ανακοινώσεις</string>
-    <string name="menu_professors">Καθηγητές</string>
+    <string name="professors">Καθηγητές</string>
+    <string name="students">Φοιτητές</string>
+    <string name="department">Το Τμήμα</string>
+
+
     <string name="syllabus">Πρόγραμμα Σπουδών</string>
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
     <string name="lorem_ipsum_2">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>

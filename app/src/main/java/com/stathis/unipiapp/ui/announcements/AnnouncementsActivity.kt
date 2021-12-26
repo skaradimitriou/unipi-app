@@ -1,19 +1,19 @@
-package com.stathis.unipiapp.ui.dashboard.announcements
+package com.stathis.unipiapp.ui.announcements
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
-import com.stathis.unipiapp.abstraction.UnipiFragment
+import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
-import com.stathis.unipiapp.databinding.FragmentAnnouncementsBinding
+import com.stathis.unipiapp.databinding.ActivityAnnouncementsBinding
 import com.stathis.unipiapp.models.Announcement
-import com.stathis.unipiapp.ui.webview.WebviewActivity
 import com.stathis.unipiapp.util.BASE_URL
 
-
-class AnnouncementsFragment : UnipiFragment<FragmentAnnouncementsBinding>(R.layout.fragment_announcements) {
+class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layout.activity_announcements) {
 
     private lateinit var viewModel : AnnouncementsViewModel
 
@@ -27,13 +27,14 @@ class AnnouncementsFragment : UnipiFragment<FragmentAnnouncementsBinding>(R.layo
          *        Implement pagination to get more announcements from page on user scroll
          */
 
-        activity?.title = resources.getString(R.string.menu_announcements)
+        supportActionBar?.title = resources.getString(R.string.menu_announcements)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.adapter,viewModel.adapter)
+        binding.setVariable(BR.viewModel,viewModel)
 
-        viewModel.observe(this, object : AnnouncementCallback{
+        viewModel.observe(this, object : AnnouncementCallback {
             override fun openAnnouncement(model: Announcement) {
-                startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(BASE_URL+model.url) })
+                startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(BASE_URL +model.url) })
             }
         })
     }
