@@ -1,6 +1,7 @@
 package com.stathis.unipiapp.ui.dashboard.main
 
 import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -37,6 +38,11 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
                 else -> Unit
             }
         })
+
+        binding.categoriesAll.setOnClickListener {
+            //open all categories
+            Log.d("","")
+        }
     }
 
     override fun stopOps() {}

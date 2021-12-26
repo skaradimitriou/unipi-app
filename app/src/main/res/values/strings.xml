@@ -31,5 +31,9 @@
     <string name="dialog_new_email">Νέο e-mail</string>
     <string name="dialog_yes">Ναι</string>
     <string name="dialog_cancel">Άκυρο</string>
+    <string name="search_professor">Αναζήτησε έναν καθηγητή</string>
+    <string name="search">Αναζήτηση</string>
+    <string name="categories">Κατηγορίες</string>
+    <string name="all_categories">Όλες οι κατηγορίες</string>
 
 </resources>

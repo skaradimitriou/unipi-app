@@ -1,6 +1,7 @@
 package com.stathis.unipiapp.ui.department
 
 
+import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
@@ -21,5 +22,14 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
 
     override fun stopOps() {
         //
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+        android.R.id.home -> {
+            onBackPressed()
+            true
+        }
+
+        else -> false
     }
 }

@@ -4,6 +4,10 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -60,5 +64,38 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
         } catch (ex: ActivityNotFoundException) {
             Toast.makeText(this,getString(R.string.no_clients_installed), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.professor_menu,menu)
+
+        val item : MenuItem? = menu?.findItem(R.id.professor_search)
+        val searchView = item?.actionView as androidx.appcompat.widget.SearchView
+        searchView.queryHint = resources.getString(R.string.search_professor)
+
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean = false
+            override fun onQueryTextChange(query: String?): Boolean {
+
+                when(query.isNullOrEmpty()){
+                    true -> Unit
+                    false -> viewModel.filter(query)
+                }
+
+                return false
+            }
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+        android.R.id.home -> {
+            onBackPressed()
+            viewModel.getProfessors()
+            true
+        }
+
+        else -> false
     }
 }

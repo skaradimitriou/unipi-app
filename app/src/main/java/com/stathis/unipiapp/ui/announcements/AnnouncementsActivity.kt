@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
@@ -40,4 +41,13 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
     }
 
     override fun stopOps() = viewModel.release(this)
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+        android.R.id.home -> {
+            onBackPressed()
+            true
+        }
+
+        else -> false
+    }
 }

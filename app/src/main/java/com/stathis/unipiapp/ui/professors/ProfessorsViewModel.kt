@@ -56,6 +56,16 @@ class ProfessorsViewModel(val app : Application) : UnipiViewModel(app),UnipiCall
         } catch (ioException: IOException) {}
     }
 
+    fun filter(text: String) {
+        val filteredList = arrayListOf<Professor>()
+        for (item in professorList) {
+            if (item.fullName.lowercase().contains(text.lowercase())) {
+                filteredList.add(item)
+            }
+        }
+        data.value = filteredList
+    }
+
     override fun onItemTap(view: View) {
         when(view.tag){
             is Professor -> callback.onProfessorTap(view.tag as Professor)
