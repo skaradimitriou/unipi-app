@@ -17,6 +17,12 @@ class MyBindingAdapters {
             Picasso.get().load(url).error(R.drawable.stat_notify_error).into(this)
         }
 
+        @BindingAdapter("setLocalImage")
+        @JvmStatic
+        fun ImageView.setLocalImage(image: Int) {
+            this.setImageResource(image)
+        }
+
         @BindingAdapter("adapter")
         @JvmStatic
         fun setRecyclerViewAdapter(recycler : RecyclerView, adapter: androidx.recyclerview.widget.ListAdapter<LocalModel,RecyclerView.ViewHolder>){

@@ -43,12 +43,13 @@
 
             <ImageView
                 android:id="@+id/home_item_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="@dimen/height_100"
+                android:layout_height="@dimen/height_70"
                 android:layout_marginStart="@dimen/dimen_5"
-                android:src="@mipmap/ic_launcher"
+                setLocalImage="@{model.img}"
                 android:layout_margin="16dp"
-                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_unipi_logo_svg"
+                android:scaleType="fitCenter"
                 android:contentDescription="@string/app_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -10,6 +10,7 @@ import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.databinding.FragmentMainBinding
 import com.stathis.unipiapp.models.UnipiItem
 import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
+import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.BottomSheetFragment
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.services.ServicesActivity
@@ -21,7 +22,7 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
     private lateinit var viewModel : MainViewModel
 
     override fun init() {
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
     }
 
     override fun startOps() {
@@ -40,8 +41,7 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
         })
 
         binding.categoriesAll.setOnClickListener {
-            //open all categories
-            Log.d("","")
+            BottomSheetFragment().show(requireActivity().supportFragmentManager,this.tag)
         }
     }
 

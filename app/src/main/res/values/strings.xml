@@ -16,6 +16,7 @@
     <string name="model">MODEL</string>
     <string name="menu_main">Αρχική</string>
     <string name="main_screen">Αρχική</string>
+    <string name="main_screen_title"><b>Πανεπιστήμιο Πειραιώς (UoP)</b> \nΠΜΣ Πληροφορική</string>
 
 
     <!-- Professors Activity -->

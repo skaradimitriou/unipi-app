@@ -20,7 +20,5 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
         binding.bottomNavigationMenu.setupWithNavController(navController)
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 }

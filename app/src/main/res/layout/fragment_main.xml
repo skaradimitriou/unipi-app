@@ -26,13 +26,27 @@
 
         <ImageView
             android:id="@+id/unipi_logo"
-            android:layout_width="@dimen/image_300"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_unipi_logo_svg"
             app:layout_constraintBottom_toBottomOf="@id/top_header"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/top_header" />
+
+        <TextView
+            android:id="@+id/unipi_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingStart="@dimen/dimen_10"
+            android:text="@string/main_screen_title"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/unipi_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/unipi_logo" />
 
         <TextView
             android:id="@+id/categories_header"
@@ -63,7 +77,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:padding="@dimen/dimen_10"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/categories_header"
