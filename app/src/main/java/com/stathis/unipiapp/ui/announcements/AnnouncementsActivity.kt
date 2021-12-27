@@ -4,14 +4,17 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.databinding.ActivityAnnouncementsBinding
 import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.ui.webview.WebviewActivity
 import com.stathis.unipiapp.util.BASE_URL
 
 class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layout.activity_announcements) {
@@ -23,19 +26,30 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
     }
 
     override fun startOps() {
-        /*
-         * FIXME: Add in app webview to open urls
-         *        Implement pagination to get more announcements from page on user scroll
-         */
-
         supportActionBar?.title = resources.getString(R.string.menu_announcements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.setVariable(BR.viewModel,viewModel)
 
+        binding.announcementsRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                when(viewModel.adapter.currentList.get(0)){
+                    is Announcement -> {
+                        when(!recyclerView.canScrollVertically(1)){
+                            true ->  viewModel.loadMore()
+                            else -> Unit
+                        }
+                    }
+                }
+            }
+        })
+
         viewModel.observe(this, object : AnnouncementCallback {
             override fun openAnnouncement(model: Announcement) {
-                startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(BASE_URL +model.url) })
+                //startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(BASE_URL +model.url) })
+                startActivity(Intent(this@AnnouncementsActivity,WebviewActivity::class.java).also {
+                    it.putExtra("MODEL",model)
+                })
             }
         })
     }

@@ -9,6 +9,7 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.models.LocalModel
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.JsoupModule
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
@@ -21,9 +22,12 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     val adapter = AnnouncementAdapter(this)
     private val data = MutableLiveData<List<Announcement>>()
     private val error = MutableLiveData<Boolean>()
+    private var tempList = mutableListOf<Announcement>()
     private lateinit var callback: AnnouncementCallback
+    private var counter = 0
 
     init {
+        startShimmer()
         getData()
     }
 
@@ -42,10 +46,8 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     }
 
     private fun getData() {
-        startShimmer()
-
         CoroutineScope(Dispatchers.IO).launch {
-            getAnnouncements()
+            JsoupModule.getAnnouncements(tempList,data,error,counter)
         }
     }
 
@@ -61,12 +63,13 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
         data.removeObservers(owner)
     }
 
-    fun getAnnouncements() {
-        JsoupModule.getAnnouncements(data,error)
-    }
-
     override fun onItemTap(view: View) = when (view.tag) {
         is Announcement -> callback.openAnnouncement(view.tag as Announcement)
         else -> Unit
+    }
+
+    fun loadMore() {
+        counter += 14
+        getData()
     }
 }

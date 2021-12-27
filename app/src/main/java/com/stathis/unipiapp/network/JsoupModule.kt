@@ -12,21 +12,22 @@ object JsoupModule {
      * Get UoP announcements from cs.unipi.gr
      */
 
-    fun getAnnouncements(data : MutableLiveData<List<Announcement>>, error: MutableLiveData<Boolean>) {
-        val announcements = arrayListOf<Announcement>()
+    fun getAnnouncements(tempList : MutableList<Announcement>,data : MutableLiveData<List<Announcement>>, error: MutableLiveData<Boolean>,counter : Int) {
+        //val announcements = mutableListOf<Announcement>()
 
         try {
-            val url = "https://www.cs.unipi.gr/index.php?option=com_k2&view=itemlist&layout=category&task=category&id=16&Itemid=673&lang=el"
+            val url = "https://www.cs.unipi.gr/index.php?option=com_k2&view=itemlist&layout=category&task=category&id=16&Itemid=673&lang=el&limitstart=$counter"
             val doc = Jsoup.connect(url).timeout(60000).validateTLSCertificates(false).get()
             for (i in 0..9) {
                 val title = doc.select(".catItemView").select(".catItemHeader").select("h3").select("a").eq(i).text()
                 val date = doc.select(".catItemView").select(".blog-item-meta").select(".catItemDateCreated").eq(i).text()
                 val url = doc.select(".catItemView").select(".catItemHeader").select("h3").select("a").attr("href")
 
-                announcements.add(Announcement(title, date, url))
+                tempList.add(Announcement(title, date, url))
             }
 
-            data.postValue(announcements)
+            //tempList.addAll(announcements)
+            data.postValue(tempList)
             error.postValue(false)
         } catch (e: Exception) {
             error.postValue(true)
@@ -48,7 +49,7 @@ object JsoupModule {
                 val title = doc.select(".itemList").select(".itemContainer").select(".catItemView").select(".catItemBody").select(".catItemImageBlock").select("span.catItemImage").select("a").eq(i).attr("title")
                 val url = doc.select(".itemList").select(".itemContainer").select(".catItemView").select(".catItemBody").select(".catItemImageBlock").select("span.catItemImage").select("a").eq(i).attr("href")
                 val path = doc.select(".itemList").select(".itemContainer").select(".catItemView").select(".catItemBody").select(".catItemImageBlock").select("span.catItemImage").select("a").select("img").eq(i).attr("src")
-                val image = "$BASE_URL$path"
+                val image = BASE_URL.plus(path)
 
                 list.add(UnipiService(title,image,url))
             }

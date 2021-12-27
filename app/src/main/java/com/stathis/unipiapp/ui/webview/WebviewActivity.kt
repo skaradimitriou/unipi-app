@@ -1,19 +1,39 @@
 package com.stathis.unipiapp.ui.webview
 
+import android.view.MenuItem
 import android.webkit.WebSettings
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivitySyllabusBinding
+import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.network.SSLWebViewClient
+import com.stathis.unipiapp.util.BASE_URL
 
 class WebviewActivity : UnipiActivity<ActivitySyllabusBinding>(R.layout.activity_syllabus) {
 
     override fun init() {}
 
     override fun startOps() {
-        val url = intent.getStringExtra(resources.getString(R.string.url_tag))
-        url?.let { binding.webviewWindow.loadUrl(it) }
-        val webSettings: WebSettings = binding.webviewWindow.settings
-        webSettings.javaScriptEnabled = true
+        val model = intent.getParcelableExtra<Announcement>(resources.getString(R.string.model))
+
+        model?.let {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = model.title
+
+            val newUrl = when (model.url.startsWith(BASE_URL)) {
+                true -> model.url
+                false -> BASE_URL.plus(model.url)
+            }
+
+            binding.webviewWindow.loadUrl(newUrl)
+
+            binding.webviewWindow.webViewClient = SSLWebViewClient
+
+            val webSettings: WebSettings = binding.webviewWindow.settings
+            webSettings.javaScriptEnabled = true
+            webSettings.domStorageEnabled = true
+            webSettings.builtInZoomControls = true
+        }
     }
 
     override fun stopOps() {}
@@ -23,5 +43,14 @@ class WebviewActivity : UnipiActivity<ActivitySyllabusBinding>(R.layout.activity
             binding.webviewWindow.canGoBack() -> binding.webviewWindow.goBack()
             else -> super.onBackPressed()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+        android.R.id.home -> {
+            onBackPressed()
+            true
+        }
+
+        else -> false
     }
 }

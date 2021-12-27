@@ -11,8 +11,9 @@
 
     <string name="syllabus">Πρόγραμμα Σπουδών</string>
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
-    <string name="lorem_ipsum_2">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
+    <string name="lorem_ipsum_2">Προκήρυξη Υποτροφιών Ιδρύματος Ωνάση 2022-2023</string>
     <string name="url_tag">URL</string>
+    <string name="model">MODEL</string>
     <string name="menu_main">Αρχική</string>
     <string name="main_screen">Αρχική</string>
 

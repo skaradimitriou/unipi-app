@@ -9,6 +9,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
             android:layout_height="match_parent">
 
             <TextView
@@ -34,7 +37,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_1"
-                android:layout_marginTop="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:background="@color/unipi_red"
                 app:layout_constraintTop_toBottomOf="@id/announcement_title" />
 

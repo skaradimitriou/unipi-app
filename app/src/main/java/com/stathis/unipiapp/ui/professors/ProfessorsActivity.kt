@@ -76,9 +76,8 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
         searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean = false
             override fun onQueryTextChange(query: String?): Boolean {
-
                 when(query.isNullOrEmpty()){
-                    true -> Unit
+                    true -> viewModel.getProfessors()
                     false -> viewModel.filter(query)
                 }
 
