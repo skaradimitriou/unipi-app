@@ -11,6 +11,8 @@
     <string name="department">Το Τμήμα</string>
     <string name="contact">Επικοινωνία</string>
 
+    <string name="choose_contact">Επιλογή Τηλεφώνου</string>
+
 
     <string name="syllabus">Πρόγραμμα Σπουδών</string>
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
@@ -40,5 +42,8 @@
     <string name="search">Αναζήτηση</string>
     <string name="categories">Κατηγορίες</string>
     <string name="all_categories">Όλες οι κατηγορίες</string>
+    <string name="contact_type_selection">Επιλογή Τρόπου Επικοινωνίας</string>
+    <string name="send_email">Αποστολή E-mail</string>
+    <string name="call_option">Επικοινωνία μέσω τηλεφώνου</string>
 
 </resources>

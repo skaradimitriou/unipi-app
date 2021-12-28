@@ -1,14 +1,21 @@
 package com.stathis.unipiapp.ui.contact
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.ContactCallback
 import com.stathis.unipiapp.databinding.ActivityContactBinding
+import com.stathis.unipiapp.databinding.ContactScreenBottomSheetBinding
 import com.stathis.unipiapp.models.ContactItem
+import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.BottomSheetFragment
 
 class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_contact) {
 
@@ -24,23 +31,8 @@ class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_
 
         binding.adapter = viewModel.adapter
 
-        viewModel.observe(this, object : ContactCallback{
-            override fun onItemTap(model: ContactItem) {
-                val items = model.telephone.split(",").map { it.trim() }.toTypedArray()
-                /*
-                FIXME: Bottom dialog fragment with 2 options:
-                1. Send email
-                2. Open dialog to select phone & prompt to call screen
-                 */
-
-                MaterialAlertDialogBuilder(this@ContactActivity)
-                    .setTitle("Επιλογή Τηλεφώνου")
-                    .setItems(items) { dialog, which ->
-                        val selectedTelephone = items[which]
-                        Log.d("",selectedTelephone)
-                    }
-                    .show()
-            }
+        viewModel.observe(this, object : ContactCallback {
+            override fun onItemTap(model: ContactItem) =  showContactOptions(model)
         })
     }
 
@@ -48,12 +40,46 @@ class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_
         viewModel.release(this)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {
             onBackPressed()
             true
         }
 
         else -> false
+    }
+
+    private fun showContactOptions(model: ContactItem) {
+        val binding = ContactScreenBottomSheetBinding.inflate(LayoutInflater.from(this))
+        BottomSheetDialog(this).also {
+            it.setContentView(binding.root)
+        }.show()
+
+        binding.bottomSheetEmail.setOnClickListener { sendMail(model.email) }
+        binding.bottomSheetTelephone.setOnClickListener { showCallOptions(model) }
+    }
+
+    private fun showCallOptions(model: ContactItem) {
+        val items = model.telephone.split(",").map { it.trim() }.toTypedArray()
+
+        MaterialAlertDialogBuilder(this@ContactActivity)
+            .setTitle(resources.getString(R.string.choose_contact))
+            .setItems(items) { dialog, which ->
+                val selectedTelephone = items[which]
+                startActivity(Intent(Intent.ACTION_DIAL).also {
+                    it.data = Uri.parse(selectedTelephone)
+                })
+            }
+            .show()
+    }
+
+    private fun sendMail(email : String) {
+        val i = Intent(Intent.ACTION_SEND)
+            .setType(resources.getString(R.string.email_type))
+            .putExtra(Intent.EXTRA_EMAIL, arrayOf<String>(email))
+
+        try {
+            startActivity(Intent.createChooser(i, resources.getString(R.string.sending_email)))
+        } catch (ex: ActivityNotFoundException) {}
     }
 }

@@ -24,7 +24,5 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
         binding.setVariable(BR.viewModel,viewModel)
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 }
