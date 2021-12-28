@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/unipi_red</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Holder Styles -->
+    <style name="holder_programmes_style">
+        <item name="android:layout_marginTop">@dimen/dimen_5</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_5</item>
+        <item name="android:layout_marginStart">@dimen/dimen_10</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_10</item>
+    </style>
 </resources>

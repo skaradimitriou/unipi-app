@@ -32,9 +32,7 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
         adapter.submitList(list)
     }
 
-    /*
-    FIXME: Decide which options will go in this category list for later implementation in the BottomSheet.
-     */
+
 
     fun getAllCategories(): List<ShortCategory> {
         return listOf(
@@ -47,7 +45,7 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
             ShortCategory("Item 7"),
             ShortCategory("Item 8"),
             ShortCategory("Item 9"),
-            ShortCategory("Item 10"),
+            ShortCategory("Item 10")
         )
     }
 

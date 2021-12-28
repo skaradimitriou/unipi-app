@@ -3,6 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="unipi_main_title">Πανεπιστήμιο Πειραιώς</string>
+
     <string name="menu_announcements">Ανακοινώσεις</string>
     <string name="professors">Καθηγητές</string>
     <string name="students">Φοιτητές</string>

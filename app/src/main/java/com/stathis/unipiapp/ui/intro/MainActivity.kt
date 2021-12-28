@@ -14,9 +14,8 @@ import kotlinx.coroutines.launch
 class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun init() {
-        val url = "https://upload.wikimedia.org/wikipedia/el/3/30/UNIPI_%28logo%29.png"
-        Glide.with(this).load(url).into(binding.unipiLogo)
-        binding.unipiTitle.text = "Πανεπιστήμιο Πειραιώς"
+        binding.unipiLogo.setImageResource(R.drawable.ic_unipi_logo_svg)
+        binding.unipiTitle.text = resources.getString(R.string.unipi_main_title)
         supportActionBar?.hide()
     }
 

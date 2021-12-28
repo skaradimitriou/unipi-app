@@ -1,0 +1,76 @@
+{
+  "carouselItems": [
+    {
+      "imageResource": "xxx",
+      "url": "XXX",
+      "title": "Έρευνα",
+      "position": 1
+    },
+    {
+      "imageResource": "XXX",
+      "url": "XXX",
+      "title": "Δραστηριότητες",
+      "position": 2
+    },
+    {
+      "imageResource": "XXX",
+      "url": "",
+      "title": "Επικοινωνία",
+      "position": 3
+    }
+  ],
+  "programmes": [
+    {
+      "imageResource": "xxx",
+      "title": "Προπτυχιακές Σπουδές",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=59&Itemid=494&lang=el"
+    },
+    {
+      "imageResource": "xxxx",
+      "title": "Μεταπτυχιακές Σπουδές",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=324&Itemid=589&lang=el"
+    },
+    {
+      "imageResource": "xxxx",
+      "title": "Διδακτορικές Σπουδές",
+      "url": "xxxx"
+    },
+    {
+      "imageResource": "xxxx",
+      "title": "Μεταδιδακτορικές Σπουδές",
+      "url": "xxxx"
+    }
+  ],
+  "links": [
+    {
+      "imageResource": "map",
+      "title": "Χάρτης",
+      "url": "https://www.google.gr/maps/place/Hellenic+Mediterσ46953,25.6549865,17z/data=!3m1!4b1!4m5!3m4!1s0x149a7fea00679c2f:0x8038b06fd113f3fb!8m2!3d35.1946909!4d25.6571752"
+    },
+    {
+      "imageResource": "fb",
+      "title": "Facebook",
+      "url": "https://www.facebook.com/hmu.mst/"
+    },
+    {
+      "imageResource": "insta",
+      "title": "Instagram",
+      "url": "https://www.instagram.com/hmu_agiosnikolaos/"
+    },
+    {
+      "imageResource": "youtube",
+      "title": "Youtube",
+      "url": "UCapUQKQVrP2p4_ijj_OxvNg"
+    },
+    {
+      "imageResource": "linkedin",
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/groups/13536369/"
+    },
+    {
+      "imageResource": "researchgate",
+      "title": "Research\nGate",
+      "url": "https://www.researchgate.net/institution/Hellenic_Mediterranean_University/department/Department_of_Management_Science_and_Technology_Agios_Nikolaos"
+    }
+  ]
+}

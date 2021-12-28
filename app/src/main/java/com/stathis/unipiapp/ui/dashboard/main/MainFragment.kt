@@ -1,7 +1,6 @@
 package com.stathis.unipiapp.ui.dashboard.main
 
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -13,7 +12,6 @@ import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
 import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.BottomSheetFragment
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
-import com.stathis.unipiapp.ui.services.ServicesActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
 
 
