@@ -11,6 +11,7 @@ import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.DepartmentCallback
 import com.stathis.unipiapp.databinding.ActivityDepartmentBinding
 import com.stathis.unipiapp.models.CarouselItem
+import com.stathis.unipiapp.ui.contact.ContactActivity
 import com.stathis.unipiapp.ui.department.model.Programme
 import com.stathis.unipiapp.ui.webview.WebviewActivity
 
@@ -37,7 +38,7 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
         })
 
         binding.deptFabBtn.setOnClickListener {
-            //FIXME: go to contact
+            startActivity(Intent(this,ContactActivity::class.java))
         }
     }
 
