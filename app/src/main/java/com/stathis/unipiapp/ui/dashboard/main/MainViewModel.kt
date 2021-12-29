@@ -36,12 +36,12 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     fun getAllCategories(): List<ShortCategory> {
         return listOf(
-            ShortCategory("Item 1"),
-            ShortCategory("Item 2"),
-            ShortCategory("Item 3"),
-            ShortCategory("Item 4"),
-            ShortCategory("Item 5"),
-            ShortCategory("Item 6"),
+            ShortCategory(getString(R.string.menu_announcements)),
+            ShortCategory(getString(R.string.department)),
+            ShortCategory(getString(R.string.students)),
+            ShortCategory(getString(R.string.professors)),
+            ShortCategory(getString(R.string.syllabus)),
+            ShortCategory(getString(R.string.contact)),
             ShortCategory("Item 7"),
             ShortCategory("Item 8"),
             ShortCategory("Item 9"),
