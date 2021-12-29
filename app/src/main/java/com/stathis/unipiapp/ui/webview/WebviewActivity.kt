@@ -5,11 +5,12 @@ import android.webkit.WebSettings
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivitySyllabusBinding
+import com.stathis.unipiapp.databinding.ActivityWebviewBinding
 import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.network.SSLWebViewClient
 import com.stathis.unipiapp.util.BASE_URL
 
-class WebviewActivity : UnipiActivity<ActivitySyllabusBinding>(R.layout.activity_syllabus) {
+class WebviewActivity : UnipiActivity<ActivityWebviewBinding>(R.layout.activity_webview) {
 
     override fun init() {}
 

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.UnipiApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.syllabus.SyllabusActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.contact.ContactActivity"
             android:exported="false" />
         <activity

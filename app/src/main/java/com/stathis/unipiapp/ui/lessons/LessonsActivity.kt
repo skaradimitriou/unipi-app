@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.ui.lessons
 
+import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -19,10 +20,20 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
         val semester = intent.getParcelableExtra<Semester>("MODEL")
         semester?.let { viewModel.bindData(semester.lessons) }
 
-        title = semester?.title
+        supportActionBar?.title = semester?.title
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.setVariable(BR.viewModel,viewModel)
     }
 
     override fun stopOps() {}
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+        android.R.id.home -> {
+            onBackPressed()
+            true
+        }
+
+        else -> false
+    }
 }

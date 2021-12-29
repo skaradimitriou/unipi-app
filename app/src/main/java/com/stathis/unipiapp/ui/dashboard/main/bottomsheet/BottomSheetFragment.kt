@@ -19,6 +19,7 @@ import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.adapter.ShortCategorie
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
+import com.stathis.unipiapp.ui.syllabus.SyllabusActivity
 
 class BottomSheetFragment() : BottomSheetDialogFragment(), UnipiCallback {
 
@@ -57,7 +58,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment(), UnipiCallback {
                 getString(R.string.menu_announcements) -> startActivity(Intent(requireContext(),AnnouncementsActivity::class.java))
                 getString(R.string.department) -> startActivity(Intent(requireContext(),DepartmentActivity::class.java))
                 getString(R.string.students) -> startActivity(Intent(requireContext(),StudentsActivity::class.java))
-                getString(R.string.professors) -> startActivity(Intent(requireContext(),ProfessorsActivity::class.java))
+                getString(R.string.syllabus) -> startActivity(Intent(requireContext(),SyllabusActivity::class.java))
                 getString(R.string.syllabus) -> startActivity(Intent(requireContext(),ProfessorsActivity::class.java))
                 getString(R.string.contact) -> startActivity(Intent(requireContext(),ContactActivity::class.java))
                 else -> Unit

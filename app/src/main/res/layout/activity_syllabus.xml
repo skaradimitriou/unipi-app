@@ -3,17 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
 
+    <data>
+        <variable
+            name="adapter"
+            type="com.stathis.unipiapp.ui.syllabus.adapter.SemesterAdapter" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.webview.WebviewActivity" >
+        android:background="@color/grey_bg"
+        tools:context=".ui.syllabus.SyllabusActivity">
 
-        <WebView
-            android:id="@+id/webview_window"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/syllabus_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="10"
+            tools:listitem="@layout/holder_semester_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

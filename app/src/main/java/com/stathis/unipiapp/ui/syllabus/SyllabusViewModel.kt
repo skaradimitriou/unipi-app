@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.dashboard.syllabus
+package com.stathis.unipiapp.ui.syllabus
 
 import android.app.Application
 import android.util.Log
@@ -13,7 +13,7 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.SemesterCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Semester
-import com.stathis.unipiapp.ui.dashboard.syllabus.adapter.SemesterAdapter
+import com.stathis.unipiapp.ui.syllabus.adapter.SemesterAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
