@@ -1,10 +1,12 @@
 package com.stathis.unipiapp.ui.services
 
 import android.app.Application
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.google.gson.Gson
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.ServicesCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
@@ -30,6 +32,8 @@ class ServicesViewModel(val app: Application) : UnipiViewModel(app), UnipiCallba
         this.callback = callback
 
         data.observe(owner, Observer {
+            val json = Gson().toJson(it)
+            Log.d("",json)
             it?.let { adapter.submitList(it) }
         })
     }

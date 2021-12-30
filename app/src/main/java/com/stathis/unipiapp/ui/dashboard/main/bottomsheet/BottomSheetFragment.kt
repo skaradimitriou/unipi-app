@@ -18,6 +18,7 @@ import com.stathis.unipiapp.ui.dashboard.main.MainViewModel
 import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.adapter.ShortCategoriesAdapter
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
+import com.stathis.unipiapp.ui.services.ServicesActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
 import com.stathis.unipiapp.ui.syllabus.SyllabusActivity
 
@@ -61,6 +62,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment(), UnipiCallback {
                 getString(R.string.syllabus) -> startActivity(Intent(requireContext(),SyllabusActivity::class.java))
                 getString(R.string.syllabus) -> startActivity(Intent(requireContext(),ProfessorsActivity::class.java))
                 getString(R.string.contact) -> startActivity(Intent(requireContext(),ContactActivity::class.java))
+                "Item 7" -> startActivity(Intent(requireContext(),ServicesActivity::class.java))
                 else -> Unit
             }
         }

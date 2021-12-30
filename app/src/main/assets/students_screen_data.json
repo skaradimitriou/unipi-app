@@ -1,0 +1,34 @@
+{
+  "carouselItems": [
+    {
+      "imageResource": "xxx",
+      "url": "XXX",
+      "title": "Item 1",
+      "position": 1
+    },
+    {
+      "imageResource": "XXX",
+      "url": "XXX",
+      "title": "Item 2",
+      "position": 2
+    },
+    {
+      "imageResource": "XXX",
+      "url": "",
+      "title": "Item 3",
+      "position": 3
+    }
+  ],
+  "services" : [
+    {
+      "title": "GUNET",
+      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/6cff81ed2fd5fd02c6bfe5986e55231b_XS.jpg",
+      "url" : "https://www.google.com/"
+    },
+    {
+      "title": "Ηλεκτρονική Γραμματεία",
+      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/0b1ad7a7b79268a1f4558db78e092446_XS.jpg",
+      "url" : "https://www.google.com/"
+    }
+  ]
+}

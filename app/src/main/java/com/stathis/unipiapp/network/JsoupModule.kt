@@ -13,8 +13,6 @@ object JsoupModule {
      */
 
     fun getAnnouncements(tempList : MutableList<Announcement>,data : MutableLiveData<List<Announcement>>, error: MutableLiveData<Boolean>,counter : Int) {
-        //val announcements = mutableListOf<Announcement>()
-
         try {
             val url = "https://www.cs.unipi.gr/index.php?option=com_k2&view=itemlist&layout=category&task=category&id=16&Itemid=673&lang=el&limitstart=$counter"
             val doc = Jsoup.connect(url).timeout(60000).validateTLSCertificates(false).get()
