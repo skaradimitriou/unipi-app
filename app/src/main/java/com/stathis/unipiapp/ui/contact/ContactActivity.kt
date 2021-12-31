@@ -66,9 +66,7 @@ class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_
             .setTitle(resources.getString(R.string.choose_contact))
             .setItems(items) { dialog, which ->
                 val selectedTelephone = items[which]
-                startActivity(Intent(Intent.ACTION_DIAL).also {
-                    it.data = Uri.parse(selectedTelephone)
-                })
+                startActivity(Intent(Intent.ACTION_DIAL,Uri.parse("tel:$selectedTelephone")))
             }
             .show()
     }

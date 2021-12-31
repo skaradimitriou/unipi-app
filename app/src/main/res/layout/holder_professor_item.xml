@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             android:paddingStart="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10"
             app:layout_constraintTop_toBottomOf="@id/professor_date"
             app:layout_constraintStart_toEndOf="@id/professor_img"
             android:text="@{model.title}"
@@ -56,11 +57,14 @@
             tools:text="@string/app_name" />
 
         <View
+            android:id="@+id/professor_divider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_1"
             android:layout_marginTop="@dimen/dimen_5"
+            app:layout_goneMarginTop="@dimen/dimen_10"
             android:background="@color/unipi_red"
-            app:layout_constraintTop_toBottomOf="@id/professor_img"/>
+            app:layout_constraintTop_toBottomOf="@id/professor_title"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
