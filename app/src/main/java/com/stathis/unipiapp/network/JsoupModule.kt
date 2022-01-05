@@ -24,7 +24,6 @@ object JsoupModule {
                 tempList.add(Announcement(title, date, url))
             }
 
-            //tempList.addAll(announcements)
             data.postValue(tempList)
             error.postValue(false)
         } catch (e: Exception) {

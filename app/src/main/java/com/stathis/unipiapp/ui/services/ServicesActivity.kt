@@ -21,6 +21,10 @@ class ServicesActivity : UnipiActivity<ActivityServicesBinding>(R.layout.activit
     }
 
     override fun startOps() {
+        /*
+        FIXME: Delete this screen (?)
+         */
+
         binding.setVariable(BR.viewModel,viewModel)
 
         viewModel.observe(this, object : ServicesCallback{

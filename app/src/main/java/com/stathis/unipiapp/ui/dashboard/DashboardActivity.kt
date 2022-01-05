@@ -21,4 +21,8 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     }
 
     override fun stopOps() {}
+
+    override fun onBackPressed() {
+        // back button disabled on purpose for this screen
+    }
 }

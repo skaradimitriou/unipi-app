@@ -27,6 +27,10 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
     }
 
     override fun startOps() {
+        /*
+            FIXME: Mrs. Virvou image is not loading correctly
+         */
+
         supportActionBar?.title = resources.getString(R.string.professors)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

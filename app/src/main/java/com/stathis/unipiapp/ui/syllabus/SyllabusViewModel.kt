@@ -43,9 +43,7 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallba
             semesterList = Gson().fromJson(jsonString, listPersonType)
             Log.d(app.getString(R.string.app_name),semesterList.toString())
             data.postValue(semesterList)
-        } catch (ioException: IOException) {
-            //ioException.printStackTrace()
-        }
+        } catch (ioException: IOException) {}
     }
 
     fun observe(owner: LifecycleOwner, callback : SemesterCallback) {

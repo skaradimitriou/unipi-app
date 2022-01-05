@@ -6,6 +6,7 @@ import com.stathis.unipiapp.models.LocalModel
 import android.R
 import android.os.Handler
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.squareup.picasso.Picasso
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
@@ -16,8 +17,10 @@ class MyBindingAdapters {
     companion object{
         @BindingAdapter("loadImageFromUrl")
         @JvmStatic
-        fun ImageView.loadImg(url: String) {
-            Picasso.get().load(url).error(R.drawable.stat_notify_error).into(this)
+        fun ImageView.loadImg(url: String?) {
+            url?.let {
+                Picasso.get().load(url).error(R.drawable.stat_notify_error).into(this)
+            }
         }
 
         @BindingAdapter("setLocalImage")

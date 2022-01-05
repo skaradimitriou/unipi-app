@@ -28,7 +28,7 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
 
         viewModel.observe(this, object : StudentsCallback {
             override fun openCarouselItem(model: CarouselItem) {
-                //
+                //FIXME: Write logic on item tap
             }
 
             override fun openServices(model: UnipiService) = loadUrl(model.url)
