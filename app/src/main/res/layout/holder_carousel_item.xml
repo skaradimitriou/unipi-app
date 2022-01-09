@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.CarouselItem" />
@@ -15,9 +16,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/dimen_10"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
         app:cardCornerRadius="@dimen/dimen_10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,9 +28,10 @@
             <ImageView
                 android:id="@+id/carousel_img"
                 android:layout_width="match_parent"
+                android:contentDescription="@string/app_name"
                 android:layout_height="match_parent"
-                android:src="@color/unipi_blue"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@color/unipi_blue" />
 
             <View
                 android:layout_width="match_parent"
@@ -44,10 +46,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="@dimen/dimen_10"
-                android:textColor="@color/white"
                 android:text="@{model.title}"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                style="@style/text_20_white_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

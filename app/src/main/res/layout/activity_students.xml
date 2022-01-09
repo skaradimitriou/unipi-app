@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.stathis.unipiapp.ui.students.StudentsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,12 +17,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/students_screen_recycler"
+            style="@style/VerticalRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:adapter="@{viewModel.adapter}"
             android:paddingStart="@dimen/dimen_10"
-            android:paddingEnd="@dimen/dimen_10"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:paddingEnd="@dimen/dimen_10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

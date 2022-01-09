@@ -3,6 +3,7 @@ package com.stathis.unipiapp.ui.students
 import android.content.Intent
 import android.net.Uri
 import android.view.MenuItem
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
@@ -24,7 +25,7 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
         supportActionBar?.title = resources.getString(R.string.students)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.studentsScreenRecycler.adapter = viewModel.adapter
+        binding.viewModel = viewModel
 
         viewModel.observe(this, object : StudentsCallback {
             override fun openCarouselItem(model: CarouselItem) {
@@ -32,6 +33,13 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
             }
 
             override fun openServices(model: UnipiService) = loadUrl(model.url)
+        })
+
+        viewModel.error.observe(this, Observer {
+            when(it){
+                true -> {} //FIXME: Add snackbar with error message
+                false -> {}
+            }
         })
     }
 

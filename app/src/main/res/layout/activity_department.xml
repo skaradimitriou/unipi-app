@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.stathis.unipiapp.ui.department.DepartmentViewModel" />
@@ -17,11 +16,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/department_screen_recycler"
+            style="@style/VerticalRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            adapter="@{viewModel.adapter}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:adapter="@{viewModel.adapter}" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/dept_fab_btn"
@@ -31,10 +29,10 @@
             android:clickable="true"
             android:contentDescription="@string/app_name"
             android:focusable="true"
-            app:tint="@null"
             android:src="@drawable/ic_help_white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@null" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

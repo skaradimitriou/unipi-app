@@ -7,4 +7,5 @@
     <dimen name="image_300">300dp</dimen>
     <dimen name="dimen_16">16dp</dimen>
     <dimen name="height_70">70dp</dimen>
+    <dimen name="image_80">80dp</dimen>
 </resources>

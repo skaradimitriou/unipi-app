@@ -6,8 +6,10 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.StudentsCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
@@ -19,6 +21,8 @@ import com.stathis.unipiapp.ui.department.model.VerticalDepartmentItem
 import com.stathis.unipiapp.ui.students.adapter.StudentsAdapter
 import com.stathis.unipiapp.ui.students.model.StudentResponse
 import com.stathis.unipiapp.ui.students.model.VerticalStudentItem
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.IOException
 
 class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallback {
@@ -27,9 +31,12 @@ class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallba
     val adapter = StudentsAdapter(this)
     private lateinit var model : StudentResponse
     val data = MutableLiveData<StudentResponse>()
+    val error = MutableLiveData<Boolean>()
 
     init {
-        getStudentData()
+        viewModelScope.launch(Dispatchers.IO){
+            getStudentData()
+        }
     }
 
     fun observe(owner: LifecycleOwner,callback: StudentsCallback){
@@ -38,7 +45,7 @@ class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallba
         data.observe(owner, Observer {
             adapter.submitList(listOf(
                 CarouselParent(it.carouselItems),
-                VerticalStudentItem("Υπηρεσίες Φοιτητών",it.services)
+                VerticalStudentItem(getString(R.string.student_services),it.services)
             ))
         })
     }
@@ -55,9 +62,8 @@ class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallba
             model  = Gson().fromJson(jsonString, listPersonType)
 
             data.postValue(model)
-        } catch (ioException: IOException) {
-            //
-        }
+            error.postValue(false)
+        } catch (ioException: IOException) { error.postValue(true) }
     }
 
     override fun onItemTap(view: View) = when(view.tag){

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.R
@@ -28,6 +29,7 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
 
     private lateinit var model : DepartmentResponse
     val data = MutableLiveData<DepartmentResponse>()
+    val error = MutableLiveData<Boolean>()
     val adapter = DepartmentAdapter(this)
     private lateinit var callback : DepartmentCallback
 
@@ -36,7 +38,7 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
     }
 
     fun getData(){
-        CoroutineScope(Dispatchers.IO).launch { getDepartmentData() }
+        viewModelScope.launch(Dispatchers.IO){ getDepartmentData() }
     }
 
     fun observeData(owner: LifecycleOwner,callback : DepartmentCallback) {
@@ -45,7 +47,7 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
         data.observe(owner, Observer {
             adapter.submitList(listOf(
                 CarouselParent(it.carouselItems),
-                VerticalDepartmentItem("Σπουδές",it.programmes)
+                VerticalDepartmentItem(getString(R.string.dept_studies),it.programmes)
             ))
         })
     }
@@ -63,9 +65,8 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
             model  = Gson().fromJson(jsonString, listPersonType)
 
             data.postValue(model)
-        } catch (ioException: IOException) {
-            //
-        }
+            error.postValue(false)
+        } catch (ioException: IOException) { error.postValue(true) }
     }
 
     override fun onItemTap(view: View) = when(view.tag){

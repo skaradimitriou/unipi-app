@@ -10,37 +10,33 @@
 
         <TextView
             android:id="@+id/bottom_sheet_title"
+            style="@style/text_18_blue_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_16"
             android:text="@string/contact_type_selection"
-            android:textColor="@color/unipi_blue"
-            android:textSize="16sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/bottom_sheet_email"
+            style="@style/text_16_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_16"
             android:text="@string/send_email"
-            android:textColor="@color/black"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_title" />
 
         <TextView
             android:id="@+id/bottom_sheet_telephone"
+            style="@style/text_16_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_16"
             android:text="@string/call_option"
-            android:textColor="@color/black"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bottom_sheet_email" />

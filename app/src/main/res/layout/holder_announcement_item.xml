@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.Announcement" />
@@ -16,38 +17,38 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/dimen_10"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:paddingStart="@dimen/dimen_10"
-        android:paddingEnd="@dimen/dimen_10"
-        android:onClick="@{(view) -> callback.onItemTap(view)}">
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_10">
 
         <TextView
             android:id="@+id/announcement_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:text="@{model.date}"
             android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/app_name" />
 
         <TextView
             android:id="@+id/announcement_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/announcement_date"
-            app:layout_constraintStart_toStartOf="parent"
             android:text="@{model.title}"
             android:textColor="@color/unipi_blue"
-            tools:text="@string/app_name"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/announcement_date"
+            tools:text="@string/app_name" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_1"
             android:layout_marginTop="@dimen/dimen_10"
             android:background="@color/unipi_red"
-            app:layout_constraintTop_toBottomOf="@id/announcement_title"/>
+            app:layout_constraintTop_toBottomOf="@id/announcement_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

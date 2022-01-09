@@ -23,6 +23,9 @@
     <string name="main_screen">Αρχική</string>
     <string name="main_screen_title"><b>Πανεπιστήμιο Πειραιώς (UoP)</b> \nΠΜΣ Πληροφορική</string>
 
+    <string name="student_services">Υπηρεσίες Φοιτητών</string>
+    <string name="dept_studies">Σπουδές</string>
+
 
     <!-- Professors Activity -->
     <string name="male">male</string>

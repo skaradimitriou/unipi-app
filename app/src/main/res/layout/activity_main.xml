@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.intro.MainActivity" >
+        tools:context=".ui.intro.MainActivity">
 
         <ImageView
             android:id="@+id/unipi_logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            tools:src="@mipmap/ic_launcher"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/unipi_launcher_icon" />
 
         <TextView
             android:id="@+id/unipi_title"
+            style="@style/text_18_blue_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/app_name"
             android:gravity="center_horizontal"
-            android:paddingTop="16dp"
-            android:textColor="@color/unipi_blue"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/unipi_logo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/unipi_logo"
+            tools:text="@string/app_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

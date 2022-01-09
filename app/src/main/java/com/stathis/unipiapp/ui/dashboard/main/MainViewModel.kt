@@ -21,10 +21,7 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     private fun createList() {
         val list = listOf(
-            UnipiItem(
-                app.resources.getString(R.string.menu_announcements),
-                R.drawable.ic_announcement
-            ),
+            UnipiItem(app.resources.getString(R.string.menu_announcements), R.drawable.ic_announcement),
             UnipiItem(app.resources.getString(R.string.students), R.drawable.ic_students),
             UnipiItem(app.resources.getString(R.string.department), R.drawable.ic_students),
             UnipiItem(app.resources.getString(R.string.professors), R.drawable.ic_professors),

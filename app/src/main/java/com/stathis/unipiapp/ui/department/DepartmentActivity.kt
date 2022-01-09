@@ -4,6 +4,7 @@ package com.stathis.unipiapp.ui.department
 import android.content.Intent
 import android.net.Uri
 import android.view.MenuItem
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -29,6 +30,10 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
 
         binding.setVariable(BR.viewModel,viewModel)
 
+        binding.deptFabBtn.setOnClickListener {
+            startActivity(Intent(this,ContactActivity::class.java))
+        }
+
         viewModel.observeData(this,object : DepartmentCallback {
             override fun openCarouselItem(model: CarouselItem) {
                 //
@@ -37,9 +42,12 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
             override fun openProgramme(model: Programme) = openUrl(model.url)
         })
 
-        binding.deptFabBtn.setOnClickListener {
-            startActivity(Intent(this,ContactActivity::class.java))
-        }
+        viewModel.error.observe(this, Observer {
+            when(it){
+                true -> {} //FIXME: Add snackbar with error message
+                false -> {}
+            }
+        })
     }
 
     override fun stopOps() {
