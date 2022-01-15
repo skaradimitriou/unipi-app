@@ -10,6 +10,7 @@
     <string name="students">Φοιτητές</string>
     <string name="department">Το Τμήμα</string>
     <string name="contact">Επικοινωνία</string>
+    <string name="about_app_title">Σχετικά με την εφαρμογή</string>
 
     <string name="choose_contact">Επιλογή Τηλεφώνου</string>
 
@@ -17,6 +18,9 @@
     <string name="syllabus">Πρόγραμμα Σπουδών</string>
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
     <string name="lorem_ipsum_2">Προκήρυξη Υποτροφιών Ιδρύματος Ωνάση 2022-2023</string>
+
+    <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo, ipsum vel elementum placerat, eros tortor hendrerit diam, vel faucibus lectus leo ut sem. Curabitur sit amet gravida nisi. Nam massa ex, hendrerit in gravida et, vehicula vel lacus. Pellentesque bibendum arcu at nisi vulputate tempus. Aliquam et accumsan augue. Quisque sagittis, nisl a ultrices egestas, quam tortor sagittis orci, quis faucibus justo nibh pharetra nulla. Vestibulum fringilla at elit dignissim cursus. </string>
+
     <string name="url_tag">URL</string>
     <string name="model">MODEL</string>
     <string name="menu_main">Αρχική</string>

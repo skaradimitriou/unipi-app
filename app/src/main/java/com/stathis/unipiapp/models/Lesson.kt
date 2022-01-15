@@ -15,7 +15,7 @@ data class Lesson(
 
 ) : LocalModel, Parcelable {
     override fun equalsContent(obj: LocalModel): Boolean = when(obj) {
-        is Lesson -> title == obj.title
+        is Lesson -> title == obj.title && code == obj.code && mandatory == obj.mandatory && hours == obj.hours && ects == obj.ects && professor == obj.professor
         else -> false
     }
 }
