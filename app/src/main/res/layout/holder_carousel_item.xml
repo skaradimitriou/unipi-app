@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="model"
             type="com.stathis.unipiapp.models.CarouselItem" />

@@ -29,11 +29,6 @@ class MyBindingAdapters {
             this.setImageResource(image)
         }
 
-        @BindingAdapter("adapter")
-        @JvmStatic
-        fun setRecyclerViewAdapter(recycler : RecyclerView, adapter: androidx.recyclerview.widget.ListAdapter<LocalModel,RecyclerView.ViewHolder>){
-            recycler.adapter = adapter
-        }
         @BindingAdapter("setScrollableViewPager")
         @JvmStatic
         fun setScrollableViewPager(viewPager : ViewPager2, adapter : CarouselAdapter){

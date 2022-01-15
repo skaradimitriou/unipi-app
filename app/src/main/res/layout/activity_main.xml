@@ -10,8 +10,8 @@
 
         <ImageView
             android:id="@+id/unipi_logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/image_150"
+            android:layout_height="@dimen/image_150"
             android:contentDescription="@string/app_name"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"

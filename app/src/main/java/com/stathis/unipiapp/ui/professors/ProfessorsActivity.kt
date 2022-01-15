@@ -34,7 +34,7 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
         supportActionBar?.title = resources.getString(R.string.professors)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.viewModel,viewModel)
+        binding.viewModel = viewModel
 
         viewModel.observe(this,object : ProfessorCallback {
             override fun onProfessorTap(model: Professor) = openPopUpWindow(model)

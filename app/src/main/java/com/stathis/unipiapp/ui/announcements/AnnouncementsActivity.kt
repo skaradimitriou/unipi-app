@@ -29,7 +29,7 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
         supportActionBar?.title = resources.getString(R.string.menu_announcements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.viewModel,viewModel)
+        binding.viewModel = viewModel
 
         binding.announcementsRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

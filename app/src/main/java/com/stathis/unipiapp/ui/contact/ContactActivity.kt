@@ -29,7 +29,7 @@ class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_
         supportActionBar?.title = resources.getString(R.string.contact)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.adapter = viewModel.adapter
+        binding.viewModel = viewModel
 
         viewModel.observe(this, object : ContactCallback {
             override fun onItemTap(model: ContactItem) =  showContactOptions(model)

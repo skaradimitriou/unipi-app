@@ -1,6 +1,7 @@
 package com.stathis.unipiapp.ui.dashboard.main
 
 import android.app.Application
+import android.util.Log
 import android.view.View
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
@@ -8,7 +9,11 @@ import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.ShortCategory
 import com.stathis.unipiapp.models.UnipiItem
+import com.stathis.unipiapp.network.api.ApiClient
 import com.stathis.unipiapp.ui.dashboard.main.adapter.MainScreenAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
@@ -28,8 +33,6 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
         )
         adapter.submitList(list)
     }
-
-
 
     fun getAllCategories(): List<ShortCategory> {
         return listOf(

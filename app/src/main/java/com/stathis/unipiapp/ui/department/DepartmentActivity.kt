@@ -28,7 +28,7 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
         supportActionBar?.title = resources.getString(R.string.department)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.viewModel,viewModel)
+        binding.viewModel = viewModel
 
         binding.deptFabBtn.setOnClickListener {
             startActivity(Intent(this,ContactActivity::class.java))
@@ -36,7 +36,7 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
 
         viewModel.observeData(this,object : DepartmentCallback {
             override fun openCarouselItem(model: CarouselItem) {
-                //
+                //FIXME: open carousel item
             }
 
             override fun openProgramme(model: Programme) = openUrl(model.url)

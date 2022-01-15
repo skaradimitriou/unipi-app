@@ -27,7 +27,7 @@ class SyllabusActivity : UnipiActivity<ActivitySyllabusBinding>(R.layout.activit
         supportActionBar?.title = resources.getString(R.string.syllabus)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.adapter, viewModel.adapter)
+        binding.viewModel = viewModel
 
         viewModel.observe(this, object : SemesterCallback {
             override fun onSemesterTap(model: Semester) {

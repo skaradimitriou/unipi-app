@@ -23,7 +23,7 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
         supportActionBar?.title = semester?.title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.setVariable(BR.viewModel,viewModel)
+        binding.viewModel = viewModel
     }
 
     override fun stopOps() {}
