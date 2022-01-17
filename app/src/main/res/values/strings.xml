@@ -52,5 +52,9 @@
     <string name="contact_type_selection">Επιλογή Τρόπου Επικοινωνίας</string>
     <string name="send_email">Αποστολή E-mail</string>
     <string name="call_option">Επικοινωνία μέσω τηλεφώνου</string>
+    <string name="eclass_user_greeting">Hello %s!</string>
+    <string name="eclass_lesson_title">Eclass Lesson Title</string>
+    <string name="nav_my_lessons">My Lessons</string>
+
 
 </resources>
