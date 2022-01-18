@@ -1,4 +1,42 @@
 package com.stathis.unipiapp.ui.eclassAnnouncements
 
-class EclassAnnouncementsViewModel {
+import android.app.Application
+import android.view.View
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
+import com.stathis.unipiapp.abstraction.UnipiViewModel
+import com.stathis.unipiapp.callbacks.UnipiCallback
+import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
+import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
+import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
+import kotlinx.coroutines.launch
+
+class EclassAnnouncementsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallback {
+
+    val adapter = EclassAnnouncementsAdapter(this)
+    val data = MutableLiveData<Channel>()
+    val error= MutableLiveData<Boolean>()
+
+    fun getData(code : String){
+        viewModelScope.launch {
+            ApiClient.getLessonsAnnouncements(code,data,error)
+        }
+    }
+
+    fun observe(owner: LifecycleOwner){
+        data.observe(owner, Observer {
+            it?.let { adapter.submitList(it.itemList) }
+        })
+    }
+
+    fun release(owner: LifecycleOwner){
+        data.removeObservers(owner)
+    }
+
+    override fun onItemTap(view: View) = when(view.tag){
+        is EclassAnnouncement -> {}
+        else -> Unit
+    }
 }

@@ -16,8 +16,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> callback.onItemTap(view)}"
-        android:padding="@dimen/dimen_10" >
+        android:padding="@dimen/dimen_10"
+        android:onClick="@{(view) -> callback.onItemTap(view)}" >
 
         <TextView
             android:id="@+id/lesson_title"

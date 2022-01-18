@@ -8,7 +8,7 @@ import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.databinding.HolderEclassLessonItemBinding
 import com.stathis.unipiapp.models.LocalModel
 
-class MyLessonsAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel,MyLessonsViewHolder>(MyDiffUtil<LocalModel>()) {
+class MyLessonsAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel, MyLessonsViewHolder>(MyDiffUtil<LocalModel>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyLessonsViewHolder {
         val view = HolderEclassLessonItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -16,6 +16,6 @@ class MyLessonsAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel,My
     }
 
     override fun onBindViewHolder(holder: MyLessonsViewHolder, position: Int) {
-        holder.present(getItem(position))
+        holder.bindData(getItem(position))
     }
 }

@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.ui.eclassAnnouncements.model
 
+import com.stathis.unipiapp.models.LocalModel
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
@@ -14,4 +15,9 @@ data class EclassAnnouncement @JvmOverloads constructor(
 
     @field: Element(name = "link")
     var link: String = ""
-)
+) : LocalModel {
+    override fun equalsContent(obj: LocalModel): Boolean = when(obj){
+        is EclassAnnouncement -> title == obj.title
+        else -> false
+    }
+}

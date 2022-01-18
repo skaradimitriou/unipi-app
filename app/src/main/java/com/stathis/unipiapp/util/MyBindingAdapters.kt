@@ -1,12 +1,11 @@
 package com.stathis.unipiapp.util
 
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.stathis.unipiapp.models.LocalModel
 import android.R
 import android.os.Handler
+import android.text.Html
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
+import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.squareup.picasso.Picasso
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
@@ -27,6 +26,12 @@ class MyBindingAdapters {
         @JvmStatic
         fun ImageView.setLocalImage(image: Int) {
             this.setImageResource(image)
+        }
+
+        @BindingAdapter("setHtmlText")
+        @JvmStatic
+        fun TextView.setText(text: String) {
+            this.text = Html.fromHtml(text).toString()
         }
 
         @BindingAdapter("setScrollableViewPager")

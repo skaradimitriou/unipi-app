@@ -1,6 +1,8 @@
 package com.stathis.unipiapp.ui.dashboard.lessons
 
+
 import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
@@ -25,10 +27,10 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
             binding.myLessonsGreeting.text = getString(R.string.eclass_user_greeting,it)
         })
 
-        viewModel.observe(this, object : EclassLessonCallback{
+        viewModel.observe(this,object : EclassLessonCallback{
             override fun onLessonTap(model: EclassLesson) {
-                startActivity(Intent(requireContext(), EclassAnnouncementsActivity::class.java).also {
-                    it.putExtra("LESSON_CODE",model.code)
+                startActivity(Intent(requireContext(),EclassAnnouncementsActivity::class.java).also {
+                    it.putExtra("LESSON",model)
                 })
             }
         })
