@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.ui.dashboard.lessons
 
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
@@ -7,6 +8,7 @@ import com.stathis.unipiapp.abstraction.UnipiFragment
 import com.stathis.unipiapp.callbacks.EclassLessonCallback
 import com.stathis.unipiapp.databinding.FragmentLessonsBinding
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
+import com.stathis.unipiapp.ui.eclassAnnouncements.EclassAnnouncementsActivity
 
 class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragment_lessons) {
 
@@ -25,7 +27,9 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
 
         viewModel.observe(this, object : EclassLessonCallback{
             override fun onLessonTap(model: EclassLesson) {
-                //FIXME: Write Logic
+                startActivity(Intent(requireContext(), EclassAnnouncementsActivity::class.java).also {
+                    it.putExtra("LESSON_CODE",model.code)
+                })
             }
         })
     }

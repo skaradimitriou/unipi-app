@@ -5,40 +5,42 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.stathis.unipiapp.R
+import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassLessonCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
+import kotlinx.coroutines.launch
+import java.io.IOException
 
-class MyLessonsViewModel(app: Application) : UnipiViewModel(app), UnipiCallback {
+class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     val adapter = MyLessonsAdapter(this)
     val user = MutableLiveData<String>()
     val data = MutableLiveData<List<EclassLesson>>()
+    private lateinit var eclassLessons : List<EclassLesson>
     private lateinit var callback: EclassLessonCallback
 
     init {
         doStuff()
-        getDummyData()
+
+        viewModelScope.launch { getData() }
+    }
+
+    private fun getData() {
+        try {
+            val jsonString = app.assets.open("eclass_lessons_mppl.json").bufferedReader().use { it.readText() }
+            val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
+            eclassLessons = Gson().fromJson(jsonString, listPersonType)
+            data.postValue(eclassLessons)
+        } catch (ioException: IOException) {}
     }
 
     private fun doStuff() {
         user.value = "myUsername"
-    }
-
-    private fun getDummyData() {
-        val list = listOf(
-            EclassLesson(getString(R.string.eclass_lesson_title)),
-            EclassLesson(getString(R.string.eclass_lesson_title)),
-            EclassLesson(getString(R.string.eclass_lesson_title)),
-            EclassLesson(getString(R.string.eclass_lesson_title)),
-            EclassLesson(getString(R.string.eclass_lesson_title)),
-            EclassLesson(getString(R.string.eclass_lesson_title))
-        )
-
-        data.value = list
     }
 
     fun observe(owner: LifecycleOwner, callback: EclassLessonCallback) {
