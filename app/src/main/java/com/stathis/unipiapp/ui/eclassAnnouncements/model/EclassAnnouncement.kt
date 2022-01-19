@@ -14,9 +14,13 @@ data class EclassAnnouncement @JvmOverloads constructor(
     var description: String = "",
 
     @field: Element(name = "link")
-    var link: String = ""
+    var link: String = "",
+
+    @field: Element(name = "pubDate")
+    var pubDate: String = ""
+
 ) : LocalModel {
-    override fun equalsContent(obj: LocalModel): Boolean = when(obj){
+    override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is EclassAnnouncement -> title == obj.title
         else -> false
     }

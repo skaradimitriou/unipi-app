@@ -20,7 +20,7 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
     override fun startOps() {
         val model = intent.getParcelableExtra<EclassLesson>("LESSON")
         model?.let {
-            supportActionBar?.title = "Ανακοινώσεις Μαθήματος $it.code"
+            supportActionBar?.title = resources.getString(R.string.lesson_announcements)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             viewModel.getData(it.code)

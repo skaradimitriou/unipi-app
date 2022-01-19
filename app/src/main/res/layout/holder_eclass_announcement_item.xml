@@ -22,18 +22,30 @@
         android:paddingEnd="@dimen/dimen_10">
 
         <TextView
-            android:id="@+id/announcement_date"
+            android:id="@+id/announcement_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{model.title}"
             android:textColor="@color/unipi_blue"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/app_name" />
 
         <TextView
-            android:id="@+id/announcement_title"
+            android:id="@+id/announcement_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/shimmer_grey"
+            android:paddingBottom="@dimen/dimen_10"
+            setDate="@{model.pubDate}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/announcement_title"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/announcement_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -47,7 +59,7 @@
             android:layout_height="@dimen/dimen_1"
             android:layout_marginTop="@dimen/dimen_10"
             android:background="@color/unipi_red"
-            app:layout_constraintTop_toBottomOf="@id/announcement_title" />
+            app:layout_constraintTop_toBottomOf="@id/announcement_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

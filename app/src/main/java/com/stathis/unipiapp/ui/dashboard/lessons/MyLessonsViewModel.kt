@@ -21,13 +21,11 @@ import java.io.IOException
 class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     val adapter = MyLessonsAdapter(this)
-    val user = MutableLiveData<String>()
     val data = MutableLiveData<List<EclassLesson>>()
     private lateinit var eclassLessons: List<EclassLesson>
     private lateinit var callback: EclassLessonCallback
 
     init {
-        doStuff()
         viewModelScope.launch { getData() }
     }
 
@@ -40,10 +38,6 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
             data.postValue(eclassLessons)
         } catch (ioException: IOException) {
         }
-    }
-
-    private fun doStuff() {
-        user.value = "myUsername"
     }
 
     fun observe(owner: LifecycleOwner, callback: EclassLessonCallback) {

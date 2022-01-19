@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.squareup.picasso.Picasso
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
+import org.jsoup.Jsoup
 
 
 class MyBindingAdapters {
@@ -28,10 +29,22 @@ class MyBindingAdapters {
             this.setImageResource(image)
         }
 
+        @BindingAdapter("setDate")
+        @JvmStatic
+        fun TextView.setDate(date: String) {
+            this.text = date.take(16)
+        }
+
+        @BindingAdapter("setLessonText")
+        @JvmStatic
+        fun TextView.setLessonText(text: String) {
+            this.text = text.toLowerCase().capitalizeWords()
+        }
+
         @BindingAdapter("setHtmlText")
         @JvmStatic
         fun TextView.setText(text: String) {
-            this.text = Html.fromHtml(text).toString()
+            this.text = Jsoup.parse(text).text()
         }
 
         @BindingAdapter("setScrollableViewPager")
