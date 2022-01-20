@@ -57,7 +57,7 @@
     <string name="nav_my_lessons">My Lessons</string>
 
     <string name="lesson_announcements">Ανακοινώσεις Μαθήματος</string>
-    <string name="eclass_lessons_header">Ανακοινώσεις Μαθημάτων eClass</string>
+    <string name="eclass_lessons_header">Αναζήτηση Μαθήματος E-Class</string>
     <string name="eclass">E-Class</string>
 
 </resources>

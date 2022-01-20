@@ -2,6 +2,8 @@ package com.stathis.unipiapp.ui.dashboard.lessons
 
 
 import android.content.Intent
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
@@ -25,6 +27,14 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
 
     override fun startOps() {
         binding.viewModel = viewModel
+
+        binding.searchAction.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(query : Editable?) {
+                viewModel.filter(query.toString())
+            }
+        })
 
         viewModel.observe(this,object : EclassLessonCallback{
             override fun onLessonTap(model: EclassLesson) {

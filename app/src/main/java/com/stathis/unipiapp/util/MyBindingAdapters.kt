@@ -1,13 +1,12 @@
 package com.stathis.unipiapp.util
 
 import androidx.databinding.BindingAdapter
-import android.R
 import android.os.Handler
-import android.text.Html
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.squareup.picasso.Picasso
+import com.stathis.unipiapp.R
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
 import org.jsoup.Jsoup
 
@@ -19,7 +18,7 @@ class MyBindingAdapters {
         @JvmStatic
         fun ImageView.loadImg(url: String?) {
             url?.let {
-                Picasso.get().load(url).error(R.drawable.stat_notify_error).into(this)
+                Picasso.get().load(url).error(R.drawable.ic_unipi_logo_svg).into(this)
             }
         }
 

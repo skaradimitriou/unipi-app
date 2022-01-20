@@ -15,17 +15,19 @@
         android:layout_height="match_parent"
         android:background="@color/grey_bg">
 
-        <TextView
-            android:id="@+id/my_lessons_greeting"
-            style="@style/text_18_blue_bold"
+        <EditText
+            android:id="@+id/search_action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="@dimen/dimen_10"
-            android:textStyle="bold"
+            android:background="@color/white"
+            android:drawableStart="@drawable/ic_search_icon_black"
+            android:drawablePadding="@dimen/dimen_10"
+            android:hint="@string/eclass_lessons_header"
+            android:padding="@dimen/dimen_16"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/eclass_lessons_header" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_lessons_recycler"
@@ -34,7 +36,7 @@
             android:layout_height="0dp"
             android:adapter="@{viewModel.adapter}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_lessons_greeting"
+            app:layout_constraintTop_toBottomOf="@+id/search_action"
             tools:itemCount="10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

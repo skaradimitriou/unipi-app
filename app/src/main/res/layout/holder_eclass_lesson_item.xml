@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="model"
             type="com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson" />
@@ -15,11 +14,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        style="@style/unipi_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_10"
-        android:layout_marginTop="@dimen/dimen_5"
-        android:layout_marginEnd="@dimen/dimen_10"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}">
 
@@ -29,7 +26,7 @@
 
             <TextView
                 android:id="@+id/lesson_item_txt"
-                setLessonText="@{model.title}"
+                android:text="@{model.title}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dimen_16"
@@ -41,8 +38,8 @@
 
             <ImageView
                 android:id="@+id/lesson_right_img"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="@dimen/image_35"
+                android:layout_height="@dimen/image_35"
                 android:layout_marginEnd="@dimen/dimen_5"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/arrow_right"
@@ -51,7 +48,5 @@
                 app:layout_constraintTop_toTopOf="@id/lesson_item_txt" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
-
 </layout>

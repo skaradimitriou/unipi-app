@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.stathis.unipiapp.ui.dashboard.main.MainViewModel" />
@@ -29,8 +30,8 @@
             android:layout_width="@dimen/image_80"
             android:layout_height="@dimen/image_80"
             android:layout_marginStart="@dimen/dimen_10"
-            android:scaleType="fitCenter"
             android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_unipi_logo_svg"
             app:layout_constraintBottom_toBottomOf="@id/top_header"
             app:layout_constraintStart_toStartOf="parent"

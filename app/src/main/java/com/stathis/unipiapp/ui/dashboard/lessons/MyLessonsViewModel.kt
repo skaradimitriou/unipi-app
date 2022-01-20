@@ -17,6 +17,7 @@ import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import kotlinx.coroutines.launch
 import java.io.IOException
+import java.util.*
 
 class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
@@ -35,9 +36,24 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
                 app.assets.open("eclass_lessons_mppl.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
             eclassLessons = Gson().fromJson(jsonString, listPersonType)
+
+            Collections.sort(eclassLessons) { p0, p1 ->
+                p0?.title!!.compareTo(p1!!.title)
+            }
+
             data.postValue(eclassLessons)
         } catch (ioException: IOException) {
         }
+    }
+
+    fun filter(text: String) {
+        val filteredList = arrayListOf<EclassLesson>()
+        for (item in eclassLessons) {
+            if (item.title.lowercase().contains(text.lowercase())) {
+                filteredList.add(item)
+            }
+        }
+        data.value = filteredList
     }
 
     fun observe(owner: LifecycleOwner, callback: EclassLessonCallback) {
