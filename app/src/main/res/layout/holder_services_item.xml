@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.UnipiService" />
@@ -17,10 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginEnd="@dimen/dimen_5"
         android:layout_marginTop="@dimen/dimen_10"
-        app:cardCornerRadius="@dimen/dimen_10"
-        android:onClick="@{(view) -> callback.onItemTap(view)}">
+        android:layout_marginEnd="@dimen/dimen_5"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}"
+        app:cardCornerRadius="@dimen/dimen_10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,16 +30,16 @@
 
             <ImageView
                 android:id="@+id/service_img"
+                loadImageFromUrl="@{model.imageUrl}"
                 android:layout_width="@dimen/height_70"
                 android:layout_height="@dimen/height_70"
-                loadImageFromUrl="@{model.imageUrl}"
-                android:scaleType="centerCrop"
                 android:layout_marginTop="@dimen/dimen_10"
-                tools:src="@drawable/ic_unipi_logo_svg"
                 android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                tools:src="@drawable/ic_unipi_logo_svg" />
 
             <TextView
                 android:id="@+id/service_title"
@@ -45,12 +47,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="@dimen/dimen_10"
-                app:layout_constraintTop_toBottomOf="@id/service_img"
-                app:layout_constraintStart_toEndOf="@id/service_img"
                 android:text="@{model.title}"
                 android:textColor="@color/unipi_blue"
-                tools:text="@string/app_name"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/service_img"
+                app:layout_constraintTop_toBottomOf="@id/service_img"
+                tools:text="@string/app_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

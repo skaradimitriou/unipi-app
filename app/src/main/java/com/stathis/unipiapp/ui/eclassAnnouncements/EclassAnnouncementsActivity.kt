@@ -1,13 +1,20 @@
 package com.stathis.unipiapp.ui.eclassAnnouncements
 
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
+import android.util.Patterns
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
+import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.databinding.ActivityEclassAnnouncementsBinding
 import com.stathis.unipiapp.models.Semester
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
+import com.stathis.unipiapp.ui.webview.WebviewActivity
+import org.jsoup.Jsoup
 
 class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBinding>(R.layout.activity_eclass_announcements) {
 
@@ -18,6 +25,8 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
     }
 
     override fun startOps() {
+        binding.viewModel = viewModel
+
         val model = intent.getParcelableExtra<EclassLesson>("LESSON")
         model?.let {
             supportActionBar?.title = resources.getString(R.string.lesson_announcements)
@@ -26,16 +35,14 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
             viewModel.getData(it.code)
         }
 
-        binding.viewModel = viewModel
-        
-
-
-        viewModel.observe(this)
+        viewModel.observe(this, object : EclassAnnouncementsCallback{
+            override fun onEclassAnnouncementTap(model: EclassAnnouncement) {
+                startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(model.link) })
+            }
+        })
     }
 
-    override fun stopOps() {
-        viewModel.release(this)
-    }
+    override fun stopOps() = viewModel.release(this)
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
         android.R.id.home -> {

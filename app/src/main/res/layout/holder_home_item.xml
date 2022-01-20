@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.UnipiItem" />
@@ -16,10 +17,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginEnd="@dimen/dimen_5"
         android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_5"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}"
         app:cardCornerRadius="@dimen/dimen_10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,10 +34,10 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/dimen_10"
                 android:paddingBottom="@dimen/dimen_10"
+                android:text="@{model.title}"
                 android:textColor="@color/unipi_blue"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="@{model.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/home_item_img"
                 app:layout_constraintTop_toBottomOf="@id/home_item_img"
@@ -43,16 +45,16 @@
 
             <ImageView
                 android:id="@+id/home_item_img"
+                setLocalImage="@{model.img}"
                 android:layout_width="@dimen/height_100"
                 android:layout_height="@dimen/height_70"
-                android:layout_marginStart="@dimen/dimen_5"
-                setLocalImage="@{model.img}"
                 android:layout_margin="16dp"
-                tools:src="@drawable/ic_unipi_logo_svg"
-                android:scaleType="fitCenter"
+                android:layout_marginStart="@dimen/dimen_5"
                 android:contentDescription="@string/app_name"
+                android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_unipi_logo_svg" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

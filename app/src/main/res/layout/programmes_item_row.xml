@@ -17,6 +17,7 @@
         style="@style/holder_programmes_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:tag="@{model}"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         app:cardCornerRadius="@dimen/dimen_10"
         app:cardElevation="@dimen/dimen_5">

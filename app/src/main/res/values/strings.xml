@@ -5,7 +5,7 @@
 
     <string name="unipi_main_title">Πανεπιστήμιο Πειραιώς</string>
 
-    <string name="menu_announcements">Ανακοινώσεις</string>
+    <string name="menu_announcements">Ανακοινώσεις Τμήματος</string>
     <string name="professors">Καθηγητές</string>
     <string name="students">Φοιτητές</string>
     <string name="department">Το Τμήμα</string>
@@ -57,6 +57,7 @@
     <string name="nav_my_lessons">My Lessons</string>
 
     <string name="lesson_announcements">Ανακοινώσεις Μαθήματος</string>
-    <string name="eclass_lessons_header">Μαθήματα eClass</string>
+    <string name="eclass_lessons_header">Ανακοινώσεις Μαθημάτων eClass</string>
+    <string name="eclass">E-Class</string>
 
 </resources>

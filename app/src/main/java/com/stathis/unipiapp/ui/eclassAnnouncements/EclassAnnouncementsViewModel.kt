@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.stathis.unipiapp.abstraction.UnipiViewModel
+import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
@@ -19,6 +20,7 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
     val adapter = EclassAnnouncementsAdapter(this)
     val data = MutableLiveData<Channel>()
     val error = MutableLiveData<Boolean>()
+    private lateinit var callback : EclassAnnouncementsCallback
 
     init {
         startShimmer()
@@ -44,7 +46,9 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
         }
     }
 
-    fun observe(owner: LifecycleOwner) {
+    fun observe(owner: LifecycleOwner, callback : EclassAnnouncementsCallback) {
+        this.callback = callback
+
         data.observe(owner, Observer {
             it?.let { adapter.submitList(it.itemList) }
         })
@@ -55,7 +59,7 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
     }
 
     override fun onItemTap(view: View) = when (view.tag) {
-        is EclassAnnouncement -> {}
+        is EclassAnnouncement -> callback.onEclassAnnouncementTap(view.tag as EclassAnnouncement)
         else -> Unit
     }
 }

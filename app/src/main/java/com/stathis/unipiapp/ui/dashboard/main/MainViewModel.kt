@@ -37,7 +37,6 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
             ShortCategory(getString(R.string.professors)),
             ShortCategory(getString(R.string.syllabus)),
             ShortCategory(getString(R.string.contact)),
-            ShortCategory("Υπηρεσίες"),
             ShortCategory(getString(R.string.about_app_title))
         )
     }

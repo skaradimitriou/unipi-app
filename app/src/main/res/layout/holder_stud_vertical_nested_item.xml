@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.ui.students.model.VerticalStudentItem" />
@@ -15,7 +16,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:tag="@{model}">
 
         <TextView
             android:id="@+id/nested_title"
@@ -24,9 +26,9 @@
             android:layout_gravity="center"
             android:padding="@dimen/dimen_10"
             android:text="@{model.title}"
+            android:textColor="@color/unipi_blue"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/unipi_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,15 +36,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/nested_recycler"
+            adapter="@{adapter}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            adapter="@{adapter}"
-            app:spanCount="2"
-            tools:listitem="@layout/holder_services_item"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nested_title" />
+            app:layout_constraintTop_toBottomOf="@id/nested_title"
+            app:spanCount="2"
+            tools:listitem="@layout/holder_services_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

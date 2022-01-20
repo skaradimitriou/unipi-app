@@ -24,8 +24,6 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
     }
 
     override fun startOps() {
-        activity?.title = resources.getString(R.string.main_screen)
-
         binding.setVariable(BR.viewModel,viewModel)
 
         viewModel.addListener(object : MainScreenCallback {

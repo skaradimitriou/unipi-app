@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.Announcement" />
@@ -19,7 +20,8 @@
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:paddingStart="@dimen/dimen_10"
         android:paddingTop="@dimen/dimen_10"
-        android:paddingEnd="@dimen/dimen_10">
+        android:paddingEnd="@dimen/dimen_10"
+        android:tag="@{model}">
 
         <TextView
             android:id="@+id/announcement_date"

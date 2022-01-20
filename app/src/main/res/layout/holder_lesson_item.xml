@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.Lesson" />
@@ -12,25 +13,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_10" >
+        android:padding="@dimen/dimen_10"
+        android:tag="@{model}">
 
         <TextView
             android:id="@+id/lesson_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:text="@{model.title}"
             android:textColor="@color/unipi_blue"
-            tools:text="@string/app_name"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_1"
             android:layout_marginTop="@dimen/dimen_5"
             android:background="@color/unipi_red"
-            app:layout_constraintTop_toBottomOf="@id/lesson_title"/>
+            app:layout_constraintTop_toBottomOf="@id/lesson_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

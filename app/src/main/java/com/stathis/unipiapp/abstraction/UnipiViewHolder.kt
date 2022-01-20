@@ -7,7 +7,6 @@ import com.stathis.unipiapp.models.LocalModel
 abstract class UnipiViewHolder(itemView : ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
 
     fun bindData(data: LocalModel) {
-        itemView.tag = data
         present(data)
     }
 

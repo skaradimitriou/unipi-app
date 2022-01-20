@@ -13,4 +13,6 @@
 
     <color name="grey_bg">#F0F0F0</color>
     <color name="shimmer_grey">#666666</color>
+
+    <color name="grey_light">#888888</color>
 </resources>
