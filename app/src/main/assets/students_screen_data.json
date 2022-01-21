@@ -23,47 +23,47 @@
     {
       "title": "GUNET",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/6cff81ed2fd5fd02c6bfe5986e55231b_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=179:gunet&Itemid=567&lang=el/"
+      "url" : "https://gunet2.cs.unipi.gr/"
     },
     {
       "title": "Ηλεκτρονική Γραμματεία",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/0b1ad7a7b79268a1f4558db78e092446_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=35:students&Itemid=567&lang=el"
+      "url" : "https://students.unipi.gr"
     },
     {
       "title": "CSLab",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/2722f6bcd13027c06fe9d3b0e6f955cf_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=175:cslabs&Itemid=567&lang=el"
+      "url" : "https://cslab.unipi.gr/"
     },
     {
       "title": "Βιβλιοθήκη",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/f0ba2bfd8f936a77d3b146acfe9443c7_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=176:library&Itemid=567&lang=el"
+      "url" : "https://www.lib.unipi.gr/iguana/www.main.cls?surl=library"
     },
     {
       "title": "ΕΥΔΟΞΟΣ",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/b1d237aad44a95e3871fc116e6241517_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=174:eudoxos&Itemid=567&lang=el"
+      "url" : "https://eudoxus.gr/"
     },
     {
       "title": "Helpdesk",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/e2acd849d365015ef08ef5b696dc9e31_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=178:helpdesk&Itemid=567&lang=el"
+      "url" : "https://helpdesk.unipi.gr/"
     },
     {
       "title": "ΚΕΠΠ",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/5288462d048e0d3f60f64bb84cff6df4_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=177:kepp&Itemid=567&lang=el"
+      "url" : "http://www.kep.unipi.gr/"
     },
     {
       "title": "UNIPI",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/b262fcb3a88d76445a5d5d6ad933cf2d_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=180:unipi&Itemid=567&lang=el"
+      "url" : "https://www.unipi.gr/unipi/el/"
     },
     {
       "title": "Γρ. Διασύνδεσης",
       "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/bc5983b67a44bcede801e2ff363b54e0_XS.jpg",
-      "url" : "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&id=188:grafeio-diasyndesis&Itemid=567&lang=el"
+      "url" : "https://career.unipi.gr/"
     }
   ]
 }
