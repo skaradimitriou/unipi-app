@@ -5,12 +5,14 @@ import android.net.Uri
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.StudentsCallback
 import com.stathis.unipiapp.databinding.ActivityStudentsBinding
 import com.stathis.unipiapp.models.CarouselItem
 import com.stathis.unipiapp.models.UnipiService
+import com.stathis.unipiapp.ui.contact.ContactActivity
 import com.stathis.unipiapp.util.BASE_URL
 
 class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activity_students) {
@@ -22,23 +24,22 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
     }
 
     override fun startOps() {
+        //FIXME: Add Carousel Items
+
         supportActionBar?.title = resources.getString(R.string.students)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.viewModel = viewModel
 
         viewModel.observe(this, object : StudentsCallback {
-            override fun openCarouselItem(model: CarouselItem) {
-                //FIXME: Write logic on item tap
-            }
-
+            override fun openCarouselItem(model: CarouselItem) = openItem(model)
             override fun openServices(model: UnipiService) = loadUrl(model.url)
         })
 
         viewModel.error.observe(this, Observer {
             when(it){
-                true -> {} //FIXME: Add snackbar with error message
-                false -> {}
+                true -> Snackbar.make(binding.studentsScreenParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
+                false -> Unit
             }
         })
     }
@@ -58,5 +59,12 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
         }
 
         else -> false
+    }
+
+    private fun openItem(item : CarouselItem) = when(item.position + 1){
+        1 -> loadUrl(item.url)
+        2 -> loadUrl(item.url)
+        3 -> loadUrl(item.url)
+        else -> Unit
     }
 }

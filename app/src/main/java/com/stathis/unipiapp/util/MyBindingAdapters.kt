@@ -14,6 +14,17 @@ import org.jsoup.Jsoup
 class MyBindingAdapters {
 
     companion object{
+        @BindingAdapter("loadLocalPhoto")
+        @JvmStatic
+        fun ImageView.loadLocalPhoto(photo: String){
+            try {
+                val myImage = this.context.resources.getIdentifier(photo, "drawable", "com.stathis.unipiapp")
+                this.setImageResource(myImage)
+            }catch (e : Exception){
+                this.setImageResource(R.drawable.ic_unipi_logo_svg)
+            }
+        }
+
         @BindingAdapter("loadImageFromUrl")
         @JvmStatic
         fun ImageView.loadImg(url: String?) {

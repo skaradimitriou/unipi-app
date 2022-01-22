@@ -1,20 +1,20 @@
 {
   "carouselItems": [
     {
-      "imageResource": "xxx",
-      "url": "XXX",
+      "imageResource": "research_img",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=84&Itemid=695&lang=el",
       "title": "Έρευνα",
       "position": 1
     },
     {
-      "imageResource": "XXX",
-      "url": "XXX",
+      "imageResource": "events_img",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=1032&Itemid=584&lang=el",
       "title": "Δραστηριότητες",
       "position": 2
     },
     {
-      "imageResource": "XXX",
-      "url": "",
+      "imageResource": "contact_img",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_wrapper&view=wrapper&Itemid=806&lang=el",
       "title": "Επικοινωνία",
       "position": 3
     }

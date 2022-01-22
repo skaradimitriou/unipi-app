@@ -28,11 +28,11 @@
 
             <ImageView
                 android:id="@+id/carousel_img"
+                loadLocalPhoto="@{model.imageResource}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerCrop"
-                android:src="@color/unipi_blue" />
+                android:scaleType="centerCrop" />
 
             <View
                 android:layout_width="match_parent"

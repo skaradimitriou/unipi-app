@@ -1,68 +1,68 @@
 {
   "carouselItems": [
     {
-      "imageResource": "xxx",
-      "url": "XXX",
-      "title": "Item 1",
+      "imageResource": "schedule",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=61&Itemid=627&lang=el",
+      "title": "Ωρολόγιο Πρόγραμμα",
       "position": 1
     },
     {
-      "imageResource": "XXX",
-      "url": "XXX",
-      "title": "Item 2",
+      "imageResource": "paperwork",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=996&Itemid=840&lang=el",
+      "title": "Έντυπα για Φοιτητές",
       "position": 2
     },
     {
-      "imageResource": "XXX",
-      "url": "",
-      "title": "Item 3",
+      "imageResource": "questions",
+      "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=1027&Itemid=850&lang=el",
+      "title": "50 +1 Συχνές Ερωτήσεις",
       "position": 3
     }
   ],
   "services" : [
     {
       "title": "GUNET",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/6cff81ed2fd5fd02c6bfe5986e55231b_XS.jpg",
+      "imageUrl": "gunet",
       "url" : "https://gunet2.cs.unipi.gr/"
     },
     {
       "title": "Ηλεκτρονική Γραμματεία",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/0b1ad7a7b79268a1f4558db78e092446_XS.jpg",
+      "imageUrl": "e_secretary",
       "url" : "https://students.unipi.gr"
     },
     {
       "title": "CSLab",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/2722f6bcd13027c06fe9d3b0e6f955cf_XS.jpg",
+      "imageUrl": "cs_lab",
       "url" : "https://cslab.unipi.gr/"
     },
     {
       "title": "Βιβλιοθήκη",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/f0ba2bfd8f936a77d3b146acfe9443c7_XS.jpg",
+      "imageUrl": "library",
       "url" : "https://www.lib.unipi.gr/iguana/www.main.cls?surl=library"
     },
     {
       "title": "ΕΥΔΟΞΟΣ",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/b1d237aad44a95e3871fc116e6241517_XS.jpg",
+      "imageUrl": "eudoxos",
       "url" : "https://eudoxus.gr/"
     },
     {
       "title": "Helpdesk",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/e2acd849d365015ef08ef5b696dc9e31_XS.jpg",
+      "imageUrl": "helpdesk",
       "url" : "https://helpdesk.unipi.gr/"
     },
     {
       "title": "ΚΕΠΠ",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/5288462d048e0d3f60f64bb84cff6df4_XS.jpg",
+      "imageUrl": "kepp",
       "url" : "http://www.kep.unipi.gr/"
     },
     {
       "title": "UNIPI",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/b262fcb3a88d76445a5d5d6ad933cf2d_XS.jpg",
+      "imageUrl": "ic_unipi_logo_svg",
       "url" : "https://www.unipi.gr/unipi/el/"
     },
     {
       "title": "Γρ. Διασύνδεσης",
-      "imageUrl": "https://www.cs.unipi.gr/media/k2/items/cache/bc5983b67a44bcede801e2ff363b54e0_XS.jpg",
+      "imageUrl": "gr_diasindesis",
       "url" : "https://career.unipi.gr/"
     }
   ]

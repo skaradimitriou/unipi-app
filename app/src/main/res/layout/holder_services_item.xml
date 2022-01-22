@@ -30,7 +30,7 @@
 
             <ImageView
                 android:id="@+id/service_img"
-                loadImageFromUrl="@{model.imageUrl}"
+                loadLocalPhoto="@{model.imageUrl}"
                 android:layout_width="@dimen/height_70"
                 android:layout_height="@dimen/height_70"
                 android:layout_marginTop="@dimen/dimen_10"

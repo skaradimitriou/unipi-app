@@ -6,6 +6,7 @@ import android.net.Uri
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.abstraction.UnipiActivity
@@ -25,6 +26,8 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
     }
 
     override fun startOps() {
+        //FIXME: Add Carousel Photos
+
         supportActionBar?.title = resources.getString(R.string.department)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -35,17 +38,14 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
         }
 
         viewModel.observeData(this,object : DepartmentCallback {
-            override fun openCarouselItem(model: CarouselItem) {
-                //FIXME: open carousel item
-            }
-
+            override fun openCarouselItem(model: CarouselItem) = openItem(model)
             override fun openProgramme(model: Programme) = openUrl(model.url)
         })
 
         viewModel.error.observe(this, Observer {
             when(it){
-                true -> {} //FIXME: Add snackbar with error message
-                false -> {}
+                true -> Snackbar.make(binding.deptScreenParent,getString(R.string.snackbar_error),Snackbar.LENGTH_LONG).show()
+                false -> Unit
             }
         })
     }
@@ -65,5 +65,12 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
 
     private fun openUrl(url : String){
         startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(url) })
+    }
+
+    private fun openItem(item : CarouselItem) = when(item.title){
+        getString(R.string.dept_research) -> openUrl(item.url)
+        getString(R.string.dept_events) -> openUrl(item.url)
+        getString(R.string.dept_contact) -> startActivity(Intent(this,ContactActivity::class.java))
+        else -> Unit
     }
 }
