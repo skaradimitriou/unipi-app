@@ -13,7 +13,7 @@ class AboutActivity : UnipiActivity<ActivityAboutBinding>(R.layout.activity_abou
     }
 
     override fun startOps() {
-        binding.aboutText = resources.getString(R.string.lorem_ipsum_long)
+        binding.aboutText = resources.getString(R.string.about_app_text)
     }
 
     override fun stopOps() {}

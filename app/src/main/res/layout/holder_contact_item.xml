@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="model"
             type="com.stathis.unipiapp.models.ContactItem" />
@@ -28,11 +27,10 @@
 
             <TextView
                 android:id="@+id/contact_item_title"
+                style="@style/normal_text_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{model.title}"
-                android:textColor="@color/unipi_blue"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/app_name" />

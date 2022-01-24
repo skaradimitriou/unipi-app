@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.stathis.unipiapp.ui.department.DepartmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dept_screen_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/dept_screen_parent"
         android:background="@color/grey_bg"
         tools:context=".ui.department.DepartmentActivity">
 
@@ -26,16 +25,13 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/dept_fab_btn"
+            style="@style/unipi_fab_btn"
+            android:contentDescription="@string/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_16"
-            android:clickable="true"
-            android:contentDescription="@string/app_name"
-            android:focusable="true"
             android:src="@drawable/ic_help_white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@null" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

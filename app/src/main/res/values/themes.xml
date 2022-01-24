@@ -14,6 +14,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="unipi_fab_btn" parent="ShapeAppearanceOverlay.Material3.FloatingActionButton">
+        <item name="tint">@null</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_margin">@dimen/dimen_16</item>
+        <item name="android:clickable">true</item>
+    </style>
+
     <!-- Holder Styles -->
     <style name="unipi_card" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">@dimen/dimen_5</item>
@@ -73,6 +80,11 @@
         <item name="android:textSize">14sp</item>
         <item name="android:padding">@dimen/dimen_10</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="normal_text_blue" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/unipi_blue</item>
         <item name="android:textStyle">bold</item>
     </style>
 </resources>

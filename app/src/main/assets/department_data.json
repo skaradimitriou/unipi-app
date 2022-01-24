@@ -1,19 +1,19 @@
 {
   "carouselItems": [
     {
-      "imageResource": "research_img",
+      "imageResource": "dept_research",
       "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=84&Itemid=695&lang=el",
       "title": "Έρευνα",
       "position": 1
     },
     {
-      "imageResource": "events_img",
+      "imageResource": "dept_events",
       "url": "https://www.cs.unipi.gr/index.php?option=com_k2&view=item&layout=item&id=1032&Itemid=584&lang=el",
       "title": "Δραστηριότητες",
       "position": 2
     },
     {
-      "imageResource": "contact_img",
+      "imageResource": "dept_contact",
       "url": "https://www.cs.unipi.gr/index.php?option=com_wrapper&view=wrapper&Itemid=806&lang=el",
       "title": "Επικοινωνία",
       "position": 3
