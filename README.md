@@ -5,13 +5,12 @@
 This app was developed for University of Piraeus (UoP), so users can gain:<br/>
 a) useful student information about the department <br/>
 b) look up their professor's e-mail and send them e-mails from the app <br/>
-c) get new announcements of the department
-d) get useful notifications about important events 🔜
+c) get new announcements of the department and [E-Class](https://gunet2.cs.unipi.gr/)
 
 ## Users
 
 a. Students of the department <br/>
-b. People who want to learn more about the department.
+b. People who want to learn more about the programme (CS Postgraduate Degree) <br/>
 
 ### Programming Language 
 
@@ -33,3 +32,5 @@ Model - View - ViewModel (MVVM)
 
 [Picasso](https://square.github.io/picasso/) <br/> 
 [JSOUP](https://jsoup.org/) <br/>
+[SimpleXML]() <br/>
+[Shimmer Loading](https://facebook.github.io/shimmer-android/)
