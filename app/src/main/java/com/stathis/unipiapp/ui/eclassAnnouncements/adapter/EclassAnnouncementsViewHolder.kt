@@ -8,6 +8,7 @@ import com.stathis.unipiapp.models.LocalModel
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
 
 class EclassAnnouncementsViewHolder(val binding : ViewDataBinding,val callback : UnipiCallback) : UnipiViewHolder(binding) {
+
     override fun present(data: LocalModel) {
         when(data){
             is EclassAnnouncement -> {

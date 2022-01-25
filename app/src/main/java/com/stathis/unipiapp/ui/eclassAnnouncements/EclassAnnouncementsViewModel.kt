@@ -10,6 +10,7 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.ShimmerModel
+import com.stathis.unipiapp.network.api.ApiClient
 import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
@@ -42,7 +43,7 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
 
     fun getData(code: String) {
         viewModelScope.launch {
-            ApiClient.getLessonsAnnouncements(code, data, error)
+            ApiClient().getLessonsAnnouncements(code,data, error)
         }
     }
 
