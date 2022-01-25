@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
@@ -50,6 +52,13 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
                 startActivity(Intent(this@AnnouncementsActivity,WebviewActivity::class.java).also {
                     it.putExtra("MODEL",model)
                 })
+            }
+        })
+
+        viewModel.error.observe(this, Observer {
+            when(it){
+                true -> Snackbar.make(binding.announcementsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
+                false -> Unit
             }
         })
     }

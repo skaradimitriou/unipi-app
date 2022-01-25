@@ -9,14 +9,20 @@ import androidx.lifecycle.viewModelScope
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
+import com.stathis.unipiapp.di.DaggerApiComponent
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.api.ApiClient
+import com.stathis.unipiapp.network.api.Endpoints
 import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
+
+    @Inject
+    lateinit var api : ApiClient
 
     val adapter = EclassAnnouncementsAdapter(this)
     val data = MutableLiveData<Channel>()
@@ -25,6 +31,8 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
 
     init {
         startShimmer()
+
+        DaggerApiComponent.create().inject(this)
     }
 
     private fun startShimmer() {
@@ -43,7 +51,7 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
 
     fun getData(code: String) {
         viewModelScope.launch {
-            ApiClient().getLessonsAnnouncements(code,data, error)
+            api.getLessonsAnnouncements(code,data, error)
         }
     }
 

@@ -20,8 +20,8 @@ import kotlinx.coroutines.launch
 class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     val adapter = AnnouncementAdapter(this)
-    private val data = MutableLiveData<List<Announcement>>()
-    private val error = MutableLiveData<Boolean>()
+    val data = MutableLiveData<List<Announcement>>()
+    val error = MutableLiveData<Boolean>()
     private var tempList = mutableListOf<Announcement>()
     private lateinit var callback: AnnouncementCallback
     private var counter = 0

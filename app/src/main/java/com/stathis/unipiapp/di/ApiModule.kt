@@ -30,8 +30,8 @@ class ApiModule {
             .create(Endpoints::class.java)
     }
 
-    @Provides
     @Singleton
+    @Provides
     fun provideService() : ApiClient {
         return ApiClient()
     }

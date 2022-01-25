@@ -5,7 +5,9 @@ import android.net.Uri
 import android.util.Log
 import android.util.Patterns
 import android.view.MenuItem
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
@@ -38,6 +40,13 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
         viewModel.observe(this, object : EclassAnnouncementsCallback{
             override fun onEclassAnnouncementTap(model: EclassAnnouncement) {
                 startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(model.link) })
+            }
+        })
+
+        viewModel.error.observe(this, Observer {
+            when(it){
+                true -> Snackbar.make(binding.eclassAnnouncementsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
+                false -> Unit
             }
         })
     }
