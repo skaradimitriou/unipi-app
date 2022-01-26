@@ -1,37 +1,68 @@
 <resources>
     <string name="app_name">UnipiApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- General -->
     <string name="unipi_main_title">Πανεπιστήμιο Πειραιώς</string>
 
-    <string name="menu_announcements">Ανακοινώσεις Τμήματος</string>
-    <string name="professors">Καθηγητές</string>
-    <string name="students">Φοιτητές</string>
-    <string name="department">Το Τμήμα</string>
-    <string name="contact">Επικοινωνία</string>
-    <string name="about_app_title">Σχετικά με την εφαρμογή</string>
-
-    <string name="choose_contact">Επιλογή Τηλεφώνου</string>
-
-
-    <string name="syllabus">Πρόγραμμα Σπουδών</string>
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
     <string name="lorem_ipsum_2">Προκήρυξη Υποτροφιών Ιδρύματος Ωνάση 2022-2023</string>
-
     <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo, ipsum vel elementum placerat, eros tortor hendrerit diam, vel faucibus lectus leo ut sem. Curabitur sit amet gravida nisi. Nam massa ex, hendrerit in gravida et, vehicula vel lacus. Pellentesque bibendum arcu at nisi vulputate tempus. Aliquam et accumsan augue. Quisque sagittis, nisl a ultrices egestas, quam tortor sagittis orci, quis faucibus justo nibh pharetra nulla. Vestibulum fringilla at elit dignissim cursus. </string>
 
     <string name="url_tag">URL</string>
     <string name="model">MODEL</string>
     <string name="menu_main">Αρχική</string>
     <string name="main_screen">Αρχική</string>
+
+    <string name="search">Αναζήτηση</string>
+
+    <string name="snackbar_error">Παρουσιάστηκε κάποιο σφάλμα</string>
+
+    <!-- About Screen -->
+    <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του σε υποψήφιους μεταπτυχιακούς φοιτητές.</string>
+
+    <!-- Announcements Screen -->
+
+
+    <!-- Contact Screen -->
+    <string name="contact_type_selection">Επιλογή Τρόπου Επικοινωνίας</string>
+    <string name="send_email">Αποστολή E-mail</string>
+    <string name="choose_contact">Επιλογή Τηλεφώνου</string>
+    <string name="call_option">Επικοινωνία μέσω τηλεφώνου</string>
+
+    <!-- Dashboard Screen -->
+    <string name="announcements">Ανακοινώσεις Τμήματος</string>
+    <string name="department">Το Τμήμα</string>
+    <string name="students">Φοιτητές</string>
+    <string name="professors">Καθηγητές</string>
+    <string name="syllabus">Πρόγραμμα Σπουδών</string>
+    <string name="contact">Επικοινωνία</string>
+    <string name="about_app_title">Σχετικά με την εφαρμογή</string>
+
+    <string name="categories">Κατηγορίες</string>
+    <string name="all_categories">Όλες οι κατηγορίες</string>
+
     <string name="main_screen_title"><b>Πανεπιστήμιο Πειραιώς (UoP)</b> \nΠΜΣ Πληροφορική</string>
 
-    <string name="student_services">Υπηρεσίες Φοιτητών</string>
+    <!-- Department Screen -->
+    <string name="dept_research">Έρευνα</string>
+    <string name="dept_events">Δραστηριότητες</string>
+    <string name="dept_contact">Επικοινωνία</string>
     <string name="dept_studies">Σπουδές</string>
 
+    <!-- Eclass Announcements Screen -->
+    <string name="eclass_lessons_header">Αναζήτηση Μαθήματος E-Class</string>
+    <string name="eclass">E-Class</string>
+    <string name="eclass_lesson_title">Eclass Lesson Title</string>
 
-    <!-- Professors Activity -->
+    <!-- Intro Screen -->
+
+
+    <!-- Lessons Screen -->
+    <string name="lesson_announcements">Ανακοινώσεις Μαθήματος</string>
+
+    <!-- Professors Screen -->
+    <string name="search_professor">Αναζήτησε έναν καθηγητή</string>
+
     <string name="male">male</string>
     <string name="female">female</string>
 
@@ -45,27 +76,8 @@
     <string name="dialog_new_email">Νέο e-mail</string>
     <string name="dialog_yes">Ναι</string>
     <string name="dialog_cancel">Άκυρο</string>
-    <string name="search_professor">Αναζήτησε έναν καθηγητή</string>
-    <string name="search">Αναζήτηση</string>
-    <string name="categories">Κατηγορίες</string>
-    <string name="all_categories">Όλες οι κατηγορίες</string>
-    <string name="contact_type_selection">Επιλογή Τρόπου Επικοινωνίας</string>
-    <string name="send_email">Αποστολή E-mail</string>
-    <string name="call_option">Επικοινωνία μέσω τηλεφώνου</string>
-    <string name="eclass_user_greeting">Hello %s!</string>
-    <string name="eclass_lesson_title">Eclass Lesson Title</string>
-    <string name="nav_my_lessons">My Lessons</string>
 
-    <string name="lesson_announcements">Ανακοινώσεις Μαθήματος</string>
-    <string name="eclass_lessons_header">Αναζήτηση Μαθήματος E-Class</string>
-    <string name="eclass">E-Class</string>
-
-    <string name="dept_research">Έρευνα</string>
-    <string name="dept_events">Δραστηριότητες</string>
-    <string name="dept_contact">Επικοινωνία</string>
-
-    <string name="snackbar_error">Παρουσιάστηκε κάποιο σφάλμα</string>
-
-    <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του υποψήφιους φοιτητές.</string>
+    <!-- Students Screen -->
+    <string name="student_services">Υπηρεσίες Φοιτητών</string>
 
 </resources>

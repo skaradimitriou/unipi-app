@@ -28,7 +28,7 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
     }
 
     override fun startOps() {
-        supportActionBar?.title = resources.getString(R.string.menu_announcements)
+        supportActionBar?.title = resources.getString(R.string.announcements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.viewModel = viewModel

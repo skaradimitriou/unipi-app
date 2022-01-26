@@ -21,7 +21,7 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     private fun createList() {
         val list = listOf(
-            UnipiItem(app.resources.getString(R.string.menu_announcements), R.drawable.ic_announcement),
+            UnipiItem(app.resources.getString(R.string.announcements), R.drawable.ic_announcement),
             UnipiItem(app.resources.getString(R.string.students), R.drawable.ic_students),
             UnipiItem(app.resources.getString(R.string.department), R.drawable.dept_building),
             UnipiItem(app.resources.getString(R.string.professors), R.drawable.ic_professors),
@@ -31,7 +31,7 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     fun getAllCategories(): List<ShortCategory> {
         return listOf(
-            ShortCategory(getString(R.string.menu_announcements)),
+            ShortCategory(getString(R.string.announcements)),
             ShortCategory(getString(R.string.department)),
             ShortCategory(getString(R.string.students)),
             ShortCategory(getString(R.string.professors)),

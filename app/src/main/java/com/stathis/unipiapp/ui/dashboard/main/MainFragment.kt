@@ -28,7 +28,7 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
 
         viewModel.addListener(object : MainScreenCallback {
             override fun onItemTap(model: UnipiItem) = when(model.title){
-                resources.getString(R.string.menu_announcements) -> goToAnnouncements()
+                resources.getString(R.string.announcements) -> goToAnnouncements()
                 resources.getString(R.string.students) -> goToStudents()
                 resources.getString(R.string.department) -> goToDepartment()
                 resources.getString(R.string.professors) -> goToProfessors()

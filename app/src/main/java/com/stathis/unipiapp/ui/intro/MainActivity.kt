@@ -14,8 +14,6 @@ import kotlinx.coroutines.launch
 class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun init() {
-        binding.unipiLogo.setImageResource(R.drawable.ic_unipi_logo_svg)
-        binding.unipiTitle.text = resources.getString(R.string.unipi_main_title)
         supportActionBar?.hide()
     }
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "38190412306",
+    "project_id": "unipi-app",
+    "storage_bucket": "unipi-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38190412306:android:8126945bc5043def521ecb",
+        "android_client_info": {
+          "package_name": "com.stathis.unipiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38190412306-7hg4v6dfe1om290a44tm513et8sb7qi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtXBeh8TeNmLTpgI5A70dm819p-ZCTD-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38190412306-7hg4v6dfe1om290a44tm513et8sb7qi5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

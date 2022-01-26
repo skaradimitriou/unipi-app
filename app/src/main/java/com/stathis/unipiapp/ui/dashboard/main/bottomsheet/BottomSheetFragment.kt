@@ -56,7 +56,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment(), UnipiCallback {
     override fun onItemTap(view: View) = when(view.tag){
         is ShortCategory -> {
             when((view.tag as ShortCategory).title){
-                getString(R.string.menu_announcements) -> startActivity(Intent(requireContext(),AnnouncementsActivity::class.java))
+                getString(R.string.announcements) -> startActivity(Intent(requireContext(),AnnouncementsActivity::class.java))
                 getString(R.string.department) -> startActivity(Intent(requireContext(),DepartmentActivity::class.java))
                 getString(R.string.students) -> startActivity(Intent(requireContext(),StudentsActivity::class.java))
                 getString(R.string.syllabus) -> startActivity(Intent(requireContext(),SyllabusActivity::class.java))
