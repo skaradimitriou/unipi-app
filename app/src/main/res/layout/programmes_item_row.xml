@@ -30,10 +30,12 @@
                 android:id="@+id/programmes_img"
                 android:layout_width="70dp"
                 android:layout_height="@dimen/height_70"
+                loadLocalPhoto="@{model.imageResource}"
                 android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_unipi_logo_svg" />
+                tools:src="@drawable/ic_unipi_logo_svg" />
 
             <TextView
                 android:id="@+id/programmes_holder_txt"
@@ -54,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingStart="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_10"
                 android:text="@{model.description}"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"

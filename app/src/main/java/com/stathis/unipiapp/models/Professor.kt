@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Professor(
 
     val fullName : String,
+    val vocative : String,
     val title : String,
     val office : String,
     val telephone : String,
@@ -16,7 +17,7 @@ data class Professor(
 
     ) : LocalModel, Parcelable {
     override fun equalsContent(obj: LocalModel): Boolean = when(obj){
-        is Professor -> fullName == obj.fullName
+        is Professor -> fullName == obj.fullName && title == obj.title && email == obj.email
         else -> false
     }
 }

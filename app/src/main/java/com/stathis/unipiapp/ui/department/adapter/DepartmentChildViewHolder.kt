@@ -12,11 +12,7 @@ class DepartmentChildViewHolder(val binding : ViewDataBinding, val callback : Un
 
     override fun present(data: LocalModel) {
         when(data){
-            is CarouselItem -> {
-                binding.setVariable(BR.model,data)
-                binding.setVariable(BR.callback,callback)
-            }
-
+            is CarouselItem -> bindData(data,callback)
             is Programme -> bindData(data,callback)
         }
     }

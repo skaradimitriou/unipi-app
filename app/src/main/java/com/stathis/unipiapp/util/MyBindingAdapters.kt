@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.squareup.picasso.Picasso
 import com.stathis.unipiapp.R
+import com.stathis.unipiapp.models.Professor
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
 import org.jsoup.Jsoup
 
@@ -30,6 +31,20 @@ class MyBindingAdapters {
         fun ImageView.loadImg(url: String?) {
             url?.let {
                 Picasso.get().load(url).error(R.drawable.ic_unipi_logo_svg).into(this)
+            }
+        }
+
+        @BindingAdapter("loadProfessorImage")
+        @JvmStatic
+        fun ImageView.loadProfessorImg(model : Professor) {
+            val errorImg = when(model.gender){
+                resources.getString(R.string.male) -> R.drawable.male_professor
+                resources.getString(R.string.female) -> R.drawable.female_professor
+                else -> 0
+            }
+
+            model.image?.let {
+                Picasso.get().load(model.image).error(errorImg).into(this)
             }
         }
 

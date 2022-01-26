@@ -28,7 +28,7 @@
 
             <ImageView
                 android:id="@+id/professor_img"
-                loadImageFromUrl="@{model.image}"
+                loadProfessorImage="@{model}"
                 android:layout_width="@dimen/image_50"
                 android:layout_height="@dimen/image_50"
                 android:contentDescription="@string/app_name"

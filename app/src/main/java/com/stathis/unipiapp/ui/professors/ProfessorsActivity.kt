@@ -49,8 +49,8 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
         MaterialAlertDialogBuilder(this).also {
             it.setTitle(getString(R.string.dialog_new_email))
             when(professor.gender){
-                resources.getString(R.string.male) -> it.setMessage(getString(R.string.send_email_to_male_professor).format(professor.fullName))
-                resources.getString(R.string.female) -> it.setMessage(getString(R.string.send_email_to_female_professor).format(professor.fullName))
+                resources.getString(R.string.male) -> it.setMessage(getString(R.string.send_email_to_male_professor).format(professor.vocative))
+                resources.getString(R.string.female) -> it.setMessage(getString(R.string.send_email_to_female_professor).format(professor.vocative))
             }
 
             it.setPositiveButton(getString(R.string.dialog_yes)) { dialog, which -> sendEmail(professor) }
