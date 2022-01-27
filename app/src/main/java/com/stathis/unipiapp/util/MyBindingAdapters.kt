@@ -14,14 +14,15 @@ import org.jsoup.Jsoup
 
 class MyBindingAdapters {
 
-    companion object{
+    companion object {
         @BindingAdapter("loadLocalPhoto")
         @JvmStatic
-        fun ImageView.loadLocalPhoto(photo: String){
+        fun ImageView.loadLocalPhoto(photo: String) {
             try {
-                val myImage = this.context.resources.getIdentifier(photo, "drawable", "com.stathis.unipiapp")
+                val myImage =
+                    this.context.resources.getIdentifier(photo, "drawable", "com.stathis.unipiapp")
                 this.setImageResource(myImage)
-            }catch (e : Exception){
+            } catch (e: Exception) {
                 this.setImageResource(R.drawable.ic_unipi_logo_svg)
             }
         }
@@ -36,8 +37,8 @@ class MyBindingAdapters {
 
         @BindingAdapter("loadProfessorImage")
         @JvmStatic
-        fun ImageView.loadProfessorImg(model : Professor) {
-            val errorImg = when(model.gender){
+        fun ImageView.loadProfessorImg(model: Professor) {
+            val errorImg = when (model.gender) {
                 resources.getString(R.string.male) -> R.drawable.male_professor
                 resources.getString(R.string.female) -> R.drawable.female_professor
                 else -> 0
@@ -51,12 +52,13 @@ class MyBindingAdapters {
         @BindingAdapter("setLocalImage")
         @JvmStatic
         fun ImageView.setLocalImage(image: Int) {
-            try{
+            try {
                 this.setImageResource(image)
-            }catch (e : Exception){
+            } catch (e: Exception) {
                 this.setImageResource(R.drawable.ic_unipi_logo_svg)
             }
         }
+
 
         @BindingAdapter("setDate")
         @JvmStatic
@@ -72,7 +74,7 @@ class MyBindingAdapters {
 
         @BindingAdapter("setScrollableViewPager")
         @JvmStatic
-        fun setScrollableViewPager(viewPager : ViewPager2, adapter : CarouselAdapter){
+        fun setScrollableViewPager(viewPager: ViewPager2, adapter: CarouselAdapter) {
             val sliderHandler = Handler()
 
             val sliderRunnable = Runnable {
