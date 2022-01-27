@@ -37,10 +37,6 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
             val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
             eclassLessons = Gson().fromJson(jsonString, listPersonType)
 
-            Collections.sort(eclassLessons) { p0, p1 ->
-                p0?.title!!.compareTo(p1!!.title)
-            }
-
             data.postValue(eclassLessons)
         } catch (ioException: IOException) {
         }

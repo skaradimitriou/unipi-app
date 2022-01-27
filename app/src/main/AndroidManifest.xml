@@ -37,14 +37,12 @@
             android:name=".ui.announcements.AnnouncementsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.services.ServicesActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.lessons.LessonsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.DashboardActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".ui.webview.WebviewActivity"
             android:exported="false" />

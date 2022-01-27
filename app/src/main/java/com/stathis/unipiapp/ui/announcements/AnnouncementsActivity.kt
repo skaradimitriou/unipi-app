@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -48,16 +49,15 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
 
         viewModel.observe(this, object : AnnouncementCallback {
             override fun openAnnouncement(model: Announcement) {
-                //startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(BASE_URL +model.url) })
                 startActivity(Intent(this@AnnouncementsActivity,WebviewActivity::class.java).also {
-                    it.putExtra("MODEL",model)
+                    it.putExtra(resources.getString(R.string.model),model)
                 })
             }
         })
 
         viewModel.error.observe(this, Observer {
             when(it){
-                true -> Snackbar.make(binding.announcementsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
+                true -> showSnack()
                 false -> Unit
             }
         })
@@ -72,5 +72,15 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
         }
 
         else -> false
+    }
+
+    fun showSnack(){
+        viewModel.stopShimmer()
+
+        Snackbar.make(binding.announcementsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).also {
+            it.setAction(resources.getString(R.string.retry)) {
+                viewModel.getData()
+            }
+        }.show()
     }
 }

@@ -21,7 +21,7 @@
     <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του σε υποψήφιους μεταπτυχιακούς φοιτητές.</string>
 
     <!-- Announcements Screen -->
-
+    <string name="retry">Επανάληψη</string>
 
     <!-- Contact Screen -->
     <string name="contact_type_selection">Επιλογή Τρόπου Επικοινωνίας</string>
@@ -51,7 +51,7 @@
 
     <!-- Eclass Announcements Screen -->
     <string name="eclass_lessons_header">Αναζήτηση Μαθήματος E-Class</string>
-    <string name="eclass">E-Class</string>
+    <string name="eclass">Ανακοινώσεις E-Class</string>
     <string name="eclass_lesson_title">Eclass Lesson Title</string>
 
     <!-- Intro Screen -->

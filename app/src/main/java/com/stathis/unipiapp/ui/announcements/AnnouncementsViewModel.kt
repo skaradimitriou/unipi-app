@@ -9,6 +9,7 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.models.EmptyItem
 import com.stathis.unipiapp.models.LocalModel
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.JsoupModule
@@ -27,7 +28,6 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     private var counter = 0
 
     init {
-        startShimmer()
         getData()
     }
 
@@ -45,7 +45,13 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
         )
     }
 
-    private fun getData() {
+    fun stopShimmer(){
+        adapter.submitList(listOf(EmptyItem(),EmptyItem()))
+    }
+
+    fun getData() {
+        startShimmer()
+
         CoroutineScope(Dispatchers.IO).launch {
             JsoupModule.getAnnouncements(tempList,data,error,counter)
         }

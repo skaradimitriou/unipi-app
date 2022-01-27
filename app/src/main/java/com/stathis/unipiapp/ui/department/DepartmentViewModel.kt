@@ -56,7 +56,6 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
         data.removeObservers(owner)
     }
 
-
     fun getDepartmentData(){
         try {
             val jsonString = app.assets.open("department_data.json").bufferedReader().use { it.readText() }

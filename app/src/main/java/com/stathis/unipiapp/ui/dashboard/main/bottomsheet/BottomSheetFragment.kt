@@ -46,8 +46,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment(), UnipiCallback {
         super.onResume()
 
         val adapter = ShortCategoriesAdapter(this)
-
-        binding.bottomSheetRecycler.adapter = adapter
+        binding.adapter = adapter
 
         val data = viewModel.getAllCategories()
         adapter.submitList(data)

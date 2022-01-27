@@ -51,19 +51,17 @@ class MyBindingAdapters {
         @BindingAdapter("setLocalImage")
         @JvmStatic
         fun ImageView.setLocalImage(image: Int) {
-            this.setImageResource(image)
+            try{
+                this.setImageResource(image)
+            }catch (e : Exception){
+                this.setImageResource(R.drawable.ic_unipi_logo_svg)
+            }
         }
 
         @BindingAdapter("setDate")
         @JvmStatic
         fun TextView.setDate(date: String) {
             this.text = date.take(16)
-        }
-
-        @BindingAdapter("setLessonText")
-        @JvmStatic
-        fun TextView.setLessonText(text: String) {
-            this.text = text.toLowerCase().capitalizeWords()
         }
 
         @BindingAdapter("setHtmlText")
