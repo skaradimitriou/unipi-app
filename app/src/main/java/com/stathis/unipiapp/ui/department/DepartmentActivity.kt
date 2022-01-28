@@ -26,8 +26,6 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
     }
 
     override fun startOps() {
-        //FIXME: Add Carousel Photos
-
         supportActionBar?.title = resources.getString(R.string.department)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -37,9 +35,24 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
             startActivity(Intent(this,ContactActivity::class.java))
         }
 
+        observe()
+    }
+
+    override fun stopOps() {
+        viewModel.release(this)
+    }
+
+    private fun observe(){
         viewModel.observeData(this,object : DepartmentCallback {
-            override fun openCarouselItem(model: CarouselItem) = openItem(model)
-            override fun openProgramme(model: Programme) = openUrl(model.url)
+            override fun openCarouselItem(model: CarouselItem) = when(model.title){
+                getString(R.string.dept_research) -> openUrl(model.url)
+                getString(R.string.dept_events) -> openUrl(model.url)
+                getString(R.string.dept_contact) -> startActivity(Intent(this@DepartmentActivity,ContactActivity::class.java))
+                else -> Unit
+            }
+            override fun openProgramme(model: Programme) {
+                startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(model.url) })
+            }
         })
 
         viewModel.error.observe(this, Observer {
@@ -48,10 +61,6 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
                 false -> Unit
             }
         })
-    }
-
-    override fun stopOps() {
-        viewModel.release(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
@@ -65,12 +74,5 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
 
     private fun openUrl(url : String){
         startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(url) })
-    }
-
-    private fun openItem(item : CarouselItem) = when(item.title){
-        getString(R.string.dept_research) -> openUrl(item.url)
-        getString(R.string.dept_events) -> openUrl(item.url)
-        getString(R.string.dept_contact) -> startActivity(Intent(this,ContactActivity::class.java))
-        else -> Unit
     }
 }

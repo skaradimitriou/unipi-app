@@ -24,13 +24,15 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
     }
 
     override fun startOps() {
-        //FIXME: Add Carousel Items
-
         supportActionBar?.title = resources.getString(R.string.students)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.viewModel = viewModel
 
+        observe()
+    }
+
+    private fun observe() {
         viewModel.observe(this, object : StudentsCallback {
             override fun openCarouselItem(model: CarouselItem) = openItem(model)
             override fun openServices(model: UnipiService) = loadUrl(model.url)
@@ -48,9 +50,7 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
         startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(url) })
     }
 
-    override fun stopOps() {
-        viewModel.release(this)
-    }
+    override fun stopOps() = viewModel.release(this)
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
         android.R.id.home -> {

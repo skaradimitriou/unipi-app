@@ -1,7 +1,6 @@
 package com.stathis.unipiapp.ui.dashboard.lessons
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
@@ -12,33 +11,54 @@ import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassLessonCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
-import com.stathis.unipiapp.models.Professor
+import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import kotlinx.coroutines.launch
 import java.io.IOException
-import java.util.*
 
 class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
     val adapter = MyLessonsAdapter(this)
     val data = MutableLiveData<List<EclassLesson>>()
+    val error = MutableLiveData<Boolean>()
     private lateinit var eclassLessons: List<EclassLesson>
     private lateinit var callback: EclassLessonCallback
 
     init {
-        viewModelScope.launch { getData() }
+        getData()
+    }
+
+    private fun startShimmer() {
+        adapter.submitList(
+            listOf(
+                ShimmerModel(),
+                ShimmerModel(),
+                ShimmerModel(),
+                ShimmerModel(),
+                ShimmerModel(),
+                ShimmerModel(),
+                ShimmerModel()
+            )
+        )
     }
 
     private fun getData() {
-        try {
-            val jsonString =
-                app.assets.open("eclass_lessons_mppl.json").bufferedReader().use { it.readText() }
-            val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
-            eclassLessons = Gson().fromJson(jsonString, listPersonType)
+        startShimmer()
 
-            data.postValue(eclassLessons)
-        } catch (ioException: IOException) {
+        viewModelScope.launch {
+            try {
+                val jsonString =
+                    app.assets.open("eclass_lessons_mppl.json").bufferedReader()
+                        .use { it.readText() }
+                val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
+                eclassLessons = Gson().fromJson(jsonString, listPersonType)
+
+                data.postValue(eclassLessons)
+                error.postValue(false)
+            } catch (ioException: IOException) {
+                error.postValue(true)
+            }
         }
     }
 

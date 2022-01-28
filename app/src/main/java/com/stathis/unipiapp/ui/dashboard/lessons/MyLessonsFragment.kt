@@ -10,6 +10,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiFragment
 import com.stathis.unipiapp.callbacks.EclassLessonCallback
@@ -36,6 +37,14 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
             }
         })
 
+       observe()
+    }
+
+    override fun stopOps() {
+        viewModel.release(this)
+    }
+
+    private fun observe(){
         viewModel.observe(this,object : EclassLessonCallback{
             override fun onLessonTap(model: EclassLesson) {
                 startActivity(Intent(requireContext(),EclassAnnouncementsActivity::class.java).also {
@@ -43,9 +52,12 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
                 })
             }
         })
-    }
 
-    override fun stopOps() {
-        viewModel.release(this)
+        viewModel.error.observe(this, Observer {
+            when(it){
+                true -> Snackbar.make(binding.eclassLessonsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
+                false -> Unit
+            }
+        })
     }
 }

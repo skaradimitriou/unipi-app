@@ -1,16 +1,14 @@
 package com.stathis.unipiapp.ui.announcements
 
-import android.app.Application
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.stathis.unipiapp.abstraction.UnipiViewModel
+import androidx.lifecycle.ViewModel
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.models.EmptyItem
-import com.stathis.unipiapp.models.LocalModel
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.JsoupModule
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
@@ -18,7 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
+class AnnouncementsViewModel : ViewModel(), UnipiCallback {
 
     val adapter = AnnouncementAdapter(this)
     val data = MutableLiveData<List<Announcement>>()

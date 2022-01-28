@@ -37,6 +37,12 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
             viewModel.getData(it.code)
         }
 
+        observe()
+    }
+
+    override fun stopOps() = viewModel.release(this)
+
+    private fun observe(){
         viewModel.observe(this, object : EclassAnnouncementsCallback{
             override fun onEclassAnnouncementTap(model: EclassAnnouncement) {
                 startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(model.link) })
@@ -50,8 +56,6 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
             }
         })
     }
-
-    override fun stopOps() = viewModel.release(this)
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
         android.R.id.home -> {

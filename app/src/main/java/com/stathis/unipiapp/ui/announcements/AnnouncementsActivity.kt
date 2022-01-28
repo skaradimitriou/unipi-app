@@ -47,6 +47,10 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
             }
         })
 
+        observe()
+    }
+
+    private fun observe() {
         viewModel.observe(this, object : AnnouncementCallback {
             override fun openAnnouncement(model: Announcement) {
                 startActivity(Intent(this@AnnouncementsActivity,WebviewActivity::class.java).also {

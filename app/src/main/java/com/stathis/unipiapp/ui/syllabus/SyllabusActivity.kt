@@ -20,10 +20,6 @@ class SyllabusActivity : UnipiActivity<ActivitySyllabusBinding>(R.layout.activit
     }
 
     override fun startOps() {
-        /*
-        FIXME: All Post Grad Courses should be added later on (?)
-         */
-
         supportActionBar?.title = resources.getString(R.string.syllabus)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
