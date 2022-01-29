@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.syllabus.adapter
+package com.stathis.unipiapp.ui.dashboard.syllabus.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

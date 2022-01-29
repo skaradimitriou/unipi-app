@@ -4,7 +4,6 @@ import android.view.MenuItem
 import android.webkit.WebSettings
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
-import com.stathis.unipiapp.databinding.ActivitySyllabusBinding
 import com.stathis.unipiapp.databinding.ActivityWebviewBinding
 import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.network.SSLWebViewClient

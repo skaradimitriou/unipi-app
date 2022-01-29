@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.syllabus
+package com.stathis.unipiapp.ui.dashboard.syllabus
 
 import android.app.Application
 import android.util.Log
@@ -6,6 +6,7 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.R
@@ -13,7 +14,7 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.SemesterCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Semester
-import com.stathis.unipiapp.ui.syllabus.adapter.SemesterAdapter
+import com.stathis.unipiapp.ui.dashboard.syllabus.adapter.SemesterAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallba
     }
 
     private fun getData() {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             getLessons()
         }
     }

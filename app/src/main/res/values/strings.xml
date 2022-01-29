@@ -11,6 +11,7 @@
     <string name="url_tag">URL</string>
     <string name="model">MODEL</string>
     <string name="menu_main">Αρχική</string>
+    <string name="nav_syllabus">Μαθήματα</string>
     <string name="main_screen">Αρχική</string>
 
     <string name="search">Αναζήτηση</string>
@@ -51,14 +52,14 @@
 
     <!-- Eclass Announcements Screen -->
     <string name="eclass_lessons_header">Αναζήτηση Μαθήματος E-Class</string>
-    <string name="eclass">Ανακοινώσεις E-Class</string>
+    <string name="eclass">Ανακοινώσεις</string>
     <string name="eclass_lesson_title">Eclass Lesson Title</string>
-
-    <!-- Intro Screen -->
-
 
     <!-- Lessons Screen -->
     <string name="lesson_announcements">Ανακοινώσεις Μαθήματος</string>
+    <string name="info_title">Επεξήγηση χρωμάτων</string>
+    <string name="info_body">Τα μαθήματα που είναι σημειωμένα με μπλέ χρώμα στα αριστερά είναι μαθήματα υποχρεωτικά. Αντίστοιχα, μαθήματα τα οποία είναι σημειωμένα με κόκκινο χρώμα είναι μαθήματα επιλογής.</string>
+    <string name="lesson_info_title">Info</string>
 
     <!-- Professors Screen -->
     <string name="search_professor">Αναζήτησε έναν καθηγητή</string>
@@ -79,5 +80,7 @@
 
     <!-- Students Screen -->
     <string name="student_services">Υπηρεσίες Φοιτητών</string>
+    <string name="lessons_mppl_title">Μαθήματα ΠΜΣ Πληροφορική</string>
+
 
 </resources>

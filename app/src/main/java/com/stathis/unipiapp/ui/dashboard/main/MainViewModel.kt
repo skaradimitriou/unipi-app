@@ -2,6 +2,7 @@ package com.stathis.unipiapp.ui.dashboard.main
 
 import android.app.Application
 import android.view.View
+import androidx.lifecycle.viewModelScope
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.MainScreenCallback
@@ -9,6 +10,7 @@ import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.ShortCategory
 import com.stathis.unipiapp.models.UnipiItem
 import com.stathis.unipiapp.ui.dashboard.main.adapter.MainScreenAdapter
+import kotlinx.coroutines.launch
 
 class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
 
@@ -16,7 +18,9 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
     val adapter = MainScreenAdapter(this)
 
     init {
-        createList()
+        viewModelScope.launch {
+            createList()
+        }
     }
 
     private fun createList() {

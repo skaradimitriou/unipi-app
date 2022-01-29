@@ -2,6 +2,7 @@ package com.stathis.unipiapp.util
 
 import androidx.databinding.BindingAdapter
 import android.os.Handler
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
@@ -59,6 +60,12 @@ class MyBindingAdapters {
             }
         }
 
+        @BindingAdapter("mandatoryColor")
+        @JvmStatic
+        fun View.setMandatoryColor(mandatory : Boolean) = when(mandatory){
+            true -> this.setBackgroundResource(R.color.unipi_blue)
+            false -> this.setBackgroundResource(R.color.unipi_red)
+        }
 
         @BindingAdapter("setDate")
         @JvmStatic
