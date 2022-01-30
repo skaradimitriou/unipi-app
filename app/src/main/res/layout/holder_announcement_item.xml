@@ -27,7 +27,7 @@
             android:id="@+id/announcement_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            setDate="@{model.pubDate}"
+            setAnnouncementDate="@{model.pubDate}"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

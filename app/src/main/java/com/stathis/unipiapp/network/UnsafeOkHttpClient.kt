@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.di
+package com.stathis.unipiapp.network
 
 import okhttp3.OkHttpClient
 import java.security.SecureRandom

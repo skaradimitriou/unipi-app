@@ -33,6 +33,6 @@ class DepartmentAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel, 
         is CarouselParent -> R.layout.holder_viewpager_carousel_item
         is HorizontalDepartmentItem -> R.layout.holder_dept_horizontal_nested_item
         is VerticalDepartmentItem -> R.layout.holder_dept_vertical_nested_item
-        else -> R.layout.holder_empty_view
+        else -> R.layout.holder_empty_layout
     }
 }

@@ -1,7 +1,9 @@
 package com.stathis.unipiapp.util
 
+import android.annotation.SuppressLint
 import androidx.databinding.BindingAdapter
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +13,8 @@ import com.stathis.unipiapp.R
 import com.stathis.unipiapp.models.Professor
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
 import org.jsoup.Jsoup
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MyBindingAdapters {
@@ -67,10 +71,28 @@ class MyBindingAdapters {
             false -> this.setBackgroundResource(R.color.unipi_red)
         }
 
-        @BindingAdapter("setDate")
+        @BindingAdapter("setDefaultDate")
         @JvmStatic
-        fun TextView.setDate(date: String) {
-            this.text = date.take(16)
+        fun TextView.setDefaultDate(date: String?) {
+            var formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss")
+            date?.let {
+                var newDate : Date = formatter.parse(date.take(25))
+
+                formatter = SimpleDateFormat("dd/MM/yyyy")
+                this.text = formatter.format(newDate)
+            }
+        }
+
+        @BindingAdapter("setAnnouncementDate")
+        @JvmStatic
+        fun TextView.setAnnouncementDate(date: String?) {
+            var formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss")
+            date?.let {
+                var newDate : Date = formatter.parse(date.take(25))
+
+                formatter = SimpleDateFormat("dd/MM/yyyy HH:mm")
+                this.text = formatter.format(newDate)
+            }
         }
 
         @BindingAdapter("setHtmlText")

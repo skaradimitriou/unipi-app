@@ -1,6 +1,6 @@
 package com.stathis.unipiapp.di.announcements
 
-import com.stathis.unipiapp.di.UnsafeOkHttpClient
+import com.stathis.unipiapp.network.UnsafeOkHttpClient
 import com.stathis.unipiapp.network.site.SiteEndpoints
 import com.stathis.unipiapp.network.site.SiteApiClient
 import com.stathis.unipiapp.util.CS_UNIPI

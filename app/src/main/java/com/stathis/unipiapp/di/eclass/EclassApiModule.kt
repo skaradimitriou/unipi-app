@@ -1,6 +1,6 @@
 package com.stathis.unipiapp.di.eclass
 
-import com.stathis.unipiapp.di.UnsafeOkHttpClient
+import com.stathis.unipiapp.network.UnsafeOkHttpClient
 import com.stathis.unipiapp.network.eclass.EclassApiClient
 import com.stathis.unipiapp.network.eclass.EclassEndpoints
 import com.stathis.unipiapp.util.ECLASS_URL

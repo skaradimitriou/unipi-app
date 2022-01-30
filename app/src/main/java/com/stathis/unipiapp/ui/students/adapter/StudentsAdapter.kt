@@ -31,6 +31,6 @@ class StudentsAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel,Stu
     override fun getItemViewType(position: Int): Int = when(getItem(position)){
         is CarouselParent -> R.layout.holder_viewpager_carousel_item
         is VerticalStudentItem -> R.layout.holder_stud_vertical_nested_item
-        else -> R.layout.holder_empty_view
+        else -> R.layout.holder_empty_layout
     }
 }
