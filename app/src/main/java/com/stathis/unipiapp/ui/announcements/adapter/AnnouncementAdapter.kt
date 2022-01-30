@@ -9,9 +9,9 @@ import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.databinding.HolderAnnouncementItemBinding
 import com.stathis.unipiapp.databinding.HolderAnnouncementShimmerItemBinding
 import com.stathis.unipiapp.databinding.HolderEmptyLayoutBinding
-import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.models.LocalModel
 import com.stathis.unipiapp.models.ShimmerModel
+import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 
 class AnnouncementAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel, AnnouncementsViewHolder>(MyDiffUtil<LocalModel>()) {
 
@@ -31,7 +31,7 @@ class AnnouncementAdapter(val callback : UnipiCallback) : ListAdapter<LocalModel
 
     override fun getItemViewType(position: Int): Int = when(getItem(position)){
         is ShimmerModel -> R.layout.holder_announcement_shimmer_item
-        is Announcement -> R.layout.holder_announcement_item
+        is DeptAnnouncement -> R.layout.holder_announcement_item
         else -> R.layout.holder_empty_layout
     }
 }

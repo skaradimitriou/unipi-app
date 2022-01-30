@@ -5,8 +5,8 @@ import android.webkit.WebSettings
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityWebviewBinding
-import com.stathis.unipiapp.models.Announcement
 import com.stathis.unipiapp.network.SSLWebViewClient
+import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 import com.stathis.unipiapp.util.BASE_URL
 
 class WebviewActivity : UnipiActivity<ActivityWebviewBinding>(R.layout.activity_webview) {
@@ -14,15 +14,15 @@ class WebviewActivity : UnipiActivity<ActivityWebviewBinding>(R.layout.activity_
     override fun init() {}
 
     override fun startOps() {
-        val model = intent.getParcelableExtra<Announcement>(resources.getString(R.string.model))
+        val model = intent.getParcelableExtra<DeptAnnouncement>(resources.getString(R.string.model))
 
         model?.let {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.title = model.title
 
-            val newUrl = when (model.url.startsWith(BASE_URL)) {
-                true -> model.url
-                false -> BASE_URL.plus(model.url)
+            val newUrl = when (model.link.startsWith(BASE_URL)) {
+                true -> model.link
+                false -> BASE_URL.plus(model.link)
             }
 
             binding.webviewWindow.loadUrl(newUrl)

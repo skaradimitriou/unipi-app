@@ -1,7 +1,7 @@
 package com.stathis.unipiapp.callbacks
 
-import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 
 interface AnnouncementCallback {
-    fun openAnnouncement(model : Announcement)
+    fun openAnnouncement(model : DeptAnnouncement)
 }

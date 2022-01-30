@@ -21,7 +21,7 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
     }
 
     override fun startOps() {
-        val semester = intent.getParcelableExtra<Semester>("MODEL")
+        val semester = intent.getParcelableExtra<Semester>(getString(R.string.model))
         semester?.let { viewModel.bindData(semester.lessons) }
 
         supportActionBar?.title = semester?.title

@@ -48,7 +48,7 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
         viewModel.observe(this,object : EclassLessonCallback{
             override fun onLessonTap(model: EclassLesson) {
                 startActivity(Intent(requireContext(),EclassAnnouncementsActivity::class.java).also {
-                    it.putExtra("LESSON",model)
+                    it.putExtra(getString(R.string.lesson),model)
                 })
             }
         })

@@ -1,24 +1,16 @@
 package com.stathis.unipiapp.ui.announcements
 
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.databinding.ActivityAnnouncementsBinding
-import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 import com.stathis.unipiapp.ui.webview.WebviewActivity
-import com.stathis.unipiapp.util.BASE_URL
 
 class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layout.activity_announcements) {
 
@@ -34,25 +26,12 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
 
         binding.viewModel = viewModel
 
-        binding.announcementsRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                when(viewModel.adapter.currentList.get(0)){
-                    is Announcement -> {
-                        when(!recyclerView.canScrollVertically(1)){
-                            true ->  viewModel.loadMore()
-                            else -> Unit
-                        }
-                    }
-                }
-            }
-        })
-
         observe()
     }
 
     private fun observe() {
         viewModel.observe(this, object : AnnouncementCallback {
-            override fun openAnnouncement(model: Announcement) {
+            override fun openAnnouncement(model: DeptAnnouncement) {
                 startActivity(Intent(this@AnnouncementsActivity,WebviewActivity::class.java).also {
                     it.putExtra(resources.getString(R.string.model),model)
                 })

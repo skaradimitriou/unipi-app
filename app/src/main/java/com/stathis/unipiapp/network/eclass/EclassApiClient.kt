@@ -1,8 +1,8 @@
-package com.stathis.unipiapp.network.api
+package com.stathis.unipiapp.network.eclass
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.stathis.unipiapp.di.DaggerApiComponent
+import com.stathis.unipiapp.di.eclass.DaggerEclassApiComponent
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncementResponse
 import retrofit2.Call
@@ -10,13 +10,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class ApiClient {
+class EclassApiClient {
 
     @Inject
-    lateinit var api : Endpoints
+    lateinit var api : EclassEndpoints
 
     init {
-        DaggerApiComponent.create().inject(this)
+        DaggerEclassApiComponent.create().inject(this)
     }
 
     fun getLessonsAnnouncements(code : String, data: MutableLiveData<Channel>, error: MutableLiveData<Boolean>) {

@@ -1,31 +1,34 @@
 package com.stathis.unipiapp.ui.announcements
 
+import android.app.Application
 import android.view.View
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
-import com.stathis.unipiapp.models.Announcement
+import com.stathis.unipiapp.di.announcements.DaggerSiteApiComponent
 import com.stathis.unipiapp.models.EmptyItem
 import com.stathis.unipiapp.models.ShimmerModel
-import com.stathis.unipiapp.network.JsoupModule
+import com.stathis.unipiapp.network.site.SiteApiClient
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
+import com.stathis.unipiapp.ui.announcements.model.DeptChannel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AnnouncementsViewModel : ViewModel(), UnipiCallback {
+class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
+
+    @Inject
+    lateinit var api: SiteApiClient
 
     val adapter = AnnouncementAdapter(this)
-    val data = MutableLiveData<List<Announcement>>()
+    val data = MutableLiveData<DeptChannel>()
     val error = MutableLiveData<Boolean>()
-    private var tempList = mutableListOf<Announcement>()
     private lateinit var callback: AnnouncementCallback
-    private var counter = 0
 
     init {
+        DaggerSiteApiComponent.create().inject(this)
+
         getData()
     }
 
@@ -43,15 +46,15 @@ class AnnouncementsViewModel : ViewModel(), UnipiCallback {
         )
     }
 
-    fun stopShimmer(){
-        adapter.submitList(listOf(EmptyItem(),EmptyItem()))
+    fun stopShimmer() {
+        adapter.submitList(listOf(EmptyItem(), EmptyItem()))
     }
 
     fun getData() {
         startShimmer()
 
-        CoroutineScope(Dispatchers.IO).launch {
-            JsoupModule.getAnnouncements(tempList,data,error,counter)
+        viewModelScope.launch {
+            api.getDepartmentAnnouncements(data, error)
         }
     }
 
@@ -59,7 +62,7 @@ class AnnouncementsViewModel : ViewModel(), UnipiCallback {
         this.callback = callback
 
         data.observe(owner, Observer {
-            adapter.submitList(it)
+            it?.let { adapter.submitList(it.itemList) }
         })
     }
 
@@ -68,12 +71,7 @@ class AnnouncementsViewModel : ViewModel(), UnipiCallback {
     }
 
     override fun onItemTap(view: View) = when (view.tag) {
-        is Announcement -> callback.openAnnouncement(view.tag as Announcement)
+        is DeptAnnouncement -> callback.openAnnouncement(view.tag as DeptAnnouncement)
         else -> Unit
-    }
-
-    fun loadMore() {
-        counter += 14
-        getData()
     }
 }

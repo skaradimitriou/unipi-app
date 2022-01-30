@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.stathis.unipiapp.models.Announcement" />
+            type="com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement" />
 
         <variable
             name="callback"
@@ -27,7 +27,7 @@
             android:id="@+id/announcement_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{model.date}"
+            setDate="@{model.pubDate}"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,5 +52,4 @@
             app:layout_constraintTop_toBottomOf="@id/announcement_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
