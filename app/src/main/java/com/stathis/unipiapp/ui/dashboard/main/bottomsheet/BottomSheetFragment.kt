@@ -57,7 +57,6 @@ class BottomSheetFragment() : BottomSheetDialogFragment(), UnipiCallback {
                 getString(R.string.announcements) -> startActivity(Intent(requireContext(),AnnouncementsActivity::class.java))
                 getString(R.string.department) -> startActivity(Intent(requireContext(),DepartmentActivity::class.java))
                 getString(R.string.students) -> startActivity(Intent(requireContext(),StudentsActivity::class.java))
-                getString(R.string.syllabus) -> startActivity(Intent(requireContext(),ProfessorsActivity::class.java))
                 getString(R.string.contact) -> startActivity(Intent(requireContext(),ContactActivity::class.java))
                 getString(R.string.about_app_title) -> startActivity(Intent(requireContext(),AboutActivity::class.java))
                 else -> Unit

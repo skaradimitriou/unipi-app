@@ -31,7 +31,7 @@ class SyllabusFragment : UnipiFragment<FragmentSyllabusBinding>(R.layout.fragmen
     }
 
     override fun stopOps() {
-        viewModel.release(this)
+        viewModel.release(viewLifecycleOwner)
     }
 
 }

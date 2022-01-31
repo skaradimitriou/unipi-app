@@ -41,7 +41,7 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
     }
 
     override fun stopOps() {
-        viewModel.release(this)
+        viewModel.release(viewLifecycleOwner)
     }
 
     private fun observe(){

@@ -20,6 +20,7 @@
             style="@style/VerticalRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="@dimen/dimen_10"
             android:adapter="@{viewModel.adapter}"
             tools:itemCount="10"
             tools:listitem="@layout/holder_semester_item" />

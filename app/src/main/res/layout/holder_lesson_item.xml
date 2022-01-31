@@ -10,7 +10,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        style="@style/unipi_card"
+        style="@style/unipi_lesson_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:tag="@{model}">
