@@ -30,6 +30,8 @@ Model - View - ViewModel (MVVM)
 
 ### Libraries
 
+[Retrofit](https://square.github.io/retrofit/)</br>
+[Gson](https://github.com/google/gson) </br>
 [Picasso](https://square.github.io/picasso/) <br/> 
 [JSOUP](https://jsoup.org/) <br/>
 [SimpleXML]() <br/>
