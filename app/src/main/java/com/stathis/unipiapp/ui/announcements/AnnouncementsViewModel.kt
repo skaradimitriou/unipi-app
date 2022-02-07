@@ -13,6 +13,7 @@ import com.stathis.unipiapp.network.site.SiteApiClient
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
 import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 import com.stathis.unipiapp.ui.announcements.model.DeptChannel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -53,8 +54,12 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     fun getData() {
         startShimmer()
 
-        viewModelScope.launch {
-            api.getDepartmentAnnouncements(data, error)
+        viewModelScope.launch(Dispatchers.IO) {
+            kotlin.runCatching {
+                api.getDepartmentAnnouncements(data, error)
+            }.onFailure {
+                error.postValue(true)
+            }
         }
     }
 

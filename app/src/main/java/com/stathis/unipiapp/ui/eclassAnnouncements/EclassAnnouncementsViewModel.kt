@@ -15,7 +15,9 @@ import com.stathis.unipiapp.network.eclass.EclassApiClient
 import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
@@ -49,8 +51,12 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
     }
 
     fun getData(code: String) {
-        viewModelScope.launch {
-            api.getLessonsAnnouncements(code,data, error)
+        viewModelScope.launch(Dispatchers.IO) {
+            kotlin.runCatching {
+                api.getLessonsAnnouncements(code,data, error)
+            }.onFailure {
+                error.postValue(true)
+            }
         }
     }
 

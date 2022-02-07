@@ -1,7 +1,6 @@
 package com.stathis.unipiapp.ui.dashboard.syllabus
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
@@ -9,15 +8,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.SemesterCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.Semester
 import com.stathis.unipiapp.ui.dashboard.syllabus.adapter.SemesterAdapter
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.io.IOException
 
 class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
@@ -26,14 +24,17 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallba
     private lateinit var callback: SemesterCallback
     private lateinit var semesterList : MutableList<Semester>
     private val data = MutableLiveData<List<Semester>>()
+    val error = MutableLiveData<Boolean>()
 
     init {
         getData()
     }
 
     private fun getData() {
-        viewModelScope.launch {
-            getLessons()
+        viewModelScope.launch(Dispatchers.IO) {
+            runBlocking {
+                getLessons()
+            }
         }
     }
 
@@ -42,16 +43,17 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallba
             val jsonString = app.assets.open("msc_informatics_lessons.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<List<Semester>>() {}.type
             semesterList = Gson().fromJson(jsonString, listPersonType)
-            Log.d(app.getString(R.string.app_name),semesterList.toString())
             data.postValue(semesterList)
-        } catch (ioException: IOException) {}
+        } catch (ioException: IOException) {
+            error.postValue(true)
+        }
     }
 
     fun observe(owner: LifecycleOwner, callback : SemesterCallback) {
         this.callback = callback
 
         data.observe(owner, Observer {
-            adapter.submitList(it)
+            it?.let { adapter.submitList(it) }
         })
     }
 

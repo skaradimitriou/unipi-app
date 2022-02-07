@@ -1,6 +1,5 @@
 package com.stathis.unipiapp.network.eclass
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.stathis.unipiapp.di.eclass.DaggerEclassApiComponent
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
@@ -8,6 +7,7 @@ import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncementRespo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 import javax.inject.Inject
 
 class EclassApiClient {
@@ -22,8 +22,7 @@ class EclassApiClient {
     fun getLessonsAnnouncements(code : String, data: MutableLiveData<Channel>, error: MutableLiveData<Boolean>) {
         api.getLessonAnnouncements(code).enqueue(object : Callback<EclassAnnouncementResponse> {
             override fun onResponse(call: Call<EclassAnnouncementResponse>, response: Response<EclassAnnouncementResponse>) {
-                Log.d("Request body", response.body().toString())
-
+                Timber.d(response.body().toString())
                 error.postValue(false)
 
                 response.body()?.let {
@@ -32,7 +31,7 @@ class EclassApiClient {
             }
 
             override fun onFailure(call: Call<EclassAnnouncementResponse>, t: Throwable) {
-                Log.d("Request body", t.message.toString())
+                Timber.d(t.message.toString())
                 error.postValue(true)
             }
         })

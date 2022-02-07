@@ -14,7 +14,9 @@ import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.io.IOException
 
 class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
@@ -46,19 +48,23 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
     private fun getData() {
         startShimmer()
 
-        viewModelScope.launch {
-            try {
-                val jsonString =
-                    app.assets.open("eclass_lessons_mppl.json").bufferedReader()
-                        .use { it.readText() }
-                val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
-                eclassLessons = Gson().fromJson(jsonString, listPersonType)
-
-                data.postValue(eclassLessons)
-                error.postValue(false)
-            } catch (ioException: IOException) {
-                error.postValue(true)
+        viewModelScope.launch(Dispatchers.IO) {
+            runBlocking {
+                getEclassLessons()
             }
+        }
+    }
+
+    private fun getEclassLessons(){
+        try {
+            val jsonString =app.assets.open("eclass_lessons_mppl.json").bufferedReader().use { it.readText() }
+            val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
+            eclassLessons = Gson().fromJson(jsonString, listPersonType)
+
+            data.postValue(eclassLessons)
+            error.postValue(false)
+        } catch (ioException: IOException) {
+            error.postValue(true)
         }
     }
 
