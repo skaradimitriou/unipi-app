@@ -5,7 +5,7 @@ import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
 
 @Root(name = "channel", strict = false)
-data class DeptChannel @JvmOverloads constructor(
+data class DeptChannel (
 
     @field: Element(name = "title")
     var title: String = "",

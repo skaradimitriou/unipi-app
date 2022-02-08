@@ -5,7 +5,7 @@ import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
 @Root(name = "item", strict = false)
-data class EclassAnnouncement @JvmOverloads constructor(
+data class EclassAnnouncement (
 
     @field: Element(name = "title")
     var title: String = "",

@@ -8,7 +8,7 @@ import org.simpleframework.xml.Root
 
 @Root(name = "item", strict = false)
 @Parcelize
-data class DeptAnnouncement @JvmOverloads constructor(
+data class DeptAnnouncement (
 
     @field: Element(name = "title")
     var title: String = "",

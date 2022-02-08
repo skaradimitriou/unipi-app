@@ -5,7 +5,7 @@ import org.simpleframework.xml.Root
 
 
 @Root(name = "rss", strict = false)
-data class EclassAnnouncementResponse @JvmOverloads constructor(
+data class EclassAnnouncementResponse (
 
     @field: Element(name = "channel")
     var channel: Channel? = null

@@ -14,6 +14,7 @@ class AboutActivity : UnipiActivity<ActivityAboutBinding>(R.layout.activity_abou
 
     override fun startOps() {
         binding.aboutText = resources.getString(R.string.about_app_text)
+        binding.disclamer = resources.getString(R.string.disclamer)
     }
 
     override fun stopOps() {}

@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="about_text"
+            type="String" />
+
+        <variable
+            name="disclamer"
             type="String" />
     </data>
 
@@ -17,10 +22,23 @@
         <TextView
             android:id="@+id/about_app_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:justificationMode="inter_word"
-            android:padding="@dimen/dimen_20"
+            android:padding="@dimen/dimen_16"
             android:text="@{about_text}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/lorem_ipsum_2" />
+
+        <TextView
+            android:id="@+id/disclamer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:padding="@dimen/dimen_16"
+            android:text="@{disclamer}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/about_app_text"
             tools:text="@string/lorem_ipsum_2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
