@@ -1,6 +1,7 @@
 package com.stathis.unipiapp.ui.dashboard.main
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -9,7 +10,6 @@ import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.databinding.FragmentMainBinding
 import com.stathis.unipiapp.models.UnipiItem
 import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
-import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.BottomSheetFragment
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
@@ -24,6 +24,8 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
     }
 
     override fun startOps() {
+        activity?.title = "Αρχική"
+
         binding.setVariable(BR.viewModel,viewModel)
 
         viewModel.addListener(object : MainScreenCallback {
@@ -35,10 +37,6 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
                 else -> Unit
             }
         })
-
-        binding.categoriesAll.setOnClickListener {
-            BottomSheetFragment().show(requireActivity().supportFragmentManager,this.tag)
-        }
     }
 
     override fun stopOps() {}

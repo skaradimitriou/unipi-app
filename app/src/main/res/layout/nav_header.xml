@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/unipi_blue"
+    android:padding="@dimen/dimen_16">
+
+    <ImageView
+        android:id="@+id/nav_header_user_img"
+        android:layout_width="@dimen/image_60"
+        android:layout_height="@dimen/image_60"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_unipi_logo_svg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nav_header_user_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_16"
+        style="@style/text_16_white_bold"
+        android:text="@string/unipi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_header_user_img" />
+
+    <TextView
+        android:id="@+id/nav_header_user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/dimen_5"
+        android:textSize="@dimen/text_16"
+        android:text="@string/pms_informatics"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_header_user_full_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

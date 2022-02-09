@@ -15,26 +15,14 @@
         android:layout_height="match_parent"
         android:background="@color/grey_bg">
 
-        <TextView
-            android:id="@+id/syllabus_title"
-            style="@style/text_18_blue_bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_16"
-            android:gravity="center_horizontal"
-            android:text="@string/lessons_mppl_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/syllabus_recycler"
             style="@style/VerticalRecyclerView"
+            android:paddingTop="@dimen/dimen_16"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:adapter="@{viewModel.adapter}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/syllabus_title"
             tools:itemCount="10"
             tools:listitem="@layout/holder_semester_item" />
 

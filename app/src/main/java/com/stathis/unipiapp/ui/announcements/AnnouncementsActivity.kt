@@ -1,6 +1,7 @@
 package com.stathis.unipiapp.ui.announcements
 
 import android.content.Intent
+import android.net.Uri
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +11,6 @@ import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.databinding.ActivityAnnouncementsBinding
 import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
-import com.stathis.unipiapp.ui.webview.WebviewActivity
 
 class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layout.activity_announcements) {
 
@@ -32,9 +32,7 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
     private fun observe() {
         viewModel.observe(this, object : AnnouncementCallback {
             override fun openAnnouncement(model: DeptAnnouncement) {
-                startActivity(Intent(this@AnnouncementsActivity,WebviewActivity::class.java).also {
-                    it.putExtra(resources.getString(R.string.model),model)
-                })
+                startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(model.link) })
             }
         })
 

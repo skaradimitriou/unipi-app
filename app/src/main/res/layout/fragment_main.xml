@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.stathis.unipiapp.ui.dashboard.main.MainViewModel" />
@@ -15,38 +16,15 @@
         android:background="@color/grey_bg"
         tools:context=".ui.dashboard.main.MainFragment">
 
-        <View
-            android:id="@+id/top_header"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/round_corners_bottom"
-            android:backgroundTint="@color/unipi_blue"
-            app:layout_constraintBottom_toBottomOf="@id/unipi_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/unipi_logo"
-            android:layout_width="@dimen/image_80"
-            android:layout_height="@dimen/image_80"
-            android:layout_margin="@dimen/dimen_10"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_unipi_logo_svg"
-            app:layout_constraintBottom_toBottomOf="@id/top_header"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/top_header" />
-
-        <TextView
-            android:id="@+id/unipi_title"
-            style="@style/text_18_white"
-            android:layout_width="0dp"
+        <include
+            android:id="@+id/unipi_header_bg"
             android:layout_height="wrap_content"
-            android:text="@string/main_screen_title"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/dimen_10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/unipi_logo"
-            app:layout_constraintStart_toEndOf="@id/unipi_logo"
-            app:layout_constraintTop_toTopOf="@id/unipi_logo" />
+            layout="@layout/intro_screen_header"/>
 
         <TextView
             android:id="@+id/categories_header"
@@ -57,18 +35,7 @@
             android:paddingTop="@dimen/dimen_16"
             android:text="@string/categories"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_header" />
-
-        <TextView
-            android:id="@+id/categories_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/dimen_16"
-            android:paddingEnd="@dimen/dimen_16"
-            android:text="@string/all_categories"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@id/categories_header"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/unipi_header_bg" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_screen_recycler"

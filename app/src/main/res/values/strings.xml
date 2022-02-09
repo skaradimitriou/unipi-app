@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">UnipiApp</string>
 
+    <!-- Drawer -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
     <!-- General -->
     <string name="unipi_main_title">Πανεπιστήμιο Πειραιώς</string>
 
@@ -21,7 +25,7 @@
 
     <!-- About Screen -->
     <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του σε υποψήφιους μεταπτυχιακούς φοιτητές.</string>
-    <string name='disclamer'>Τα εφαρμογή χρησιμοποιεί δεδομένα σε μορφή rss απο το official site της σχολής (http://cs.unipi.gr) αλλα και απο το e-class (https://gunet2.cs.unipi.gr/). Τα δεδομένα αυτά ανήκουν στο Πανεπιστήμιο Πειραιώς.</string>
+    <string name='disclamer'>Τα εφαρμογή χρησιμοποιεί δεδομένα σε μορφή rss απο το official site της σχολής (https://www.cs.unipi.gr/index.php?option=com_k2&amp;view=itemlist&amp;layout=category&amp;task=category&amp;id=16&amp;Itemid=673&amp;lang=el) αλλα και απο το e-class (https://gunet2.cs.unipi.gr/). Τα δεδομένα αυτά ανήκουν στο Πανεπιστήμιο Πειραιώς.</string>
 
     <!-- Announcements Screen -->
     <string name="retry">Επανάληψη</string>
@@ -83,6 +87,12 @@
     <!-- Students Screen -->
     <string name="student_services">Υπηρεσίες Φοιτητών</string>
     <string name="lessons_mppl_title">Μαθήματα ΠΜΣ Πληροφορική</string>
+    <string name="pms_informatics">ΠΜΣ Πληροφορική</string>
+    <string name="unipi">Πανεπιστήμιο Πειραιώς (UoP)</string>
+    <string name="news_publisher_header">News Publisher</string>
+    <string name="news_publisher_desc">E-mail: publ@unipi.gr\nΤηλ. Κέντρο: 210 4142000</string>
+    <string name="app_contact">Επικοινωνία</string>
+    <string name="the_app">Εφαρμογή</string>
 
 
 </resources>

@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -27,6 +28,8 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
     }
 
     override fun startOps() {
+        activity?.title = "Μαθήματα E-Class"
+
         binding.viewModel = viewModel
 
         binding.searchAction.addTextChangedListener(object : TextWatcher {
@@ -59,5 +62,10 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
                 false -> Unit
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        activity?.menuInflater?.inflate(R.menu.professor_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }

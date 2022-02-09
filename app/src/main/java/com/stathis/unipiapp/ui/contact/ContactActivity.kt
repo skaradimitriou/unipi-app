@@ -3,7 +3,6 @@ package com.stathis.unipiapp.ui.contact
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +14,6 @@ import com.stathis.unipiapp.callbacks.ContactCallback
 import com.stathis.unipiapp.databinding.ActivityContactBinding
 import com.stathis.unipiapp.databinding.ContactScreenBottomSheetBinding
 import com.stathis.unipiapp.models.ContactItem
-import com.stathis.unipiapp.ui.dashboard.main.bottomsheet.BottomSheetFragment
 
 class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_contact) {
 

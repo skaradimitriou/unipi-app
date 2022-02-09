@@ -2,8 +2,6 @@ package com.stathis.unipiapp.ui.eclassAnnouncements
 
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
-import android.util.Patterns
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,11 +10,8 @@ import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.databinding.ActivityEclassAnnouncementsBinding
-import com.stathis.unipiapp.models.Semester
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
-import com.stathis.unipiapp.ui.webview.WebviewActivity
-import org.jsoup.Jsoup
 
 class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBinding>(R.layout.activity_eclass_announcements) {
 

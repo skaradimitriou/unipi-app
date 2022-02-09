@@ -1,20 +1,20 @@
-package com.stathis.unipiapp.ui.about
+package com.stathis.unipiapp.ui.getInTouch
 
 import android.view.MenuItem
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
-import com.stathis.unipiapp.databinding.ActivityAboutBinding
+import com.stathis.unipiapp.databinding.ActivityGetInTouchBinding
 
-class AboutActivity : UnipiActivity<ActivityAboutBinding>(R.layout.activity_about) {
+class GetInTouchActivity : UnipiActivity<ActivityGetInTouchBinding>(R.layout.activity_get_in_touch) {
+
 
     override fun init() {
-        supportActionBar?.title = resources.getString(R.string.about_app_title)
+        supportActionBar?.title = "Επικοινωνία"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun startOps() {
-        binding.aboutText = resources.getString(R.string.about_app_text)
-    }
+        binding.disclamer = resources.getString(R.string.disclamer)}
 
     override fun stopOps() {}
 

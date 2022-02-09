@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/unipi_header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/round_corners"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/unipi_desc"/>
+
+    <ImageView
+        android:id="@+id/unipi_logo"
+        android:layout_width="@dimen/image_50"
+        android:layout_height="@dimen/image_50"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_unipi_logo_svg"
+        app:layout_constraintEnd_toEndOf="@id/unipi_header_bg"
+        app:layout_constraintStart_toStartOf="@id/unipi_header_bg"
+        app:layout_constraintTop_toTopOf="@id/unipi_header_bg" />
+
+    <TextView
+        android:id="@+id/unipi_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10"
+        android:text="@string/unipi"
+        style="@style/text_16_blue_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/unipi_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,9 @@
         android:theme="@style/Theme.UnipiApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.getInTouch.GetInTouchActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.eclassAnnouncements.EclassAnnouncementsActivity"
             android:exported="false" />
         <activity
@@ -40,10 +43,7 @@
         <activity
             android:name=".ui.dashboard.DashboardActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustNothing"/>
-        <activity
-            android:name=".ui.webview.WebviewActivity"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".ui.intro.MainActivity"
             android:exported="true">

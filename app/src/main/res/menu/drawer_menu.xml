@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/announcements"
+        android:title="@string/announcements" />
+
+    <item
+        android:id="@+id/department"
+        android:title="@string/department" />
+
+    <item
+        android:id="@+id/students"
+        android:title="@string/students" />
+
+    <item
+        android:id="@+id/professors"
+        android:title="@string/professors" />
+
+    <item
+        android:id="@+id/contact"
+        android:title="@string/contact" />
+
+    <item android:title="@string/the_app">
+        <menu>
+            <item
+                android:id="@+id/about_app_title"
+                android:title="@string/about_app_title" />
+
+            <item
+                android:id="@+id/get_in_touch"
+                android:title="@string/app_contact" />
+        </menu>
+    </item>
+</menu>

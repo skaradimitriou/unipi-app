@@ -2,6 +2,7 @@ package com.stathis.unipiapp.ui.dashboard.syllabus
 
 import android.content.Intent
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
@@ -22,6 +23,8 @@ class SyllabusFragment : UnipiFragment<FragmentSyllabusBinding>(R.layout.fragmen
     }
 
     override fun startOps() {
+        activity?.title = getString(R.string.lessons_mppl_title)
+
         binding.viewModel = viewModel
 
         viewModel.observe(viewLifecycleOwner, object : SemesterCallback {
