@@ -1,8 +1,10 @@
+## News Info Provider
+ 
 I published my app in Google Play and it gets recent announcements and eclass announcements in my app. 
 I get them via rss and show them in my app. The owner of the news is University of Piraeus (Greece).
 
 
-About the Announcements shown inside the app (path: Αρχική> Ανακοινώσεις Τμήματος):
+### About the Announcements shown inside the app (path: Αρχική> Ανακοινώσεις Τμήματος):
 
 App Name: ΠΜΣ Πληροφορική, Παν. Πειραιώς
 App Package: com.stathis.unipiapp
@@ -16,9 +18,7 @@ Original Publisher of Each Article: University of Piraeus faculty (secretary)
 
 The app doesnt modify the news title inside the app. It just shows them to the user and when the user clicks on one title, it redirects him to the official website in order to read the whole description.
 
-About the Eclass Announcements inside the app:
-
-About the Announcements shown inside the app (path: Αρχική> Ανακοινώσεις Τμήματος)
+### About the Eclass Announcements inside the app:
 
 App Name: ΠΜΣ Πληροφορική, Παν. Πειραιώς
 App Package: com.stathis.unipiapp
@@ -44,4 +44,4 @@ Example: If you want to get the eclass announcements for the lesson "ALGORITHMS"
 
 The app doesn't modify the given announcements, it just displays them vertically in order to provide users the ability to easily find them and open them.
 
-Disclamer: University of Piraeus owns all this data received.
+### Disclamer: University of Piraeus owns all this data received.
