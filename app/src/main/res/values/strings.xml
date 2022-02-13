@@ -25,10 +25,13 @@
 
     <!-- About Screen -->
     <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του σε υποψήφιους μεταπτυχιακούς φοιτητές.</string>
-    <string name='disclamer'>Τα εφαρμογή χρησιμοποιεί δεδομένα σε μορφή rss απο το official site της σχολής (https://www.cs.unipi.gr/index.php?option=com_k2&amp;view=itemlist&amp;layout=category&amp;task=category&amp;id=16&amp;Itemid=673&amp;lang=el) αλλα και απο το e-class (https://gunet2.cs.unipi.gr/). Τα δεδομένα αυτά ανήκουν στο Πανεπιστήμιο Πειραιώς.</string>
+    <string name='disclamer'>Τα εφαρμογή χρησιμοποιεί δεδομένα σε μορφή rss απο το official site της σχολής (https://www.cs.unipi.gr/index.php?option=com_k2&amp;view=itemlist&amp;layout=category&amp;task=category&amp;id=16&amp;Itemid=673&amp;lang=el) αλλα και απο το e-class (https://gunet2.cs.unipi.gr/). Τα δεδομένα αυτά ανήκουν στο Πανεπιστήμιο Πειραιώς. </string>
+    <string name='disclamer_more_info'><b>Περισσότερες Πληροφορίες</b>: \n https://github.com/skaradimitriou/unipi-app/blob/master/news-info.md</string>
 
     <!-- Announcements Screen -->
     <string name="retry">Επανάληψη</string>
+    <string name="author"><b>Author:</b> %s</string>
+    <string name="default_author"><b>Author:</b> infodept@unipi.gr (Πανεπιστήμιο Πειραιώς)</string>
 
     <!-- Contact Screen -->
     <string name="contact_type_selection">Επιλογή Τρόπου Επικοινωνίας</string>
@@ -93,6 +96,7 @@
     <string name="news_publisher_desc">E-mail: publ@unipi.gr\nΤηλ. Κέντρο: 210 4142000</string>
     <string name="app_contact">Επικοινωνία</string>
     <string name="the_app">Εφαρμογή</string>
+    <string name="secretariat">Γραμματεία</string>
 
 
 </resources>

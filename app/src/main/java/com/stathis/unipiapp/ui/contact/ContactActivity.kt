@@ -24,7 +24,7 @@ class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_
     }
 
     override fun startOps() {
-        supportActionBar?.title = resources.getString(R.string.contact)
+        supportActionBar?.title = resources.getString(R.string.secretariat)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.viewModel = viewModel

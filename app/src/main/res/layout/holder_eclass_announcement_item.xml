@@ -15,9 +15,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        style="@style/unipi_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/unipi_card"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}">
 
@@ -42,10 +42,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/dimen_10"
-                android:paddingBottom="@dimen/dimen_10"
                 android:textColor="@color/grey_light"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/announcement_title"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/announcement_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_10"
+                android:text="@string/default_author"
+                android:textColor="@color/grey_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/announcement_date"
                 tools:text="@string/app_name" />
 
             <TextView
@@ -55,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/announcement_date"
+                app:layout_constraintTop_toBottomOf="@id/announcement_author"
                 tools:text="@string/app_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

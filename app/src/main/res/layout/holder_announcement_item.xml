@@ -14,42 +14,50 @@
             type="com.stathis.unipiapp.callbacks.UnipiCallback" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/unipi_card"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
-        android:paddingStart="@dimen/dimen_10"
-        android:paddingTop="@dimen/dimen_10"
-        android:paddingEnd="@dimen/dimen_10"
         android:tag="@{model}">
 
-        <TextView
-            android:id="@+id/announcement_date"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            setAnnouncementDate="@{model.pubDate}"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/app_name" />
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_10">
 
-        <TextView
-            android:id="@+id/announcement_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{model.title}"
-            android:textColor="@color/unipi_blue"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/announcement_date"
-            tools:text="@string/app_name" />
+            <TextView
+                android:id="@+id/announcement_title"
+                style="@style/text_14_blue_highlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{model.title}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1"
-            android:layout_marginTop="@dimen/dimen_10"
-            android:background="@color/unipi_red"
-            app:layout_constraintTop_toBottomOf="@id/announcement_title" />
+            <TextView
+                android:id="@+id/announcement_date"
+                setDefaultDate="@{model.pubDate}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_5"
+                android:textColor="@color/grey_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/announcement_title"
+                tools:text="@string/app_name" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/announcement_desc"
+                setAuthorEmail="@{model.author}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/announcement_date"
+                tools:text="@string/app_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

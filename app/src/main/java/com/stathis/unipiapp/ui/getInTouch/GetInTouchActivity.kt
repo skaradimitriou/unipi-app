@@ -9,12 +9,11 @@ class GetInTouchActivity : UnipiActivity<ActivityGetInTouchBinding>(R.layout.act
 
 
     override fun init() {
-        supportActionBar?.title = "Επικοινωνία"
+        supportActionBar?.title = resources.getString(R.string.contact)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun startOps() {
-        binding.disclamer = resources.getString(R.string.disclamer)}
+    override fun startOps() {}
 
     override fun stopOps() {}
 

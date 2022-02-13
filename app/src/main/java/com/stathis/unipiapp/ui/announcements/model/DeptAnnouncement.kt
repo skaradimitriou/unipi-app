@@ -19,6 +19,9 @@ data class DeptAnnouncement (
     @field: Element(name = "link")
     var link: String = "",
 
+    @field: Element(name = "author")
+    var author: String = "",
+
     @field: Element(name = "pubDate")
     var pubDate: String = ""
 

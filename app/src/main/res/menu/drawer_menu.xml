@@ -20,7 +20,7 @@
 
     <item
         android:id="@+id/contact"
-        android:title="@string/contact" />
+        android:title="@string/secretariat" />
 
     <item android:title="@string/the_app">
         <menu>
