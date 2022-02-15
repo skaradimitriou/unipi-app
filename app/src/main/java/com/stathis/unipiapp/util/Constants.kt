@@ -24,8 +24,7 @@ const val ECLASS_URL = "http://gunet2.cs.unipi.gr"
 @BindingAdapter("loadLocalPhoto")
 fun ImageView.loadLocalPhoto(photo: String) {
     try {
-        val myImage =
-            this.context.resources.getIdentifier(photo, "drawable", "com.stathis.unipiapp")
+        val myImage = this.context.resources.getIdentifier(photo, "drawable", "com.stathis.unipiapp")
         this.setImageResource(myImage)
     } catch (e: Exception) {
         this.setImageResource(R.drawable.ic_unipi_logo_svg)
@@ -69,12 +68,17 @@ fun View.setMandatoryColor(mandatory: Boolean) = when (mandatory) {
 
 @BindingAdapter("setDefaultDate")
 fun TextView.setDefaultDate(date: String?) {
-    var formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss")
-    date?.let {
-        var newDate: Date = formatter.parse(date.take(25))
+    try {
+        var formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss")
+        date?.let {
+            var newDate: Date = formatter.parse(date.take(25))
 
-        formatter = SimpleDateFormat("dd/MM/yyyy")
-        this.text = formatter.format(newDate)
+            formatter = SimpleDateFormat("dd/MM/yyyy")
+            this.text = formatter.format(newDate)
+        }
+    } catch (e: Exception) {
+        date?.let { this.text = it.take(16) }
+        Timber.d("ERROR CASE => IT")
     }
 }
 
@@ -87,12 +91,17 @@ fun TextView.setAuthorEmail(author: String?) {
 
 @BindingAdapter("setAnnouncementDate")
 fun TextView.setAnnouncementDate(date: String?) {
-    var formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss")
-    date?.let {
-        var newDate: Date = formatter.parse(date.take(25))
+    try {
+        var formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss")
+        date?.let {
+            var newDate: Date = formatter.parse(date.take(25))
 
-        formatter = SimpleDateFormat("dd/MM/yyyy HH:mm")
-        this.text = formatter.format(newDate)
+            formatter = SimpleDateFormat("dd/MM/yyyy HH:mm")
+            this.text = formatter.format(newDate)
+        }
+    } catch (e: Exception) {
+        date?.let { this.text = it.take(16) }
+        Timber.d("ERROR CASE => IT")
     }
 }
 
