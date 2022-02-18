@@ -1,5 +1,7 @@
 # University of Piraeus (UoP) University App
 
+This app is live at [Google Play](https://play.google.com/store/apps/details?id=com.stathis.unipiapp) <br/>
+
 ## Main Goal
 
 This app was developed for University of Piraeus (UoP), so users can gain:<br/>
