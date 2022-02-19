@@ -10,11 +10,12 @@
             type="com.stathis.unipiapp.ui.dashboard.lessons.MyLessonsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/eclass_lessons_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/eclass_lessons_parent"
-        android:background="@color/grey_bg">
+        android:background="@color/grey_bg"
+        app:layoutDescription="@xml/fragment_lessons_xml_eclass_lessons_parent_scene">
 
         <EditText
             android:id="@+id/search_action"
@@ -40,5 +41,5 @@
             app:layout_constraintTop_toBottomOf="@+id/search_action"
             tools:itemCount="10" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

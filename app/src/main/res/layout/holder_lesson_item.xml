@@ -33,7 +33,7 @@
                 android:id="@+id/lesson_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/dimen_10"
+                android:padding="@dimen/dimen_16"
                 android:text="@{model.title}"
                 android:textColor="@color/unipi_blue"
                 android:textStyle="bold"
