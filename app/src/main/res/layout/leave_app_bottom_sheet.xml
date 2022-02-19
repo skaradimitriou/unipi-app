@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/bottom_sheet_title"
+            style="@style/text_18_blue_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/leaving_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_yes_btn"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:background="@color/grey_bg"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/leaving_yes_btn"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bottom_sheet_cancel_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_sheet_title" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_cancel_btn"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:background="@color/unipi_blue"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/leaving_cancel_btn"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bottom_sheet_yes_btn"
+            app:layout_constraintTop_toTopOf="@id/bottom_sheet_yes_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

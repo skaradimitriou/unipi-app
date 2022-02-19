@@ -20,6 +20,7 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
     override fun startOps() {
         CoroutineScope(Dispatchers.Main).launch {
             startActivity(Intent(this@MainActivity,DashboardActivity::class.java))
+            finish()
             delay(5000)
         }
     }

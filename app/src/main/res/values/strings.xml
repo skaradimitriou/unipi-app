@@ -53,6 +53,10 @@
 
     <string name="main_screen_title"><b>Πανεπιστήμιο Πειραιώς (UoP)</b> \nΠΜΣ Πληροφορική</string>
 
+    <string name="leaving_header">Φεύγεις;</string>
+    <string name="leaving_yes_btn">Ναι</string>
+    <string name="leaving_cancel_btn">Άκυρο</string>
+
     <!-- Department Screen -->
     <string name="dept_research">Έρευνα</string>
     <string name="dept_events">Δραστηριότητες</string>

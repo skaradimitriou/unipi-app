@@ -2,6 +2,7 @@ package com.stathis.unipiapp.ui.dashboard
 
 import android.content.Intent
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -9,10 +10,14 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityDashboardBinding
+import com.stathis.unipiapp.databinding.ContactScreenBottomSheetBinding
+import com.stathis.unipiapp.databinding.LeaveAppBottomSheetBinding
+import com.stathis.unipiapp.models.ContactItem
 import com.stathis.unipiapp.ui.about.AboutActivity
 import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
 import com.stathis.unipiapp.ui.contact.ContactActivity
@@ -46,7 +51,14 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     override fun stopOps() {}
 
     override fun onBackPressed() {
-        // back button disabled on purpose for this screen
+        val binding = LeaveAppBottomSheetBinding.inflate(LayoutInflater.from(this))
+        val dialog = BottomSheetDialog(this).also {
+            it.setContentView(binding.root)
+        }
+        dialog.show()
+
+        binding.bottomSheetYesBtn.setOnClickListener { super.onBackPressed() }
+        binding.bottomSheetCancelBtn.setOnClickListener { dialog.hide() }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
