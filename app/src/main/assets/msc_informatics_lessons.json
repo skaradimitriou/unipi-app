@@ -8,7 +8,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : "Το μάθημα δεν διαθέτει περιγραφή"
       },
       {
         "title": "Αρχές Προγραμματισμού – Γλώσσα C, C++",
@@ -16,7 +17,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : "Βασικός στόχος είναι να μάθει ο σπουδαστής να αναλύει προβλήματα και να προγραμματίζει την επίλυσή τους με βασικό εργαλείο την γλώσσα C. Επιπρόσθετος στόχος είναι η αριστοποίηση των προγραμμάτων και το πέρασμα από τον παραδοσιακό προγραμματισμό στον αντικειμενοστρεφή και στον μεταλλακτικό προγραμματισμό.\n\nΠεριεχόμενο Μαθήματος\nΑρχές Προγραμματισμού. Χώροι Δεδομένων. Ανάλυση προβλήματος, Σχεδιασμός, Αναλυτικός αλγόριθμος και Ανάπτυξη προγράμματος. Βασικές δομές της C. Τελεστές. Εντολές C. Συναρτήσεις. Εισαγωγή στον αντικειμενοστρεφή προγραμματισμό με C++. Αρχεία. Ασκήσεις/Εφαρμογές."
       },
       {
         "title": "Δομές Δεδομένων",
@@ -24,7 +26,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Γλώσσες Προγραμματισμού και Μεταγλωττιστές",
@@ -32,7 +35,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Λειτουργικά Συστήματα",
@@ -40,7 +44,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ειδικά Κεφάλαια Μαθηματικών",
@@ -48,7 +53,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Διακριτά Μαθηματικά",
@@ -56,7 +62,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Λογικός Προγραμματισμός",
@@ -64,7 +71,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       }
     ]
   },
@@ -77,7 +85,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ταχεία Ανάπτυξη Εφαρμογών",
@@ -85,7 +94,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Βάσεις και Αποθήκες Δεδομένων",
@@ -93,7 +103,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Τεχνητή Νοηµοσύνη – Έµπειρα Συστήµατα",
@@ -101,7 +112,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Αλληλεπίδραση Ανθρώπου – Υπολογιστή",
@@ -109,7 +121,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Θεωρία και Εφαρµογές Γραφηµάτων",
@@ -117,7 +130,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Γραµµικός Προγραµµατισµός",
@@ -125,7 +139,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Πολυµεσικά Σήµατα και Συστήµατα",
@@ -133,7 +148,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ειδικά Θέµατα Συνδυαστικής Ανάλυσης",
@@ -141,7 +157,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       }
     ]
   },
@@ -154,7 +171,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Αναγνώριση Προτύπων",
@@ -162,7 +180,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Αλγόριθµοι",
@@ -170,7 +189,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "∆ίκτυα Υπολογιστών",
@@ -178,7 +198,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Συστήματα Λογισμικού Διαχείρισης Επιχειρησιακών Πόρων (ERP)",
@@ -186,7 +207,8 @@
         "mandatory": true,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Συστήµατα Υποστήριξης Αποφάσεων",
@@ -194,7 +216,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ανάπτυξη Λογισμικού για Κινητές Συσκευές",
@@ -202,7 +225,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Γραφικά µε Υπολογιστές – Εικονική Πραγματικότητα",
@@ -210,7 +234,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Κρυπτογραφία",
@@ -218,7 +243,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       }
     ]
   },
@@ -231,7 +257,8 @@
         "mandatory": true,
         "hours": 0,
         "ects": 20,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ασφάλεια Πληροφοριών",
@@ -239,7 +266,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Σύγχρονα Τηλεπικοινωνιακά Δίκτυα και Υπηρεσίες",
@@ -247,7 +275,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Εικονικές Επιχειρήσεις",
@@ -255,7 +284,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ηλεκτρονικό Επιχειρείν",
@@ -263,7 +293,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ιατρική Πληροφορική",
@@ -271,7 +302,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ναυτιλιακή Πληροφορική",
@@ -279,7 +311,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Νομική Πληροφορική",
@@ -287,7 +320,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Περιβαλλοντική Πληροφορική",
@@ -295,7 +329,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Πληροφορική στην Εκπαίδευση",
@@ -303,7 +338,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Γεωπληροφορική",
@@ -311,7 +347,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Συστημική Ανάλυση",
@@ -319,7 +356,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       },
       {
         "title": "Ανάλυση Εικόνας και Εφαρμογές",
@@ -327,7 +365,8 @@
         "mandatory": false,
         "hours": 3,
         "ects": 5,
-        "professor": []
+        "professor": [],
+        "description" : ""
       }
     ]
   }

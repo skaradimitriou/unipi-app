@@ -11,7 +11,9 @@ data class Lesson(
     val mandatory : Boolean,
     val hours : Int,
     val ects : Int,
-    val professor: List<Professor>
+    val professor: List<Professor>,
+    val description : String,
+    var isExpanded : Boolean = false
 
 ) : LocalModel, Parcelable {
     override fun equalsContent(obj: LocalModel): Boolean = when(obj) {
