@@ -52,9 +52,9 @@ class SyllabusViewModel(val app: Application) : UnipiViewModel(app), UnipiCallba
     fun observe(owner: LifecycleOwner, callback : SemesterCallback) {
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             it?.let { adapter.submitList(it) }
-        })
+        }
     }
 
     fun release(owner: LifecycleOwner) {

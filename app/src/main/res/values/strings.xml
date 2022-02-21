@@ -57,6 +57,8 @@
     <string name="leaving_yes_btn">Ναι</string>
     <string name="leaving_cancel_btn">Άκυρο</string>
 
+    <string name="eclass_announcements">Ανακοινώσεις E-Class</string>
+
     <!-- Department Screen -->
     <string name="dept_research">Έρευνα</string>
     <string name="dept_events">Δραστηριότητες</string>

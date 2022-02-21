@@ -28,7 +28,7 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
     }
 
     override fun startOps() {
-        activity?.title = "Μαθήματα E-Class"
+        activity?.title = resources.getString(R.string.eclass_announcements)
 
         binding.viewModel = viewModel
 
@@ -50,18 +50,18 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
     private fun observe(){
         viewModel.observe(this,object : EclassLessonCallback{
             override fun onLessonTap(model: EclassLesson) {
-                startActivity(Intent(requireContext(),EclassAnnouncementsActivity::class.java).also {
+                startActivity(Intent(requireContext(), EclassAnnouncementsActivity::class.java).also {
                     it.putExtra(getString(R.string.lesson),model)
                 })
             }
         })
 
-        viewModel.error.observe(this, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             when(it){
                 true -> Snackbar.make(binding.eclassLessonsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
                 false -> Unit
             }
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
