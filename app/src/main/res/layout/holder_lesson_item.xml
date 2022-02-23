@@ -63,6 +63,7 @@
                 android:visibility="gone"
                 android:paddingStart="@dimen/dimen_16"
                 android:paddingBottom="@dimen/dimen_16"
+                android:justificationMode="inter_word"
                 android:paddingEnd="@dimen/dimen_16"
                 android:text="@{model.description}"
                 app:layout_constraintEnd_toEndOf="parent"
