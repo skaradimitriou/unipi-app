@@ -15,6 +15,7 @@ import com.stathis.unipiapp.network.eclass.EclassApiClient
 import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
+import com.stathis.unipiapp.util.ShimmerHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -38,15 +39,7 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
 
     private fun startShimmer() {
         adapter.submitList(
-            listOf(
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel()
-            )
+            ShimmerHelper.getShimmerItems()
         )
     }
 

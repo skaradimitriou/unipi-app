@@ -13,6 +13,7 @@ import com.stathis.unipiapp.network.site.SiteApiClient
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
 import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 import com.stathis.unipiapp.ui.announcements.model.DeptChannel
+import com.stathis.unipiapp.util.ShimmerHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -35,15 +36,7 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
 
     private fun startShimmer() {
         adapter.submitList(
-            listOf(
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel()
-            )
+            ShimmerHelper.getShimmerItems()
         )
     }
 

@@ -14,6 +14,7 @@ import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
+import com.stathis.unipiapp.util.ShimmerHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -33,15 +34,7 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
 
     private fun startShimmer() {
         adapter.submitList(
-            listOf(
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel(),
-                ShimmerModel()
-            )
+            ShimmerHelper.getShimmerItems()
         )
     }
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.ContactItem" />
@@ -28,22 +29,33 @@
             <TextView
                 android:id="@+id/contact_item_title"
                 style="@style/normal_text_blue"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{model.title}"
+                app:layout_constraintEnd_toStartOf="@id/icon_more"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/app_name" />
 
             <TextView
                 android:id="@+id/contact_item_address"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{model.address}"
                 android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/icon_more"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/contact_item_title"
                 tools:text="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/icon_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
