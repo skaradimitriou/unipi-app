@@ -32,9 +32,10 @@ Model - View - ViewModel (MVVM)
 
 ### Libraries
 
-[Retrofit](https://square.github.io/retrofit/)</br>
-[Gson](https://github.com/google/gson) </br>
-[Picasso](https://square.github.io/picasso/) <br/> 
-[JSOUP](https://jsoup.org/) <br/>
-[SimpleXML]() <br/>
-[Shimmer Loading](https://facebook.github.io/shimmer-android/)
+[Retrofit](https://square.github.io/retrofit/) to consume REST web services</br>
+[Dagger2](https://developer.android.com/training/dependency-injection/dagger-android) for dependency injection </br> 
+[Gson](https://github.com/google/gson) for serialization/deserialization</br>
+[Picasso](https://square.github.io/picasso/) to load images <br/> 
+[JSOUP](https://jsoup.org/) HTML parser <br/>
+[SimpleXML]() to parse XML responses<br/>
+[Shimmer Loading](https://facebook.github.io/shimmer-android/) to implement loading effect
