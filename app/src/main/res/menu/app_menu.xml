@@ -7,7 +7,7 @@
 
     <item android:id="@+id/nav_syllabus"
         android:icon="@drawable/ic_book_nav"
-        android:title="@string/nav_syllabus" />
+        android:title="@string/syllabus" />
 
     <item android:id="@+id/nav_lessons"
         android:icon="@drawable/ic_book"

@@ -44,6 +44,8 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
     }
 
     fun getData(code: String) {
+        startShimmer()
+
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
                 api.getLessonsAnnouncements(code,data, error)

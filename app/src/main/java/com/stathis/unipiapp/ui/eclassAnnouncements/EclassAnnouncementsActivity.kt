@@ -33,6 +33,10 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
         }
 
         observe()
+
+        binding.swipe2refreshLayout.setOnRefreshListener {
+            model?.let { viewModel.getData(it.code) }
+        }
     }
 
     override fun stopOps() = viewModel.release(this)
@@ -44,12 +48,18 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
             }
         })
 
-        viewModel.error.observe(this, Observer {
+        viewModel.data.observe(this){
+            when(!it.itemList.isNullOrEmpty()){
+                true -> binding.swipe2refreshLayout.isRefreshing = false
+            }
+        }
+
+        viewModel.error.observe(this) {
             when(it){
                 true -> Snackbar.make(binding.eclassAnnouncementsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
                 false -> Unit
             }
-        })
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){

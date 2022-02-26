@@ -27,6 +27,10 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
         binding.viewModel = viewModel
 
         observe()
+
+        binding.swipe2refreshLayout.setOnRefreshListener {
+            viewModel.getData()
+        }
     }
 
     private fun observe() {
@@ -36,12 +40,18 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
             }
         })
 
-        viewModel.error.observe(this, Observer {
+        viewModel.data.observe(this){
+            when(!it.itemList.isNullOrEmpty()){
+                true -> binding.swipe2refreshLayout.isRefreshing = false
+            }
+        }
+
+        viewModel.error.observe(this) {
             when(it){
                 true -> showSnack()
                 false -> Unit
             }
-        })
+        }
     }
 
     override fun stopOps() = viewModel.release(this)

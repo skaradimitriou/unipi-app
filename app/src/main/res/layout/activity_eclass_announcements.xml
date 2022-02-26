@@ -9,18 +9,25 @@
             type="com.stathis.unipiapp.ui.eclassAnnouncements.EclassAnnouncementsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/eclass_announcements_parent"
-        android:background="@color/grey_bg">
+        android:id="@+id/swipe2refreshLayout"
+        android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/eclass_announcements"
-            style="@style/VerticalRecyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adapter="@{viewModel.adapter}" />
+            android:id="@+id/eclass_announcements_parent"
+            android:background="@color/grey_bg">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/eclass_announcements"
+                style="@style/VerticalRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adapter="@{viewModel.adapter}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

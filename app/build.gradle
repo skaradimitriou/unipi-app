@@ -14,8 +14,8 @@ android {
         applicationId "com.stathis.unipiapp"
         minSdk 22
         targetSdk 31
-        versionCode 6
-        versionName "6.0"
+        versionCode 7
+        versionName "7.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,8 +61,6 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.10.3'
 
     implementation 'com.google.code.gson:gson:2.8.9'
-
-    implementation 'com.squareup.picasso:picasso:2.71828'
 
     def retrofitVersion = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

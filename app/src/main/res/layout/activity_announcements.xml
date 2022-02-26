@@ -10,21 +10,28 @@
             type="com.stathis.unipiapp.ui.announcements.AnnouncementsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/announcements_parent"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/grey_bg"
-        tools:context=".ui.announcements.AnnouncementsActivity">
+        android:id="@+id/swipe2refreshLayout"
+        android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/announcements_recycler"
-            style="@style/VerticalRecyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/announcements_parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adapter="@{viewModel.adapter}"
-            tools:itemCount="10"
-            tools:listitem="@layout/holder_announcement_item" />
+            android:background="@color/grey_bg"
+            tools:context=".ui.announcements.AnnouncementsActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/announcements_recycler"
+                style="@style/VerticalRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adapter="@{viewModel.adapter}"
+                tools:itemCount="10"
+                tools:listitem="@layout/holder_announcement_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

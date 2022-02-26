@@ -1,13 +1,12 @@
 package com.stathis.unipiapp.util
 
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.models.Professor
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
@@ -31,13 +30,6 @@ fun ImageView.loadLocalPhoto(photo: String) {
     }
 }
 
-@BindingAdapter("loadImageFromUrl")
-fun ImageView.loadImg(url: String?) {
-    url?.let {
-        Picasso.get().load(url).error(R.drawable.ic_unipi_logo_svg).into(this)
-    }
-}
-
 @BindingAdapter("loadProfessorImage")
 fun ImageView.loadProfessorImg(model: Professor) {
     val errorImg = when (model.gender) {
@@ -47,7 +39,9 @@ fun ImageView.loadProfessorImg(model: Professor) {
     }
 
     model.image?.let {
-        Picasso.get().load(model.image).error(errorImg).into(this)
+        Glide.with(this.context).load(model.image).centerCrop()
+            .placeholder(errorImg)
+            .into(this)
     }
 }
 

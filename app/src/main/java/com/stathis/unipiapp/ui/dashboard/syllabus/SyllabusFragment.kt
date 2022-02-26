@@ -23,7 +23,7 @@ class SyllabusFragment : UnipiFragment<FragmentSyllabusBinding>(R.layout.fragmen
     }
 
     override fun startOps() {
-        activity?.title = getString(R.string.lessons_mppl_title)
+        activity?.title = getString(R.string.syllabus)
 
         binding.viewModel = viewModel
 

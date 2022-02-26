@@ -17,9 +17,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_10"
-        android:layout_marginTop="@dimen/dimen_5"
-        android:layout_marginEnd="@dimen/dimen_10"
+        style="@style/unipi_card"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}">
 
@@ -31,7 +29,7 @@
                 android:id="@+id/semester_item_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:padding="@dimen/dimen_20"
                 android:text="@{model.title}"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"

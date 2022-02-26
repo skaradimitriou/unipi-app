@@ -61,7 +61,7 @@ class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activit
         else -> false
     }
 
-    private fun openItem(item : CarouselItem) = when(item.position + 1){
+    private fun openItem(item : CarouselItem) = when(item.position){
         1 -> loadUrl(item.url)
         2 -> loadUrl(item.url)
         3 -> loadUrl(item.url)
