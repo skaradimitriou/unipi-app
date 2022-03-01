@@ -5,7 +5,8 @@
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:shimmer_highlight_alpha="0.5">
 
         <androidx.cardview.widget.CardView
             style="@style/unipi_card"
