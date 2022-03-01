@@ -13,7 +13,8 @@ import com.stathis.unipiapp.databinding.ActivityEclassAnnouncementsBinding
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
 
-class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBinding>(R.layout.activity_eclass_announcements) {
+class EclassAnnouncementsActivity :
+    UnipiActivity<ActivityEclassAnnouncementsBinding>(R.layout.activity_eclass_announcements) {
 
     private lateinit var viewModel: EclassAnnouncementsViewModel
 
@@ -41,33 +42,38 @@ class EclassAnnouncementsActivity : UnipiActivity<ActivityEclassAnnouncementsBin
 
     override fun stopOps() = viewModel.release(this)
 
-    private fun observe(){
-        viewModel.observe(this, object : EclassAnnouncementsCallback{
+    private fun observe() {
+        viewModel.observe(this, object : EclassAnnouncementsCallback {
             override fun onEclassAnnouncementTap(model: EclassAnnouncement) {
                 startActivity(Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(model.link) })
             }
         })
 
-        viewModel.data.observe(this){
-            when(!it.itemList.isNullOrEmpty()){
+        viewModel.data.observe(this) {
+            when (!it.itemList.isNullOrEmpty()) {
                 true -> binding.swipe2refreshLayout.isRefreshing = false
             }
         }
 
         viewModel.error.observe(this) {
-            when(it){
-                true -> Snackbar.make(binding.eclassAnnouncementsParent,getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
+            when (it) {
+                true -> Snackbar.make(binding.eclassAnnouncementsParent, getString(R.string.snackbar_error), Snackbar.LENGTH_LONG).show()
                 false -> Unit
             }
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {
             onBackPressed()
             true
         }
 
         else -> false
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }

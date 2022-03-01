@@ -32,6 +32,7 @@ class SyllabusFragment : UnipiFragment<FragmentSyllabusBinding>(R.layout.fragmen
                 startActivity(Intent(requireContext(), LessonsActivity::class.java).also {
                     it.putExtra(getString(R.string.model),model)
                 })
+                requireActivity().overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
             }
         })
 

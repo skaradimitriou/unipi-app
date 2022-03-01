@@ -53,6 +53,7 @@ class MyLessonsFragment : UnipiFragment<FragmentLessonsBinding>(R.layout.fragmen
                 startActivity(Intent(requireContext(), EclassAnnouncementsActivity::class.java).also {
                     it.putExtra(getString(R.string.lesson),model)
                 })
+                requireActivity().overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
             }
         })
 
