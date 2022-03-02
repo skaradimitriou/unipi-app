@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.ui.department.model.Programme" />
@@ -17,20 +18,21 @@
         style="@style/holder_programmes_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:tag="@{model}"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}"
         app:cardCornerRadius="@dimen/dimen_10"
         app:cardElevation="@dimen/dimen_5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/programmes_img"
+                loadLocalPhoto="@{model.imageResource}"
                 android:layout_width="70dp"
                 android:layout_height="@dimen/height_70"
-                loadLocalPhoto="@{model.imageResource}"
                 android:contentDescription="@string/app_name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +45,8 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dimen_10"
                 android:text="@{model.title}"
-                android:textStyle="bold"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/programmes_img"
                 app:layout_constraintTop_toTopOf="parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.models.ShortCategory" />
@@ -16,10 +17,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dimen_5"
         android:layout_marginStart="@dimen/dimen_5"
         android:layout_marginEnd="@dimen/dimen_5"
-        android:background="@color/white"
+        android:layout_marginBottom="@dimen/dimen_5"
+        android:background="?android:attr/selectableItemBackground"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}">
 
