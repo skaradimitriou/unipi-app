@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.unipiapp.models.Professor" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/professor_dialog_parent"
+        android:background="@drawable/round_corners_top">
+
+        <ImageView
+            android:id="@+id/professor_img"
+            loadProfessorImage="@{model}"
+            android:layout_width="@dimen/image_60"
+            android:layout_height="@dimen/image_60"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_unipi_logo_svg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_title"
+            style="@style/text_18_blue_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@{model.fullName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/professor_img"
+            tools:text="@string/lorem_ipsum" />
+
+        <View
+            android:id="@+id/title_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:alpha="0.5"
+            android:background="@color/unipi_blue"
+            app:layout_constraintTop_toBottomOf="@id/bottom_sheet_title" />
+
+        <ImageView
+            android:id="@+id/email_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dimen_16"
+            android:src="@drawable/ic_email_blue"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_sheet_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_divider" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_email"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/send_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/email_icon"
+            app:layout_constraintTop_toBottomOf="@id/title_divider" />
+
+        <ImageView
+            android:id="@+id/copy_img"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dimen_16"
+            android:src="@drawable/ic_copy"
+            app:layout_constraintBottom_toBottomOf="@id/copy_professor_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_sheet_email" />
+
+        <TextView
+            android:id="@+id/copy_professor_email"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/copy_professor_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/copy_img"
+            app:layout_constraintTop_toBottomOf="@id/bottom_sheet_email" />
+
+        <ImageView
+            android:id="@+id/share_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dimen_16"
+            android:src="@drawable/ic_share"
+            app:layout_constraintBottom_toBottomOf="@id/share_professor_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/copy_img" />
+
+        <TextView
+            android:id="@+id/share_professor_data"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/share_professor_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/share_icon"
+            app:layout_constraintTop_toBottomOf="@id/copy_professor_email" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

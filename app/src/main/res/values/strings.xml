@@ -82,16 +82,13 @@
     <string name="male">male</string>
     <string name="female">female</string>
 
-    <string name="send_email_to_male_professor">Είσαι σίγουρος πως θέλεις να στείλεις e-mail στον κ. %1$s;</string>
-    <string name="send_email_to_female_professor">Είσαι σίγουρος πως θέλεις να στείλεις e-mail στην κ. %1$s;</string>
-
     <string name="email_type">message/rfc822</string>
     <string name="sending_email">Send mail...</string>
     <string name="no_clients_installed">There are no email clients installed.</string>
 
-    <string name="dialog_new_email">Νέο e-mail</string>
-    <string name="dialog_yes">Ναι</string>
-    <string name="dialog_cancel">Άκυρο</string>
+    <string name="copy_professor_email">Αντιγραφή E-mail Καθηγητή</string>
+    <string name="share_professor_email">Κοινοποίηση Στοιχείων Καθηγητή</string>
+    <string name="copied">Το E-mail αντιγράφτηκε στο πρόχειρο</string>
 
     <!-- Students Screen -->
     <string name="student_services">Υπηρεσίες Φοιτητών</string>

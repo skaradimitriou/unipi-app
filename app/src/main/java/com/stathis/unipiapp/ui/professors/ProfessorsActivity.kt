@@ -1,22 +1,39 @@
 package com.stathis.unipiapp.ui.professors
 
-import android.content.ActivityNotFoundException
-import android.content.Intent
+import android.R.attr
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.ProfessorCallback
 import com.stathis.unipiapp.databinding.ActivityProfessorsBinding
+import com.stathis.unipiapp.databinding.LeaveAppBottomSheetBinding
+import com.stathis.unipiapp.databinding.ProfessorsBottomSheetBinding
 import com.stathis.unipiapp.models.Professor
+import android.R.attr.text
+
+import android.R.attr.label
+import android.content.*
+import com.google.android.material.snackbar.Snackbar
+import android.view.Gravity
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+
+import android.view.View
+
+
+
+
 
 class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.activity_professors) {
 
@@ -33,7 +50,7 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
         binding.viewModel = viewModel
 
         viewModel.observe(this,object : ProfessorCallback {
-            override fun onProfessorTap(model: Professor) = openPopUpWindow(model)
+            override fun onProfessorTap(model: Professor) = openBottomsheet(model)
         })
     }
 
@@ -41,17 +58,37 @@ class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.act
         viewModel.release(this)
     }
 
-    private fun openPopUpWindow(professor : Professor) {
-        MaterialAlertDialogBuilder(this).also {
-            it.setTitle(getString(R.string.dialog_new_email))
-            when(professor.gender){
-                resources.getString(R.string.male) -> it.setMessage(getString(R.string.send_email_to_male_professor).format(professor.vocative))
-                resources.getString(R.string.female) -> it.setMessage(getString(R.string.send_email_to_female_professor).format(professor.vocative))
-            }
+    private fun openBottomsheet(model : Professor){
+        val dBinding = ProfessorsBottomSheetBinding.inflate(LayoutInflater.from(this))
+        val dialog = BottomSheetDialog(this).also {
+            it.setContentView(dBinding.root)
+            dBinding.model = model
+        }
+        dialog.show()
 
-            it.setPositiveButton(getString(R.string.dialog_yes)) { dialog, which -> sendEmail(professor) }
-            it.setNegativeButton(getString(R.string.dialog_cancel)) { dialog, which -> dialog.dismiss() }
-        }.show()
+        dBinding.bottomSheetEmail.setOnClickListener {
+            sendEmail(model)
+        }
+
+        dBinding.copyProfessorEmail.setOnClickListener {
+            copyText(model.email)
+            Toast.makeText(this@ProfessorsActivity,getString(R.string.copied),Toast.LENGTH_LONG).show()
+        }
+
+        dBinding.shareProfessorData.setOnClickListener {
+            val intent = Intent().also {
+                it.action = Intent.ACTION_SEND
+                it.type = "text/plain"
+                it.putExtra(Intent.EXTRA_TEXT, "${model.fullName}, E-mail: ${model.email}")
+            }
+            startActivity(Intent.createChooser(intent, "Share with:"))
+        }
+    }
+
+    private fun copyText(professorEmail : String){
+        val clipboard: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("", professorEmail)
+        clipboard.setPrimaryClip(clip)
     }
 
     private fun sendEmail(professor : Professor){
