@@ -39,3 +39,4 @@ Model - View - ViewModel (MVVM)
 [JSOUP](https://jsoup.org/) HTML parser <br/>
 [SimpleXML]() to parse XML responses<br/>
 [Shimmer Loading](https://facebook.github.io/shimmer-android/) to implement loading effect
+[Timber](https://github.com/JakeWharton/timber)
