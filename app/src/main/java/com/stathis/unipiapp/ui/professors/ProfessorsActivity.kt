@@ -1,39 +1,18 @@
 package com.stathis.unipiapp.ui.professors
 
-import android.R.attr
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.ProfessorCallback
 import com.stathis.unipiapp.databinding.ActivityProfessorsBinding
-import com.stathis.unipiapp.databinding.LeaveAppBottomSheetBinding
 import com.stathis.unipiapp.databinding.ProfessorsBottomSheetBinding
 import com.stathis.unipiapp.models.Professor
-import android.R.attr.text
-
-import android.R.attr.label
 import android.content.*
-import com.google.android.material.snackbar.Snackbar
-import android.view.Gravity
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-
-import android.view.View
-
-
-
-
 
 class ProfessorsActivity : UnipiActivity<ActivityProfessorsBinding>(R.layout.activity_professors) {
 
