@@ -52,13 +52,9 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     fun getData() {
         startShimmer()
 
-        getAnnouncementsFromDb()
-
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
                 api.getDepartmentAnnouncements(data, error)
-            }.onFailure {
-                error.postValue(true)
             }
         }
     }
@@ -68,24 +64,24 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
 
         data.observe(owner, Observer {
             it?.let {
-                insertAllToDb(it.itemList!!)
+                it.itemList?.let { data -> insertAllToDb(data) }
                 adapter.submitList(it.itemList)
             }
         })
     }
 
-    private fun getAnnouncementsFromDb(){
-        viewModelScope.launch(Dispatchers.IO){
-            val data = database.getAll()
-            Timber.d("DATA => $data")
-        }
-    }
-
-    private fun deleteAllFromDb(){
-       viewModelScope.launch(Dispatchers.IO) {
-           database.deleteAll()
-       }
-    }
+//    private fun getAnnouncementsFromDb(){
+//        viewModelScope.launch(Dispatchers.IO){
+//            val data = database.getAll()
+//            Timber.d("DATA => $data")
+//        }
+//    }
+//
+//    private fun deleteAllFromDb(){
+//       viewModelScope.launch(Dispatchers.IO) {
+//           database.deleteAll()
+//       }
+//    }
 
     private fun insertAllToDb(announcements: List<DeptAnnouncement>){
         viewModelScope.launch(Dispatchers.IO){
