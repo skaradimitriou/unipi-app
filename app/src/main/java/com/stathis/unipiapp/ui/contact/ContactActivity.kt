@@ -54,6 +54,7 @@ class ContactActivity : UnipiActivity<ActivityContactBinding>(R.layout.activity_
             it.setContentView(binding.root)
         }.show()
 
+        binding.bottomSheetTitle.text = model.title
         binding.bottomSheetEmail.setOnClickListener { sendMail(model.email) }
         binding.bottomSheetTelephone.setOnClickListener { showCallOptions(model) }
     }
