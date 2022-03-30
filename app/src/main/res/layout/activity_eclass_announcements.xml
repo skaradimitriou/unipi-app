@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.stathis.unipiapp.ui.eclassAnnouncements.EclassAnnouncementsViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
         android:id="@+id/swipe2refreshLayout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/eclass_announcements_parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/eclass_announcements_parent"
             android:background="@color/grey_bg">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -25,7 +26,8 @@
                 style="@style/VerticalRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:adapter="@{viewModel.adapter}" />
+                android:adapter="@{viewModel.adapter}"
+                tools:listitem="@layout/holder_eclass_announcement_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

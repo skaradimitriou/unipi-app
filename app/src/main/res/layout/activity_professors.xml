@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.stathis.unipiapp.ui.professors.ProfessorsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/professors_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grey_bg"
-        android:id="@+id/professors_screen"
         tools:context=".ui.professors.ProfessorsActivity">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adapter="@{viewModel.adapter}"
+            android:scrollbarStyle="outsideOverlay"
             tools:itemCount="10"
             tools:listitem="@layout/holder_professor_item" />
 

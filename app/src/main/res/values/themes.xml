@@ -49,6 +49,8 @@
     <style name="VerticalRecyclerView">
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
         <item name="android:orientation">vertical</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingBottom">@dimen/dimen_10</item>
     </style>
 
     <style name="text_20_white_bold" parent="Widget.AppCompat.TextView">
