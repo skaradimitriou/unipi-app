@@ -41,7 +41,7 @@ class AnnouncementsActivity : UnipiActivity<ActivityAnnouncementsBinding>(R.layo
         })
 
         viewModel.data.observe(this){
-            when(!it.itemList.isNullOrEmpty()){
+            when(!it.isNullOrEmpty()){
                 true -> binding.swipe2refreshLayout.isRefreshing = false
             }
         }

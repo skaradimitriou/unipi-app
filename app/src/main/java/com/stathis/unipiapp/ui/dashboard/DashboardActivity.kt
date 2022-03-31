@@ -47,8 +47,7 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     override fun startOps() {
         val popupMenu = PopupMenu(this, null)
         popupMenu.inflate(R.menu.app_menu)
-        val menu = popupMenu.menu
-        binding.bottomNavigationMenu.setupWithNavController(menu,navController)
+        binding.bottomNavigationMenu.setupWithNavController(popupMenu.menu, navController)
         binding.drawerMenu.setNavigationItemSelectedListener(this)
     }
 

@@ -14,11 +14,13 @@ import com.stathis.unipiapp.network.site.SiteApiClient
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
 import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
 import com.stathis.unipiapp.ui.announcements.model.DeptChannel
+import com.stathis.unipiapp.util.SharedPrefsHelper
 import com.stathis.unipiapp.util.ShimmerHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
+import java.lang.Exception
 import javax.inject.Inject
 
 class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
@@ -27,16 +29,32 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     lateinit var api: SiteApiClient
 
     val adapter = AnnouncementAdapter(this)
-    val data = MutableLiveData<DeptChannel>()
+    val data = MutableLiveData<List<DeptAnnouncement>?>()
     val error = MutableLiveData<Boolean>()
 
     val database = UnipiDatabase.getDatabase(app).announcementDao()
+    private val prefHelper = SharedPrefsHelper.setHelper(app)
+    private val refreshTime = 5 * 60 * 1000 * 1000 * 1000L
     private lateinit var callback: AnnouncementCallback
 
     init {
         DaggerSiteApiComponent.create().inject(this)
 
-        getData()
+        val updateTime = SharedPrefsHelper.getUpdateTime()
+        val currentTime = System.nanoTime()
+
+        when(updateTime > 0 && currentTime - updateTime < refreshTime) {
+            true -> {
+                try {
+                    //Get Data From Database
+                    getAnnouncementsFromDb()
+                } catch (e: Exception) {
+                    //Get Data from Web
+                    getData()
+                }
+            }
+            false -> getData()
+        }
     }
 
     private fun startShimmer() {
@@ -49,13 +67,19 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
         adapter.submitList(listOf(EmptyItem(), EmptyItem()))
     }
 
+    private fun getAnnouncementsFromDb() {
+        viewModelScope.launch(Dispatchers.IO){
+            val announcements = database.getAll()
+            data.postValue(announcements)
+        }
+    }
+
     fun getData() {
         startShimmer()
 
         viewModelScope.launch(Dispatchers.IO) {
-            kotlin.runCatching {
-                api.getDepartmentAnnouncements(data, error)
-            }
+            api.getDepartmentAnnouncements(data, error)
+            SharedPrefsHelper.saveUpdateTime(System.nanoTime())
         }
     }
 
@@ -64,27 +88,22 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
 
         data.observe(owner, Observer {
             it?.let {
-                it.itemList?.let { data -> insertAllToDb(data) }
-                adapter.submitList(it.itemList)
+                deleteAllFromDb()
+                insertAllToDb(it)
+
+                adapter.submitList(it)
             }
         })
     }
 
-//    private fun getAnnouncementsFromDb(){
-//        viewModelScope.launch(Dispatchers.IO){
-//            val data = database.getAll()
-//            Timber.d("DATA => $data")
-//        }
-//    }
-//
-//    private fun deleteAllFromDb(){
-//       viewModelScope.launch(Dispatchers.IO) {
-//           database.deleteAll()
-//       }
-//    }
+    private fun deleteAllFromDb(){
+       viewModelScope.launch(Dispatchers.IO) {
+           database.deleteAll()
+       }
+    }
 
-    private fun insertAllToDb(announcements: List<DeptAnnouncement>){
-        viewModelScope.launch(Dispatchers.IO){
+    private fun insertAllToDb(announcements: List<DeptAnnouncement>) {
+        viewModelScope.launch(Dispatchers.IO) {
             database.insertAll(announcements)
         }
     }
