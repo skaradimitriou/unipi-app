@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.PopupMenu
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
@@ -44,7 +45,10 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     }
 
     override fun startOps() {
-        binding.bottomNavigationMenu.setupWithNavController(navController)
+        val popupMenu = PopupMenu(this, null)
+        popupMenu.inflate(R.menu.app_menu)
+        val menu = popupMenu.menu
+        binding.bottomNavigationMenu.setupWithNavController(menu,navController)
         binding.drawerMenu.setNavigationItemSelectedListener(this)
     }
 

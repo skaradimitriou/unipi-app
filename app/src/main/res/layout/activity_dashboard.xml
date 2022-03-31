@@ -9,7 +9,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.intro.MainActivity">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -25,18 +24,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:navGraph="@navigation/app_nav" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
+            <me.ibrahimsn.lib.SmoothBottomBar
                 android:id="@+id/bottom_navigation_menu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/unipi_blue"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:labelVisibilityMode="labeled"
+                android:layout_height="@dimen/image_60"
+                app:backgroundColor="@color/unipi_blue"
+                app:iconSize="@dimen/image_24"
+                app:iconTintActive="@color/white"
+                app:indicatorRadius="@dimen/dimen_10"
+                app:itemPadding="@dimen/dimen_10"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/app_menu" />
+                app:menu="@menu/app_menu"
+                app:textColor="@color/white"
+                app:textSize="@dimen/text_14" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
