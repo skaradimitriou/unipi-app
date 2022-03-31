@@ -14,7 +14,7 @@ import com.stathis.unipiapp.models.Semester
 
 class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_lessons) {
 
-    private lateinit var viewModel : LessonsViewModel
+    private lateinit var viewModel: LessonsViewModel
 
     override fun init() {
         viewModel = ViewModelProvider(this).get(LessonsViewModel::class.java)
@@ -22,7 +22,7 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
 
     override fun startOps() {
         val semester = intent.getParcelableExtra<Semester>(getString(R.string.model))
-        semester?.let { viewModel.bindData(semester.lessons) }
+        semester?.let { viewModel.bindData(semester.information, semester.lessons) }
 
         supportActionBar?.title = semester?.title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -34,7 +34,7 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.lessons_menu, menu)
-        val item : MenuItem? = menu?.findItem(R.id.lesson_info)
+        val item: MenuItem? = menu?.findItem(R.id.lesson_info)
 
         item?.setOnMenuItemClickListener {
             openPopUpWindow()
@@ -51,7 +51,7 @@ class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_
         }.show()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {
             onBackPressed()
             true

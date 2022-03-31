@@ -4,6 +4,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
@@ -102,6 +103,11 @@ fun TextView.setAnnouncementDate(date: String?) {
 @BindingAdapter("setHtmlText")
 fun TextView.setText(text: String) {
     this.text = Jsoup.parse(text).text()
+}
+
+@BindingAdapter("setSpanText")
+fun TextView.setSpanText(text: String) {
+    this.text = HtmlCompat.fromHtml(text,HtmlCompat.FROM_HTML_MODE_LEGACY)
 }
 
 @BindingAdapter("setScrollableViewPager")

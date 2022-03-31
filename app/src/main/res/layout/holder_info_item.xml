@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.unipiapp.models.InfoModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:layout_marginEnd="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:background="@drawable/round_corners"
+        android:backgroundTint="@color/light_blue"
+        android:padding="@dimen/dimen_10">
+
+        <ImageView
+            android:id="@+id/info_model_img"
+            android:layout_width="@dimen/image_35"
+            android:layout_height="@dimen/image_35"
+            android:src="@drawable/ic_help_outlined"
+            app:layout_constraintBottom_toBottomOf="@id/info_model_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/info_model_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_10"
+            setSpanText="@{model.description}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/info_model_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/lorem_ipsum_long" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

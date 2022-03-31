@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Semester (
 
     val title : String,
+    val information : String,
     val lessons : List<Lesson>
 
 ) : LocalModel, Parcelable {
