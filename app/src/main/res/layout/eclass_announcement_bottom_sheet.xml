@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round_corners_top">
+
+        <TextView
+            android:id="@+id/bottom_sheet_title"
+            style="@style/text_18_blue_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@{model.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+        <View
+            android:id="@+id/title_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:alpha="0.5"
+            android:background="@color/unipi_blue"
+            app:layout_constraintTop_toBottomOf="@id/bottom_sheet_title" />
+
+        <ImageView
+            android:id="@+id/open_announcement_img"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dimen_16"
+            android:src="@drawable/ic_open"
+            app:layout_constraintBottom_toBottomOf="@id/open_announcement"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_divider" />
+
+        <TextView
+            android:id="@+id/open_announcement"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/view_announcement"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/open_announcement_img"
+            app:layout_constraintTop_toBottomOf="@id/title_divider" />
+
+        <ImageView
+            android:id="@+id/copy_img"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dimen_16"
+            android:src="@drawable/ic_copy"
+            app:layout_constraintBottom_toBottomOf="@id/copy_announcement"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/open_announcement" />
+
+        <TextView
+            android:id="@+id/copy_announcement"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/copy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/copy_img"
+            app:layout_constraintTop_toBottomOf="@id/open_announcement" />
+
+        <ImageView
+            android:id="@+id/share_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dimen_16"
+            android:src="@drawable/ic_share"
+            app:layout_constraintBottom_toBottomOf="@id/share_announcement"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/copy_img" />
+
+        <TextView
+            android:id="@+id/share_announcement"
+            style="@style/text_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/share_icon"
+            app:layout_constraintTop_toBottomOf="@id/copy_announcement" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

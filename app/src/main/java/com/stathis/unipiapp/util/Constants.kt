@@ -4,14 +4,12 @@ import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.models.Professor
 import com.stathis.unipiapp.ui.department.adapter.CarouselAdapter
-import org.jsoup.Jsoup
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -102,12 +100,12 @@ fun TextView.setAnnouncementDate(date: String?) {
 
 @BindingAdapter("setHtmlText")
 fun TextView.setText(text: String) {
-    this.text = Jsoup.parse(text).text()
+    this.text = text.toNonHtmlText()
 }
 
 @BindingAdapter("setSpanText")
 fun TextView.setSpanText(text: String) {
-    this.text = HtmlCompat.fromHtml(text,HtmlCompat.FROM_HTML_MODE_LEGACY)
+    this.text = text.toNonHtmlText()
 }
 
 @BindingAdapter("setScrollableViewPager")
