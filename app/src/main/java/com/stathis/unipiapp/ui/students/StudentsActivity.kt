@@ -12,8 +12,6 @@ import com.stathis.unipiapp.callbacks.StudentsCallback
 import com.stathis.unipiapp.databinding.ActivityStudentsBinding
 import com.stathis.unipiapp.models.CarouselItem
 import com.stathis.unipiapp.models.UnipiService
-import com.stathis.unipiapp.ui.contact.ContactActivity
-import com.stathis.unipiapp.util.BASE_URL
 
 class StudentsActivity : UnipiActivity<ActivityStudentsBinding>(R.layout.activity_students) {
 

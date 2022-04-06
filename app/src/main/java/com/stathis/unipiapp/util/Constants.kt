@@ -15,9 +15,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-const val BASE_URL = "https://www.cs.unipi.gr"
 const val CS_UNIPI = "https://www.cs.unipi.gr/"
 const val ECLASS_URL = "http://gunet2.cs.unipi.gr"
+const val STUDENTS_URL = "https://students.unipi.gr/login.asp?mnuID=student"
 
 @BindingAdapter("loadLocalPhoto")
 fun ImageView.loadLocalPhoto(photo: String) {
