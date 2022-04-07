@@ -28,8 +28,6 @@ class NewStudentsApiClient() {
                 cookies = null
             )
 
-            StudentsApi.postStudentData("GUEST",loginForm)
-
         } catch (e : Exception) {
             Timber.d("e => $e")
         }

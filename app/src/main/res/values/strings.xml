@@ -7,6 +7,7 @@
 
     <!-- General -->
     <string name="unipi_main_title">Πανεπιστήμιο Πειραιώς</string>
+    <string name="unipi_main_desc">ΠΜΣ Πληροφορική</string>
 
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
     <string name="lorem_ipsum_2">Προκήρυξη Υποτροφιών Ιδρύματος Ωνάση 2022-2023</string>
@@ -22,6 +23,11 @@
     <string name="search">Αναζήτηση</string>
 
     <string name="snackbar_error">Παρουσιάστηκε κάποιο σφάλμα</string>
+
+    <!-- Login Screen -->
+    <string name="login_username_hint">Όνομα χρήστη</string>
+    <string name="login_password_hint">Κωδικός πρόσβασης</string>
+    <string name="login_btn_txt">Είσοδος Φοιτητή</string>
 
     <!-- About Screen -->
     <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του σε υποψήφιους μεταπτυχιακούς φοιτητές.</string>
@@ -105,7 +111,5 @@
     <string name="app_contact">Επικοινωνία</string>
     <string name="the_app">Εφαρμογή</string>
     <string name="secretariat">Γραμματεία</string>
-
-
 
 </resources>

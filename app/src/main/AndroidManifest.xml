@@ -14,6 +14,9 @@
         android:theme="@style/Theme.UnipiApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ui.getInTouch.GetInTouchActivity"
             android:exported="false" />
         <activity

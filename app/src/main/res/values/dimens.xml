@@ -16,4 +16,7 @@
     <dimen name="text_16">16sp</dimen>
     <dimen name="text_14">14sp</dimen>
     <dimen name="image_24">24dp</dimen>
+    <dimen name="image_85">85dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="unipi_btn_height">56dp</dimen>
 </resources>

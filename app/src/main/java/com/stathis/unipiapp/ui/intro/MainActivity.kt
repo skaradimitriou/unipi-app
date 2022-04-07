@@ -6,6 +6,7 @@ import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityMainBinding
 import com.stathis.unipiapp.ui.dashboard.DashboardActivity
+import com.stathis.unipiapp.ui.login.LoginActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -19,7 +20,7 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
 
     override fun startOps() {
         CoroutineScope(Dispatchers.Main).launch {
-            startActivity(Intent(this@MainActivity,DashboardActivity::class.java))
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             finish()
             delay(5000)
         }

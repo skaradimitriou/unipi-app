@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="isCtaEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        android:padding="@dimen/dimen_16"
+        tools:context=".ui.login.LoginActivity">
+
+        <ImageView
+            android:id="@+id/login_img"
+            android:layout_width="@dimen/image_85"
+            android:layout_height="@dimen/height_100"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:background="@drawable/ic_unipi_logo_svg"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/login_app_name"
+            style="@style/text_18_blue_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dimen_16"
+            android:text="@string/unipi_main_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_img" />
+
+        <TextView
+            android:id="@+id/login_app_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dimen_5"
+            style="@style/text_16_blue_bold"
+            android:text="@string/unipi_main_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_app_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:hint="@string/login_username_hint"
+            app:layout_constraintTop_toBottomOf="@id/login_app_desc">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_input_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/emailField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pass_input_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/unipi_btn_height"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:backgroundTint="@color/unipi_blue"
+            android:text="@string/login_btn_txt"
+            android:textAllCaps="false"
+            android:enabled="@{isCtaEnabled}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passField" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
