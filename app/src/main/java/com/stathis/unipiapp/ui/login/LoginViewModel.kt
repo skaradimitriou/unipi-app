@@ -13,7 +13,7 @@ class LoginViewModel : ViewModel() {
 
     fun validateUser(username: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            StudentsApi.postStudentData(username, password, "GUEST")
+            //StudentsApi.postStudentData(username, password, "GUEST")
             isLoggedIn.postValue(true)
         }
     }

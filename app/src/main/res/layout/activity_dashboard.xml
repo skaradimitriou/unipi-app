@@ -24,19 +24,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:navGraph="@navigation/app_nav" />
 
-            <me.ibrahimsn.lib.SmoothBottomBar
+            <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation_menu"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/image_60"
-                app:backgroundColor="@color/unipi_blue"
+                app:backgroundTint="@color/unipi_blue"
+                app:itemIconTint="@color/white"
                 app:iconSize="@dimen/image_24"
-                app:iconTintActive="@color/white"
-                app:indicatorRadius="@dimen/dimen_10"
                 app:itemPadding="@dimen/dimen_10"
+                app:labelVisibilityMode="unlabeled"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:menu="@menu/app_menu"
-                app:textColor="@color/white"
-                app:textSize="@dimen/text_14" />
+                app:menu="@menu/app_menu" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

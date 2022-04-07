@@ -59,6 +59,12 @@ fun View.setMandatoryColor(mandatory: Boolean) = when (mandatory) {
     false -> this.setBackgroundResource(R.color.unipi_red)
 }
 
+@BindingAdapter("mandatoryType")
+fun View.setMandatoryType(type: String) = when (type.contains("ΥΠ")) {
+    true -> this.setBackgroundResource(R.color.unipi_blue)
+    else -> this.setBackgroundResource(R.color.unipi_red)
+}
+
 @BindingAdapter("setDefaultDate")
 fun TextView.setDefaultDate(date: String?) {
     try {
@@ -107,6 +113,12 @@ fun TextView.setText(text: String) {
 fun TextView.setSpanText(text: String) {
     this.text = text.toNonHtmlText()
 }
+
+@BindingAdapter("semesterTitle")
+fun TextView.semesterTitle(id : Int){
+    this.text = "${id}ο Εξάμηνο"
+}
+
 
 @BindingAdapter("setScrollableViewPager")
 fun setScrollableViewPager(viewPager: ViewPager2, adapter: CarouselAdapter) {

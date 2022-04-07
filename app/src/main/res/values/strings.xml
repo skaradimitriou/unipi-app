@@ -19,6 +19,7 @@
     <string name="menu_main">Αρχική</string>
     <string name="nav_syllabus">Μαθήματα</string>
     <string name="main_screen">Αρχική</string>
+    <string name="nav_grade">Βαθμολογία</string>
 
     <string name="search">Αναζήτηση</string>
 
@@ -64,6 +65,11 @@
     <string name="leaving_cancel_btn">Άκυρο</string>
 
     <string name="eclass_announcements">Ανακοινώσεις E-Class</string>
+
+    <string name="grade_screen_header">Η Βαθμολογία μου</string>
+    <string name="average_grade">Μέσος Όρος</string>
+    <string name="completed_lessons">Περασμένα Μαθήματα</string>
+    <string name="dummy_placeholder">XXX</string>
 
     <!-- Department Screen -->
     <string name="dept_research">Έρευνα</string>

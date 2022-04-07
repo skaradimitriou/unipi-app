@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.unipiapp.models.grading.SemesterInfoDto" />
+
+        <variable
+            name="adapter"
+            type="com.stathis.unipiapp.ui.dashboard.grades.adapter.CoursesAdapter" />
+
+        <variable
+            name="callback"
+            type="com.stathis.unipiapp.callbacks.UnipiCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}">
+
+        <TextView
+            android:id="@+id/semester_item_txt"
+            style="@style/text_18_black"
+            semesterTitle="@{model.id}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/courses_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adapter="@{adapter}"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/semester_item_txt"
+            tools:itemCount="6"
+            tools:listitem="@layout/holder_courses_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

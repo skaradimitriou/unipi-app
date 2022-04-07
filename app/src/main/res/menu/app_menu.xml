@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item android:id="@+id/nav_main"
         android:icon="@drawable/ic_home"
         android:title="@string/menu_main" />
+
+    <item android:id="@+id/nav_grades"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/nav_grade" />
 
     <item android:id="@+id/nav_syllabus"
         android:icon="@drawable/ic_book_nav"
