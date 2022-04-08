@@ -21,6 +21,11 @@ b. People who want to learn more about the programme (CS Postgraduate Degree) <b
 ## Architecture
 Model - View - ViewModel (MVVM)
 
+## Remote sources
+- [Unistudents Api](https://github.com/UniStudents/unistudents-api) for student authentication & data
+- [University of Piraeus Informatics Department](https://www.cs.unipi.gr/index.php?lang=el) for department announcements
+- [Gunet2 E-Class](https://gunet2.cs.unipi.gr/) for e-class announcements
+
 ## Technologies Used
 - Navigation Component <br/>
 - Kotlin Coroutines <br/>
