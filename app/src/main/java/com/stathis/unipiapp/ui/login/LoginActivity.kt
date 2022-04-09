@@ -27,15 +27,26 @@ class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_logi
             viewModel.validateUser(username, password)
         }
 
-        viewModel.isLoggedIn.observe(this) {
-            when (it) {
-                true -> startActivity(Intent(this, DashboardActivity::class.java))
-                false -> {} //error login attempt. Handle case with something
+        binding.loginAsGuest.setOnClickListener {
+            viewModel.loginGuestUser()
+        }
+
+        viewModel.data.observe(this) { user ->
+            user?.let {
+                startActivity(Intent(this, DashboardActivity::class.java).also {
+                    it.putExtra("USER", user)
+                })
+                finish()
             }
+        }
+
+        viewModel.error.observe(this) {
+            //FIXME: Implement error functionality
         }
     }
 
     override fun stopOps() {
-        viewModel.isLoggedIn.removeObservers(this)
+        viewModel.data.removeObservers(this)
+        viewModel.error.removeObservers(this)
     }
 }

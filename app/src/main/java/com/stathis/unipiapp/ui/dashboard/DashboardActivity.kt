@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.PopupMenu
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -19,6 +20,7 @@ import com.stathis.unipiapp.databinding.ActivityDashboardBinding
 import com.stathis.unipiapp.databinding.ContactScreenBottomSheetBinding
 import com.stathis.unipiapp.databinding.LeaveAppBottomSheetBinding
 import com.stathis.unipiapp.models.ContactItem
+import com.stathis.unipiapp.models.grading.StudentsResponseDto
 import com.stathis.unipiapp.ui.about.AboutActivity
 import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
 import com.stathis.unipiapp.ui.contact.ContactActivity
@@ -26,12 +28,14 @@ import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.getInTouch.GetInTouchActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
+import timber.log.Timber
 
 class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activity_dashboard),
     NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var navController: NavController
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var viewModel : DashboardViewModel
 
     override fun init() {
         navController = findNavController(R.id.nav_host_fragment)
@@ -42,9 +46,15 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
+        viewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
     }
 
     override fun startOps() {
+        val data = intent?.getParcelableExtra<StudentsResponseDto>("USER")
+        Timber.d("USER => $data")
+
+        data?.let { viewModel.setActiveUser(data) }
+
         binding.bottomNavigationMenu.setupWithNavController(navController)
         binding.drawerMenu.setNavigationItemSelectedListener(this)
     }

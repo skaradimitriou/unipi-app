@@ -105,5 +105,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passField" />
 
+        <TextView
+            android:id="@+id/login_as_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dimen_5"
+            style="@style/text_16_blue_bold"
+            android:padding="@dimen/dimen_10"
+            android:text="Συνέχεια ώς επισκέπτης"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

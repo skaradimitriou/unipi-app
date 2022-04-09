@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.network.students
 
+import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.stathis.unipiapp.models.grading.LoginForm
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
@@ -16,41 +17,84 @@ import timber.log.Timber
 object StudentsApi {
 
     val BASE_URL = "https://unistudents-prod-1.herokuapp.com/api/"
-    val userAgent ="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+    val userAgent =
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 
-    private val api  = Retrofit.Builder().baseUrl(BASE_URL)
+    private val api = Retrofit.Builder().baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(StudentsEndpoints::class.java)
 
-    fun postStudentData(username : String, password : String, university : String) {
+    fun loginGuestUser(
+        data: MutableLiveData<StudentsResponseDto>,
+        error: MutableLiveData<Boolean>
+    ) {
+
+        val loginForm = LoginForm(
+            username = "guest",
+            password = "guest",
+            cookies = null
+        )
+
+        return api.postStudentData("GUEST", loginForm)
+            .enqueue(object : Callback<StudentsResponseDto> {
+                override fun onResponse(
+                    call: Call<StudentsResponseDto>,
+                    response: Response<StudentsResponseDto>
+                ) {
+                    response.body()?.student?.let {
+                        data.postValue(response.body())
+                        error.postValue(false)
+                    }
+                }
+
+                override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
+                    Timber.d("${t.localizedMessage}")
+                    error.postValue(true)
+                }
+            })
+    }
+
+    fun postStudentData(
+        username: String,
+        password: String,
+        university: String,
+        data: MutableLiveData<StudentsResponseDto>,
+        error: MutableLiveData<Boolean>
+    ) {
         try {
             val response: Connection.Response = Jsoup.connect(STUDENTS_URL)
                 .method(Connection.Method.GET)
                 .userAgent(userAgent)
                 .execute()
 
-            //response.cookies()
+            response.cookies()
 
             val loginForm = LoginForm(
                 username = username,
                 password = password,
-                cookies = null
+                cookies = response.cookies()
             )
 
-            return api.postStudentData(university, loginForm).enqueue(object : Callback<StudentsResponseDto> {
-                override fun onResponse(call: Call<StudentsResponseDto>, response: Response<StudentsResponseDto>) {
-                    Timber.d("DATA => ${response.body()}")
-                    val json = Gson().toJson(response.body())
-                    Timber.d("JSON => $json")
-                }
+            return api.postStudentData(university, loginForm)
+                .enqueue(object : Callback<StudentsResponseDto> {
+                    override fun onResponse(
+                        call: Call<StudentsResponseDto>,
+                        response: Response<StudentsResponseDto>
+                    ) {
+                        response.body()?.student?.let {
+                            data.postValue(response.body())
+                            error.postValue(false)
+                        }
+                    }
 
-                override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
-                    Timber.d("${t.localizedMessage}")
-                }
-            })
+                    override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
+                        Timber.d("${t.localizedMessage}")
+                        error.postValue(true)
+                    }
+                })
 
-        } catch (e : Exception) {
+        } catch (e: Exception) {
             Timber.d("e => $e")
         }
     }

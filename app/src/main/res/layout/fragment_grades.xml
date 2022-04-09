@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="viewModel"
-            type="com.stathis.unipiapp.ui.dashboard.grades.GradesViewModel" />
-
         <variable
             name="model"
             type="com.stathis.unipiapp.models.grading.StudentGradesCardDto" />
@@ -121,7 +116,6 @@
             android:id="@+id/grades_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:adapter="@{viewModel.adapter}"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

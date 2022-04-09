@@ -12,6 +12,8 @@ import com.stathis.unipiapp.network.students.NewStudentsApiClient
 import com.stathis.unipiapp.ui.dashboard.main.adapter.MainScreenAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
+import java.util.*
 
 
 class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
@@ -22,6 +24,23 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
     init {
         viewModelScope.launch {
             createList()
+        }
+
+        getTimeOfDay()
+    }
+
+    private fun getTimeOfDay(){
+        val calendar = Calendar.getInstance()
+        when (calendar.get(Calendar.HOUR_OF_DAY)) {
+            in 0..11 -> {
+                Timber.d("Καλημέρα")
+            }
+            in 12..17 -> {
+                Timber.d("Καλησπέρα")
+            }
+            else -> {
+                Timber.d("Καλησπέρα")
+            }
         }
     }
 

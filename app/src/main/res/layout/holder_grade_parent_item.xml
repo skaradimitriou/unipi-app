@@ -12,16 +12,11 @@
         <variable
             name="adapter"
             type="com.stathis.unipiapp.ui.dashboard.grades.adapter.CoursesAdapter" />
-
-        <variable
-            name="callback"
-            type="com.stathis.unipiapp.callbacks.UnipiCallback" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}">
 
         <TextView
