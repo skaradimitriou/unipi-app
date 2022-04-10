@@ -58,9 +58,9 @@ class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), 
     fun observe(owner: LifecycleOwner, callback : EclassAnnouncementsCallback) {
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             it?.let { adapter.submitList(it.itemList) }
-        })
+        }
     }
 
     fun release(owner: LifecycleOwner) {

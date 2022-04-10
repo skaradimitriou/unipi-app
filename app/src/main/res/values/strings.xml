@@ -114,8 +114,16 @@
     <string name="unipi">Πανεπιστήμιο Πειραιώς (UoP)</string>
     <string name="news_publisher_header">News Publisher</string>
     <string name="news_publisher_desc">E-mail: publ@unipi.gr\nΤηλ. Κέντρο: 210 4142000</string>
+
     <string name="app_contact">Επικοινωνία</string>
+
     <string name="the_app">Εφαρμογή</string>
     <string name="secretariat">Γραμματεία</string>
+    <string name="keep_me_logged_in">Να παραμείνω συνδεδεμένος</string>
+    <string name="continue_as_guest">Συνέχεια ώς επισκέπτης</string>
+    <string name="exit">Έξοδος</string>
+    <string name="logout">Αποσύνδεση</string>
+
+    <string name="semester">%1$dο Εξάμηνο</string>
 
 </resources>

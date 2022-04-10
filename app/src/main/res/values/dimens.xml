@@ -14,6 +14,7 @@
     <dimen name="image_35">35dp</dimen>
     <dimen name="image_60">60dp</dimen>
     <dimen name="text_16">16sp</dimen>
+    <dimen name="text_15">15sp</dimen>
     <dimen name="text_14">14sp</dimen>
     <dimen name="image_24">24dp</dimen>
     <dimen name="image_85">85dp</dimen>

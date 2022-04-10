@@ -6,6 +6,10 @@ import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityLoginBinding
 import com.stathis.unipiapp.ui.dashboard.DashboardActivity
+import com.stathis.unipiapp.util.LOGIN
+import com.stathis.unipiapp.util.PASSWORD
+import com.stathis.unipiapp.util.USER
+import com.stathis.unipiapp.util.USERNAME
 
 class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
@@ -24,6 +28,14 @@ class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_logi
             val password = binding.passInputField.text.toString()
 
             binding.isCtaEnabled = false
+
+            if (binding.loginRememberMeSwitch.isChecked) {
+                val editor = getSharedPreferences(LOGIN, MODE_PRIVATE).edit()
+                editor.putString(USERNAME, username)
+                editor.putString(PASSWORD, password)
+                editor.apply()
+            }
+
             viewModel.validateUser(username, password)
         }
 
@@ -34,7 +46,7 @@ class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_logi
         viewModel.data.observe(this) { user ->
             user?.let {
                 startActivity(Intent(this, DashboardActivity::class.java).also {
-                    it.putExtra("USER", user)
+                    it.putExtra(USER, user)
                 })
                 finish()
             }

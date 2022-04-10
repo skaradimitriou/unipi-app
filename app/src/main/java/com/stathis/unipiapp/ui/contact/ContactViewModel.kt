@@ -28,9 +28,9 @@ class ContactViewModel(val app : Application) : AndroidViewModel(app), UnipiCall
     fun observe(owner : LifecycleOwner, callback : ContactCallback){
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             adapter.submitList(it)
-        })
+        }
     }
 
     fun release(owner: LifecycleOwner){

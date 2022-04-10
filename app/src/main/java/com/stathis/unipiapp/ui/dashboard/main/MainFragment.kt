@@ -1,8 +1,6 @@
 package com.stathis.unipiapp.ui.dashboard.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.BR
@@ -15,7 +13,6 @@ import com.stathis.unipiapp.ui.dashboard.DashboardViewModel
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
-import timber.log.Timber
 
 
 class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson" />
@@ -27,11 +28,12 @@
 
             <TextView
                 android:id="@+id/lesson_item_txt"
-                android:text="@{model.title}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dimen_16"
+                android:text="@{model.title}"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
                 app:layout_constraintEnd_toStartOf="@id/lesson_right_img"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

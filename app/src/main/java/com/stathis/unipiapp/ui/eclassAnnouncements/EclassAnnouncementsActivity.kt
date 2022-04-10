@@ -20,6 +20,7 @@ import com.stathis.unipiapp.databinding.EclassAnnouncementBottomSheetBinding
 import com.stathis.unipiapp.databinding.ProfessorsBottomSheetBinding
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
+import com.stathis.unipiapp.util.LESSON
 import com.stathis.unipiapp.util.toNonHtmlText
 import org.jsoup.Jsoup
 
@@ -35,7 +36,7 @@ class EclassAnnouncementsActivity :
     override fun startOps() {
         binding.viewModel = viewModel
 
-        val model = intent.getParcelableExtra<EclassLesson>("LESSON")
+        val model = intent.getParcelableExtra<EclassLesson>(LESSON)
         model?.let {
             supportActionBar?.title = resources.getString(R.string.lesson_announcements)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -88,10 +89,11 @@ class EclassAnnouncementsActivity :
         }
 
         dBinding.copyAnnouncement.setOnClickListener {
-            val clipboard: ClipboardManager =getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipboard: ClipboardManager =
+                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("", model.description.toNonHtmlText())
             clipboard.setPrimaryClip(clip)
-            Toast.makeText(this,getString(R.string.announcement_copied), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.announcement_copied), Toast.LENGTH_LONG).show()
         }
 
         dBinding.shareAnnouncement.setOnClickListener {

@@ -1,4 +1,4 @@
-package com.stathis.unipiapp.ui.login
+package com.stathis.unipiapp.ui.intro
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +9,7 @@ import com.stathis.unipiapp.util.UNIPI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
 
     val data = MutableLiveData<StudentsResponseDto>()
     val error = MutableLiveData<Boolean>()
@@ -17,12 +17,6 @@ class LoginViewModel : ViewModel() {
     fun validateUser(username: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             StudentsApi.postStudentData(username, password, UNIPI, data, error)
-        }
-    }
-
-    fun loginGuestUser() {
-        viewModelScope.launch(Dispatchers.IO) {
-            StudentsApi.loginGuestUser(data, error)
         }
     }
 }

@@ -25,23 +25,6 @@ class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
         viewModelScope.launch {
             createList()
         }
-
-        getTimeOfDay()
-    }
-
-    private fun getTimeOfDay(){
-        val calendar = Calendar.getInstance()
-        when (calendar.get(Calendar.HOUR_OF_DAY)) {
-            in 0..11 -> {
-                Timber.d("Καλημέρα")
-            }
-            in 12..17 -> {
-                Timber.d("Καλησπέρα")
-            }
-            else -> {
-                Timber.d("Καλησπέρα")
-            }
-        }
     }
 
     private fun createList() {

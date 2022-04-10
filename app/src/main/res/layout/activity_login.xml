@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <variable
             name="isCtaEnabled"
@@ -46,10 +47,10 @@
 
         <TextView
             android:id="@+id/login_app_desc"
+            style="@style/text_16_blue_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/dimen_5"
-            style="@style/text_16_blue_bold"
             android:text="@string/unipi_main_desc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,8 +80,8 @@
             android:layout_marginTop="@dimen/dimen_16"
             android:hint="@string/login_password_hint"
             android:inputType="textPassword"
-            app:passwordToggleEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/emailField">
+            app:layout_constraintTop_toBottomOf="@id/emailField"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/pass_input_field"
@@ -92,30 +93,41 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/login_remember_me_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:paddingTop="@dimen/dimen_10"
+            android:text="@string/keep_me_logged_in"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/passField"
+            app:layout_constraintTop_toBottomOf="@id/passField" />
+
         <Button
             android:id="@+id/login_btn"
             android:layout_width="0dp"
             android:layout_height="@dimen/unipi_btn_height"
-            android:layout_marginTop="@dimen/dimen_30"
+            android:layout_marginTop="@dimen/dimen_20"
             android:backgroundTint="@color/unipi_blue"
+            android:enabled="@{isCtaEnabled}"
             android:text="@string/login_btn_txt"
             android:textAllCaps="false"
-            android:enabled="@{isCtaEnabled}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passField" />
+            app:layout_constraintTop_toBottomOf="@id/login_remember_me_switch" />
 
         <TextView
             android:id="@+id/login_as_guest"
+            style="@style/text_16_blue_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/dimen_5"
-            style="@style/text_16_blue_bold"
             android:padding="@dimen/dimen_10"
-            android:text="Συνέχεια ώς επισκέπτης"
+            android:paddingTop="@dimen/dimen_5"
+            android:text="@string/continue_as_guest"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

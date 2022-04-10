@@ -42,12 +42,12 @@ class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallba
     fun observe(owner: LifecycleOwner,callback: StudentsCallback){
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             adapter.submitList(listOf(
                 CarouselParent(it.carouselItems),
                 VerticalStudentItem(getString(R.string.student_services),it.services)
             ))
-        })
+        }
     }
 
     fun release(owner: LifecycleOwner){

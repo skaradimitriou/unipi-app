@@ -15,9 +15,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        style="@style/unipi_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/unipi_card"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}">
 
@@ -33,6 +33,7 @@
                 android:padding="@dimen/dimen_20"
                 android:text="@{model.title}"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/app_name" />

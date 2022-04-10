@@ -26,6 +26,7 @@ import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
 import com.stathis.unipiapp.ui.contact.ContactActivity
 import com.stathis.unipiapp.ui.department.DepartmentActivity
 import com.stathis.unipiapp.ui.getInTouch.GetInTouchActivity
+import com.stathis.unipiapp.ui.login.LoginActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
 import timber.log.Timber
@@ -35,7 +36,7 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
 
     private lateinit var navController: NavController
     private lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var viewModel : DashboardViewModel
+    private lateinit var viewModel: DashboardViewModel
 
     override fun init() {
         navController = findNavController(R.id.nav_host_fragment)
@@ -114,6 +115,17 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
             R.id.get_in_touch -> {
                 startActivity(Intent(this, GetInTouchActivity::class.java))
                 binding.drawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            R.id.logout -> {
+                val editor = getSharedPreferences("LOGIN", MODE_PRIVATE).edit()
+                editor.putString("username", "guest")
+                editor.putString("password", "guest")
+                editor.apply()
+
+                startActivity(Intent(this, LoginActivity::class.java).also {
+                    it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                })
             }
         }
         return true

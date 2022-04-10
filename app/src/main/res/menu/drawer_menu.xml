@@ -33,4 +33,13 @@
                 android:title="@string/app_contact" />
         </menu>
     </item>
+
+    <item android:title="@string/exit">
+        <menu>
+            <item
+                android:id="@+id/logout"
+                android:title="@string/logout" />
+        </menu>
+    </item>
+
 </menu>

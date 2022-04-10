@@ -44,12 +44,12 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
     fun observeData(owner: LifecycleOwner,callback : DepartmentCallback) {
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             adapter.submitList(listOf(
                 CarouselParent(it.carouselItems),
                 VerticalDepartmentItem(getString(R.string.dept_studies),it.programmes)
             ))
-        })
+        }
     }
 
     fun release(owner: LifecycleOwner){

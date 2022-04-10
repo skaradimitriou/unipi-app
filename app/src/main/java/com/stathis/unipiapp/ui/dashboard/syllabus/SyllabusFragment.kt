@@ -36,12 +36,12 @@ class SyllabusFragment : UnipiFragment<FragmentSyllabusBinding>(R.layout.fragmen
             }
         })
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             when(it){
                 true -> {} //FIXME: Throw some kind of notification to user
                 false -> Unit
             }
-        })
+        }
     }
 
     override fun stopOps() {
