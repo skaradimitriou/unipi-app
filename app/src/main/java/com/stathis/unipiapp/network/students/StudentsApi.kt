@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.stathis.unipiapp.models.grading.LoginForm
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
 import com.stathis.unipiapp.util.STUDENTS_URL
+import com.stathis.unipiapp.util.UserAgentGenerator
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 import retrofit2.Call
@@ -17,8 +18,6 @@ import timber.log.Timber
 object StudentsApi {
 
     val BASE_URL = "https://unistudents-prod-1.herokuapp.com/api/"
-    val userAgent =
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 
     private val api = Retrofit.Builder().baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
@@ -63,12 +62,12 @@ object StudentsApi {
         error: MutableLiveData<Boolean>
     ) {
         try {
+            val userAgent = UserAgentGenerator.getRandomAgent()
+
             val response: Connection.Response = Jsoup.connect(STUDENTS_URL)
                 .method(Connection.Method.GET)
                 .userAgent(userAgent)
                 .execute()
-
-            response.cookies()
 
             val loginForm = LoginForm(
                 username = username,
