@@ -10,47 +10,55 @@
             type="com.stathis.unipiapp.ui.dashboard.main.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_bg"
-        tools:context=".ui.dashboard.main.MainFragment">
+        android:scrollbars="none">
 
-        <include
-            android:id="@+id/unipi_header_bg"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_margin="@dimen/dimen_10"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            layout="@layout/intro_screen_header"/>
-
-        <TextView
-            android:id="@+id/categories_header"
-            style="@style/text_18_black"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dimen_16"
-            android:paddingTop="@dimen/dimen_16"
-            android:text="@string/categories"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/unipi_header_bg" />
+            android:background="@color/grey_bg"
+            tools:context=".ui.dashboard.main.MainFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/main_screen_recycler"
-            adapter="@{viewModel.adapter}"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:paddingStart="@dimen/dimen_10"
-            android:paddingEnd="@dimen/dimen_10"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categories_header"
-            app:spanCount="2"
-            tools:itemCount="10"
-            tools:listitem="@layout/holder_home_item" />
+            <include
+                android:id="@+id/unipi_header_bg"
+                layout="@layout/intro_screen_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/categories_header"
+                style="@style/text_18_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_16"
+                android:paddingTop="@dimen/dimen_16"
+                android:text="@string/categories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/unipi_header_bg" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_screen_recycler"
+                adapter="@{viewModel.adapter}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_10"
+                android:paddingEnd="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_20"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categories_header"
+                app:spanCount="2"
+                tools:itemCount="10"
+                tools:listitem="@layout/holder_home_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

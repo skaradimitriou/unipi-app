@@ -29,15 +29,14 @@ class MainFragment : UnipiFragment<FragmentMainBinding>(R.layout.fragment_main) 
     }
 
     override fun startOps() {
-        activity?.title = "Αρχική"
+        activity?.title = getString(R.string.main_screen)
 
         binding.setVariable(BR.viewModel,viewModel)
 
-        sharedViewModel.activeUser.observe(viewLifecycleOwner){
-            it?.let {
-                binding.unipiHeaderBg.apply {
-                    val fullname = "${it.student?.info?.firstName} ${it.student?.info?.lastName}"
-                    this.unipiDesc.text = fullname
+        sharedViewModel.activeUser.observe(viewLifecycleOwner){ data ->
+            data?.let {
+                it.student?.let { student ->
+                    binding.unipiHeaderBg.model = student.info
                 }
             }
         }
