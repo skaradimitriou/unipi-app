@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.util
 
+import android.content.SharedPreferences
 import android.text.Html
 import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputEditText
@@ -24,4 +25,10 @@ fun <T>MutableLiveData<Result<T>>.setData(data : T?){
 
 fun <T>MutableLiveData<Result<T>>.setError(data : String?){
     data?.let { this.postValue(Result.Error(it)) }
+}
+
+fun SharedPreferences.save(values: SharedPreferences.Editor.() -> Unit) {
+    val editor = edit()
+    editor.values()
+    editor.apply()
 }

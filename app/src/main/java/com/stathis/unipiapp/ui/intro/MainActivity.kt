@@ -7,13 +7,18 @@ import com.google.gson.Gson
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityMainBinding
+import com.stathis.unipiapp.di.gson.DaggerGsonComponent
 import com.stathis.unipiapp.ui.dashboard.DashboardActivity
 import com.stathis.unipiapp.ui.login.LoginActivity
 import com.stathis.unipiapp.util.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) {
+
+    @Inject
+    lateinit var gson: Gson
 
     private lateinit var viewModel: MainViewModel
 
@@ -21,6 +26,8 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
         supportActionBar?.hide()
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        DaggerGsonComponent.create().inject(this)
     }
 
     override fun startOps() {
@@ -43,8 +50,7 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
                 is com.stathis.unipiapp.models.Result.Success -> {
                     response.data?.let { user ->
                         startActivity(Intent(this, DashboardActivity::class.java).also {
-                            val json = Gson().toJson(user)
-                            it.putExtra(USER, json)
+                            it.putExtra(USER, gson.toJson(user))
                         })
                         finish()
                     }
