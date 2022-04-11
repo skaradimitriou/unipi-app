@@ -7,7 +7,8 @@ This app is live at [Google Play](https://play.google.com/store/apps/details?id=
 This app was developed for University of Piraeus (UoP), so users can gain:<br/>
 a) useful student information about the department <br/>
 b) look up their professor's e-mail and send them e-mails from the app <br/>
-c) get new announcements of the department and [E-Class](https://gunet2.cs.unipi.gr/)
+c) get new announcements of the department and [E-Class](https://gunet2.cs.unipi.gr/) <br/>
+d) view their student profile & grades (total passed courses, average grade & list of courses per semester)
 
 ## Users
 
@@ -44,5 +45,5 @@ Model - View - ViewModel (MVVM)
 [Glide](https://github.com/bumptech/glide) to load images <br/> 
 [JSOUP](https://jsoup.org/) HTML parser <br/>
 [SimpleXML]() to parse XML responses<br/>
-[Shimmer Loading](https://facebook.github.io/shimmer-android/) to implement loading effect
+[Shimmer Loading](https://facebook.github.io/shimmer-android/) to implement loading effect <br/>
 [Timber](https://github.com/JakeWharton/timber)
