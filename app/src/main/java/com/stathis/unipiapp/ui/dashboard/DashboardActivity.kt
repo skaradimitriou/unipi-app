@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityDashboardBinding
@@ -55,10 +56,13 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     }
 
     override fun startOps() {
-        val data = intent?.getParcelableExtra<StudentsResponseDto>(USER)
-        Timber.d("USER => $data")
+        val data = intent?.getStringExtra(USER)
+        data?.let{
+            val model = Gson().fromJson(it,StudentsResponseDto::class.java)
+            Timber.d("USER => $data")
 
-        data?.let { viewModel.setActiveUser(data) }
+            viewModel.setActiveUser(model)
+        }
 
         binding.bottomNavigationMenu.setupWithNavController(navController)
         binding.drawerMenu.setNavigationItemSelectedListener(this)

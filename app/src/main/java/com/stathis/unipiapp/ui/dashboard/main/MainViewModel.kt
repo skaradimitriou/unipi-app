@@ -8,12 +8,8 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.MainScreenCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.models.UnipiItem
-import com.stathis.unipiapp.network.students.NewStudentsApiClient
 import com.stathis.unipiapp.ui.dashboard.main.adapter.MainScreenAdapter
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import timber.log.Timber
-import java.util.*
 
 
 class MainViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {

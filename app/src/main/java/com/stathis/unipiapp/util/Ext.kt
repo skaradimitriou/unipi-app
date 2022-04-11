@@ -1,7 +1,9 @@
 package com.stathis.unipiapp.util
 
 import android.text.Html
+import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputEditText
+import com.stathis.unipiapp.models.Result
 
 fun String.toNonHtmlText(): String {
     return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
@@ -14,4 +16,12 @@ fun String.toNonHtmlText(): String {
 fun TextInputEditText.clearInput() {
     this.setText("")
     this.clearFocus()
+}
+
+fun <T>MutableLiveData<Result<T>>.setData(data : T?){
+    data?.let { this.postValue(Result.Success(it)) }
+}
+
+fun <T>MutableLiveData<Result<T>>.setError(data : String?){
+    data?.let { this.postValue(Result.Error(it)) }
 }

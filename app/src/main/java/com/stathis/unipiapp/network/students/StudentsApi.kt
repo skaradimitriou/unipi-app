@@ -1,33 +1,35 @@
 package com.stathis.unipiapp.network.students
 
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.Gson
+import com.stathis.unipiapp.models.Result
 import com.stathis.unipiapp.models.grading.LoginForm
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
-import com.stathis.unipiapp.util.GUEST
-import com.stathis.unipiapp.util.STUDENTS_URL
-import com.stathis.unipiapp.util.UserAgentGenerator
+import com.stathis.unipiapp.util.*
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.jsoup.Connection
 import org.jsoup.Jsoup
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 
 object StudentsApi {
 
-    val BASE_URL = "https://unistudents-prod-1.herokuapp.com/api/"
+    val logger = HttpLoggingInterceptor().also {
+        it.level = HttpLoggingInterceptor.Level.BODY
+    }
 
-    private val api = Retrofit.Builder().baseUrl(BASE_URL)
+    private val client = OkHttpClient.Builder().addInterceptor(logger).build()
+
+    private val api = Retrofit.Builder()
+        .baseUrl(STUDENTS_API_BASE_URL)
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(StudentsEndpoints::class.java)
 
-    fun loginGuestUser(
-        data: MutableLiveData<StudentsResponseDto>,
-        error: MutableLiveData<Boolean>
+    suspend fun loginGuestUser(
+        data: MutableLiveData<Result<StudentsResponseDto>>
     ) {
 
         val loginForm = LoginForm(
@@ -36,31 +38,22 @@ object StudentsApi {
             cookies = null
         )
 
-        return api.postStudentData("GUEST", loginForm)
-            .enqueue(object : Callback<StudentsResponseDto> {
-                override fun onResponse(
-                    call: Call<StudentsResponseDto>,
-                    response: Response<StudentsResponseDto>
-                ) {
-                    response.body()?.student?.let {
-                        data.postValue(response.body())
-                        error.postValue(false)
-                    }
-                }
+        val apiCall = api.postStudentData(GUEST, loginForm)
+        Timber.d("RESPONSE => $apiCall")
 
-                override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
-                    Timber.d(t.localizedMessage)
-                    error.postValue(true)
-                }
-            })
+        if (apiCall.code() == 200) {
+            // call was successful
+            data.setData(apiCall.body())
+        } else {
+            data.setError(apiCall.message())
+        }
     }
 
-    fun postStudentData(
+    suspend fun postStudentData(
         username: String,
         password: String,
         university: String,
-        data: MutableLiveData<StudentsResponseDto>,
-        error: MutableLiveData<Boolean>
+        data: MutableLiveData<Result<StudentsResponseDto>>
     ) {
         try {
             val userAgent = UserAgentGenerator.getRandomAgent()
@@ -68,6 +61,7 @@ object StudentsApi {
             val response: Connection.Response = Jsoup.connect(STUDENTS_URL)
                 .method(Connection.Method.GET)
                 .userAgent(userAgent)
+                .timeout(60 * 1000)
                 .execute()
 
             val loginForm = LoginForm(
@@ -76,30 +70,20 @@ object StudentsApi {
                 cookies = response.cookies()
             )
 
-            return api.postStudentData(university, loginForm)
-                .enqueue(object : Callback<StudentsResponseDto> {
-                    override fun onResponse(
-                        call: Call<StudentsResponseDto>,
-                        response: Response<StudentsResponseDto>
-                    ) {
-                        if(response.code() == 200){
-                            response.body()?.student?.let {
-                                data.postValue(response.body())
-                                error.postValue(false)
-                            }
-                        } else {
-                            error.postValue(true)
-                        }
-                    }
+            val apiCall = api.postStudentData(university, loginForm)
 
-                    override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
-                        Timber.d(t.localizedMessage)
-                        error.postValue(true)
-                    }
-                })
+            Timber.d("RESPONSE => $apiCall")
+
+            if (apiCall.code() == 200) {
+                // call was successful
+                data.setData(apiCall.body())
+            } else {
+                data.setError(apiCall.message())
+            }
 
         } catch (e: Exception) {
             Timber.d("e => $e")
+            data.postValue(Result.Error(error = e.localizedMessage))
         }
     }
 }

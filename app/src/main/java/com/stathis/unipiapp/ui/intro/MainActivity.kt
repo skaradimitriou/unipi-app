@@ -3,15 +3,13 @@ package com.stathis.unipiapp.ui.intro
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityMainBinding
 import com.stathis.unipiapp.ui.dashboard.DashboardActivity
 import com.stathis.unipiapp.ui.login.LoginActivity
 import com.stathis.unipiapp.util.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -40,25 +38,27 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
             viewModel.validateUser(username, password)
         }
 
-        viewModel.data.observe(this) { user ->
-            user?.let {
-                startActivity(Intent(this, DashboardActivity::class.java).also {
-                    it.putExtra(USER, user)
-                })
-                finish()
-            }
-        }
+        viewModel.data.observe(this) { response ->
+            when (response) {
+                is com.stathis.unipiapp.models.Result.Success -> {
+                    response.data?.let { user ->
+                        startActivity(Intent(this, DashboardActivity::class.java).also {
+                            val json = Gson().toJson(user)
+                            it.putExtra(USER, json)
+                        })
+                        finish()
+                    }
+                }
 
-        viewModel.error.observe(this) { errorOccured ->
-            if (errorOccured) {
-                startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-                finish()
+                is com.stathis.unipiapp.models.Result.Error -> {
+                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                    finish()
+                }
             }
         }
     }
 
     override fun stopOps() {
         viewModel.data.removeObservers(this)
-        viewModel.error.removeObservers(this)
     }
 }

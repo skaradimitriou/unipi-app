@@ -4,10 +4,12 @@ import android.app.AlertDialog
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.gson.Gson
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityLoginBinding
 import com.stathis.unipiapp.databinding.ErrorOccuredLayoutBinding
+import com.stathis.unipiapp.models.Result
 import com.stathis.unipiapp.ui.dashboard.DashboardActivity
 import com.stathis.unipiapp.util.*
 import kotlinx.coroutines.delay
@@ -46,28 +48,29 @@ class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_logi
             viewModel.loginGuestUser()
         }
 
-        viewModel.data.observe(this) { user ->
-            user?.let {
-                startActivity(Intent(this, DashboardActivity::class.java).also {
-                    it.putExtra(USER, user)
-                })
-                finish()
-            }
-        }
+        viewModel.data.observe(this) { result ->
+            when(result){
+                is Result.Success -> {
+                    result.data?.let { user ->
+                        startActivity(Intent(this, DashboardActivity::class.java).also {
+                            val json = Gson().toJson(user)
+                            it.putExtra(USER, json)
+                        })
+                        finish()
+                    }
+                }
+                is Result.Error -> {
+                    binding.isCtaEnabled = true
+                    binding.isLoading = false
 
-        viewModel.error.observe(this) { errorOccured ->
-            if (errorOccured) {
-                binding.isCtaEnabled = true
-                binding.isLoading = false
-
-                showErrorMessage()
+                    showErrorMessage()
+                }
             }
         }
     }
 
     override fun stopOps() {
         viewModel.data.removeObservers(this)
-        viewModel.error.removeObservers(this)
     }
 
     private fun showErrorMessage() {
