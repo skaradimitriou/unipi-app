@@ -106,11 +106,11 @@
 
         <Button
             android:id="@+id/login_btn"
+            setLoginButton="@{isCtaEnabled}"
             android:layout_width="0dp"
             android:layout_height="@dimen/unipi_btn_height"
             android:layout_marginTop="@dimen/dimen_20"
             android:backgroundTint="@color/unipi_blue"
-            android:enabled="@{isCtaEnabled}"
             android:text="@string/login_btn_txt"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +128,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{isLoading? View.VISIBLE : View.GONE}"
+            app:indicatorColor="@color/unipi_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

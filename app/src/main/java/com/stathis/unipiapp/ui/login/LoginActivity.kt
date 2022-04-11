@@ -1,15 +1,17 @@
 package com.stathis.unipiapp.ui.login
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityLoginBinding
+import com.stathis.unipiapp.databinding.ErrorOccuredLayoutBinding
 import com.stathis.unipiapp.ui.dashboard.DashboardActivity
-import com.stathis.unipiapp.util.LOGIN
-import com.stathis.unipiapp.util.PASSWORD
-import com.stathis.unipiapp.util.USER
-import com.stathis.unipiapp.util.USERNAME
+import com.stathis.unipiapp.util.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
@@ -27,13 +29,14 @@ class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_logi
             val username = binding.emailInputField.text.toString()
             val password = binding.passInputField.text.toString()
 
+            binding.isLoading = true
             binding.isCtaEnabled = false
 
             if (binding.loginRememberMeSwitch.isChecked) {
-                val editor = getSharedPreferences(LOGIN, MODE_PRIVATE).edit()
-                editor.putString(USERNAME, username)
-                editor.putString(PASSWORD, password)
-                editor.apply()
+                getSharedPreferences(LOGIN, MODE_PRIVATE).edit().also {
+                    it.putString(USERNAME, username)
+                    it.putString(PASSWORD, password)
+                }.apply()
             }
 
             viewModel.validateUser(username, password)
@@ -52,13 +55,38 @@ class LoginActivity : UnipiActivity<ActivityLoginBinding>(R.layout.activity_logi
             }
         }
 
-        viewModel.error.observe(this) {
-            //FIXME: Implement error functionality
+        viewModel.error.observe(this) { errorOccured ->
+            if (errorOccured) {
+                binding.isCtaEnabled = true
+                binding.isLoading = false
+
+                showErrorMessage()
+            }
         }
     }
 
     override fun stopOps() {
         viewModel.data.removeObservers(this)
         viewModel.error.removeObservers(this)
+    }
+
+    private fun showErrorMessage() {
+        val binding = ErrorOccuredLayoutBinding.inflate(layoutInflater)
+        val builder = AlertDialog.Builder(this, R.style.error_dialog).also {
+            it.setView(binding.root)
+            binding.errorMessage.text = getString(R.string.error_login_msg)
+        }.show()
+
+        clearLoginInput()
+
+        lifecycleScope.launch {
+            delay(2000)
+            builder.hide()
+        }
+    }
+
+    private fun clearLoginInput() {
+        binding.emailInputField.clearInput()
+        binding.passInputField.clearInput()
     }
 }

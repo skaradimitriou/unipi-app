@@ -29,6 +29,10 @@ import com.stathis.unipiapp.ui.getInTouch.GetInTouchActivity
 import com.stathis.unipiapp.ui.login.LoginActivity
 import com.stathis.unipiapp.ui.professors.ProfessorsActivity
 import com.stathis.unipiapp.ui.students.StudentsActivity
+import com.stathis.unipiapp.util.GUEST
+import com.stathis.unipiapp.util.LOGIN
+import com.stathis.unipiapp.util.USER
+import com.stathis.unipiapp.util.USERNAME
 import timber.log.Timber
 
 class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activity_dashboard),
@@ -51,7 +55,7 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
     }
 
     override fun startOps() {
-        val data = intent?.getParcelableExtra<StudentsResponseDto>("USER")
+        val data = intent?.getParcelableExtra<StudentsResponseDto>(USER)
         Timber.d("USER => $data")
 
         data?.let { viewModel.setActiveUser(data) }
@@ -118,10 +122,10 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
             }
 
             R.id.logout -> {
-                val editor = getSharedPreferences("LOGIN", MODE_PRIVATE).edit()
-                editor.putString("username", "guest")
-                editor.putString("password", "guest")
-                editor.apply()
+                getSharedPreferences(LOGIN, MODE_PRIVATE).edit().also {
+                    it.putString(USERNAME, GUEST)
+                    it.putString(USERNAME, GUEST)
+                }.apply()
 
                 startActivity(Intent(this, LoginActivity::class.java).also {
                     it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

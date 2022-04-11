@@ -17,6 +17,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="error_dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <style name="unipi_fab_btn" parent="ShapeAppearanceOverlay.Material3.FloatingActionButton">
         <item name="tint">@null</item>
         <item name="android:focusable">true</item>

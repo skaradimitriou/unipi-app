@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.stathis.unipiapp.models.grading.LoginForm
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
+import com.stathis.unipiapp.util.GUEST
 import com.stathis.unipiapp.util.STUDENTS_URL
 import com.stathis.unipiapp.util.UserAgentGenerator
 import org.jsoup.Connection
@@ -30,8 +31,8 @@ object StudentsApi {
     ) {
 
         val loginForm = LoginForm(
-            username = "guest",
-            password = "guest",
+            username = GUEST,
+            password = GUEST,
             cookies = null
         )
 
@@ -48,7 +49,7 @@ object StudentsApi {
                 }
 
                 override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
-                    Timber.d("${t.localizedMessage}")
+                    Timber.d(t.localizedMessage)
                     error.postValue(true)
                 }
             })
@@ -81,14 +82,18 @@ object StudentsApi {
                         call: Call<StudentsResponseDto>,
                         response: Response<StudentsResponseDto>
                     ) {
-                        response.body()?.student?.let {
-                            data.postValue(response.body())
-                            error.postValue(false)
+                        if(response.code() == 200){
+                            response.body()?.student?.let {
+                                data.postValue(response.body())
+                                error.postValue(false)
+                            }
+                        } else {
+                            error.postValue(true)
                         }
                     }
 
                     override fun onFailure(call: Call<StudentsResponseDto>, t: Throwable) {
-                        Timber.d("${t.localizedMessage}")
+                        Timber.d(t.localizedMessage)
                         error.postValue(true)
                     }
                 })

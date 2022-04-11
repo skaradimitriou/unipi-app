@@ -10,7 +10,7 @@
     <string name="unipi_main_desc">ΠΜΣ Πληροφορική</string>
 
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet.</string>
-    <string name="lorem_ipsum_2">Προκήρυξη Υποτροφιών Ιδρύματος Ωνάση 2022-2023</string>
+    <string name="lorem_ipsum_2">Προκήρυξη Υποτροφιών Ιδρύματος Ωνάση 2022–2023</string>
     <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo, ipsum vel elementum placerat, eros tortor hendrerit diam, vel faucibus lectus leo ut sem. Curabitur sit amet gravida nisi. Nam massa ex, hendrerit in gravida et, vehicula vel lacus. Pellentesque bibendum arcu at nisi vulputate tempus. Aliquam et accumsan augue. Quisque sagittis, nisl a ultrices egestas, quam tortor sagittis orci, quis faucibus justo nibh pharetra nulla. Vestibulum fringilla at elit dignissim cursus. </string>
 
     <string name="url_tag">URL</string>
@@ -29,6 +29,9 @@
     <string name="login_username_hint">Όνομα χρήστη</string>
     <string name="login_password_hint">Κωδικός πρόσβασης</string>
     <string name="login_btn_txt">Είσοδος Φοιτητή</string>
+    <string name="keep_me_logged_in">Να παραμείνω συνδεδεμένος</string>
+    <string name="continue_as_guest">Συνέχεια ώς επισκέπτης</string>
+    <string name="error_login_msg">Προέκυψε κάποιο σφάλμα, δοκίμασε να συνδεθείς ξανά.</string>
 
     <!-- About Screen -->
     <string name="about_app_text">Η εφαρμογή αυτή αναπτύχθηκε το 2022 με την επίβλεψη του κ. Ευθύμη Αλέπη, Αναπληρωτή Καθηγητή με σκοπό την εξυπηρέτηση των μελών του ΠΜΣ Πληροφορική και την προώθηση του σε υποψήφιους μεταπτυχιακούς φοιτητές.</string>
@@ -119,8 +122,6 @@
 
     <string name="the_app">Εφαρμογή</string>
     <string name="secretariat">Γραμματεία</string>
-    <string name="keep_me_logged_in">Να παραμείνω συνδεδεμένος</string>
-    <string name="continue_as_guest">Συνέχεια ώς επισκέπτης</string>
     <string name="exit">Έξοδος</string>
     <string name="logout">Αποσύνδεση</string>
 

@@ -2,8 +2,10 @@ package com.stathis.unipiapp.util
 
 import android.os.Handler
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
@@ -115,6 +117,16 @@ fun TextView.semesterTitle(id: Int) {
     this.text = resources.getString(R.string.semester, id)
 }
 
+@BindingAdapter("setLoginButton")
+fun Button.setLoginButton(isEnabled: Boolean) {
+    if (isEnabled) {
+        this.setTextColor(ContextCompat.getColorStateList(context, R.color.white))
+        this.backgroundTintList = ContextCompat.getColorStateList(context, R.color.unipi_blue)
+    } else {
+        this.setTextColor(ContextCompat.getColorStateList(context, R.color.black))
+        this.backgroundTintList = ContextCompat.getColorStateList(context, R.color.shimmer_grey_light)
+    }
+}
 
 @BindingAdapter("setScrollableViewPager")
 fun setScrollableViewPager(viewPager: ViewPager2, adapter: CarouselAdapter) {
