@@ -8,7 +8,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [SiteApiModule::class])
 interface SiteApiComponent {
-
     fun inject (api : SiteApiClient)
     fun inject (viewModel : AnnouncementsViewModel)
 }

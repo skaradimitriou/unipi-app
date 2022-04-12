@@ -1,32 +1,24 @@
 package com.stathis.unipiapp.network.students
 
 import androidx.lifecycle.MutableLiveData
+import com.stathis.unipiapp.di.student.DaggerStudentApiComponent
 import com.stathis.unipiapp.models.Result
 import com.stathis.unipiapp.models.grading.LoginForm
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
 import com.stathis.unipiapp.util.*
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.jsoup.Connection
 import org.jsoup.Jsoup
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
+import javax.inject.Inject
 
-object StudentsApi {
+class StudentsApiClient {
 
-    val logger = HttpLoggingInterceptor().also {
-        it.level = HttpLoggingInterceptor.Level.BODY
+    @Inject
+    lateinit var api : StudentsEndpoints
+
+    init {
+        DaggerStudentApiComponent.create().inject(this)
     }
-
-    private val client = OkHttpClient.Builder().addInterceptor(logger).build()
-
-    private val api = Retrofit.Builder()
-        .baseUrl(STUDENTS_API_BASE_URL)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(StudentsEndpoints::class.java)
 
     suspend fun loginGuestUser(
         data: MutableLiveData<Result<StudentsResponseDto>>
