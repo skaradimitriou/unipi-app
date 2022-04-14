@@ -58,6 +58,12 @@ class MainActivity : UnipiActivity<ActivityMainBinding>(R.layout.activity_main) 
 
                 is com.stathis.unipiapp.models.Result.Error -> {
                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+
+                    getSharedPreferences(LOGIN, MODE_PRIVATE).edit().also {
+                        it.putString(USERNAME, GUEST)
+                        it.putString(USERNAME, GUEST)
+                    }.apply()
+
                     finish()
                 }
             }
