@@ -10,11 +10,16 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.callbacks.ContactCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
+import com.stathis.unipiapp.di.gson.DaggerGsonComponent
 import com.stathis.unipiapp.models.ContactItem
 import com.stathis.unipiapp.ui.contact.adapter.ContactAdapter
 import java.io.IOException
+import javax.inject.Inject
 
 class ContactViewModel(val app : Application) : AndroidViewModel(app), UnipiCallback {
+
+    @Inject
+    lateinit var gson: Gson
 
     val adapter = ContactAdapter(this)
     private lateinit var list : MutableList<ContactItem>
@@ -22,6 +27,8 @@ class ContactViewModel(val app : Application) : AndroidViewModel(app), UnipiCall
     private lateinit var callback : ContactCallback
 
     init {
+        DaggerGsonComponent.create().inject(this)
+
         getData()
     }
 
@@ -41,7 +48,7 @@ class ContactViewModel(val app : Application) : AndroidViewModel(app), UnipiCall
         try {
             val jsonString = app.assets.open("contact_data.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<List<ContactItem>>() {}.type
-            list = Gson().fromJson(jsonString, listPersonType)
+            list = gson.fromJson(jsonString, listPersonType)
             data.postValue(list)
         } catch (ioException: IOException) {}
     }

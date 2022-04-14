@@ -20,6 +20,7 @@ import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityDashboardBinding
 import com.stathis.unipiapp.databinding.ContactScreenBottomSheetBinding
 import com.stathis.unipiapp.databinding.LeaveAppBottomSheetBinding
+import com.stathis.unipiapp.di.gson.DaggerGsonComponent
 import com.stathis.unipiapp.models.ContactItem
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
 import com.stathis.unipiapp.ui.about.AboutActivity
@@ -35,15 +36,21 @@ import com.stathis.unipiapp.util.LOGIN
 import com.stathis.unipiapp.util.USER
 import com.stathis.unipiapp.util.USERNAME
 import timber.log.Timber
+import javax.inject.Inject
 
 class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activity_dashboard),
     NavigationView.OnNavigationItemSelectedListener {
+
+    @Inject
+    lateinit var gson: Gson
 
     private lateinit var navController: NavController
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var viewModel: DashboardViewModel
 
     override fun init() {
+        DaggerGsonComponent.create().inject(this)
+
         navController = findNavController(R.id.nav_host_fragment)
 
         toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
@@ -57,8 +64,8 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
 
     override fun startOps() {
         val data = intent?.getStringExtra(USER)
-        data?.let{
-            val model = Gson().fromJson(it,StudentsResponseDto::class.java)
+        data?.let {
+            val model = gson.fromJson(it, StudentsResponseDto::class.java)
             Timber.d("USER => $data")
 
             viewModel.setActiveUser(model)

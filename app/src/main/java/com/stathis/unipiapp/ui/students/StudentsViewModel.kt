@@ -13,6 +13,7 @@ import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.StudentsCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
+import com.stathis.unipiapp.di.gson.DaggerGsonComponent
 import com.stathis.unipiapp.models.CarouselItem
 import com.stathis.unipiapp.models.CarouselParent
 import com.stathis.unipiapp.models.UnipiService
@@ -24,8 +25,12 @@ import com.stathis.unipiapp.ui.students.model.VerticalStudentItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
+import javax.inject.Inject
 
 class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallback {
+
+    @Inject
+    lateinit var gson: Gson
 
     private  lateinit var callback : StudentsCallback
     val adapter = StudentsAdapter(this)
@@ -34,6 +39,8 @@ class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallba
     val error = MutableLiveData<Boolean>()
 
     init {
+        DaggerGsonComponent.create().inject(this)
+
         viewModelScope.launch(Dispatchers.IO){
             getStudentData()
         }
@@ -59,7 +66,7 @@ class StudentsViewModel(val app : Application) : UnipiViewModel(app),UnipiCallba
             val jsonString = app.assets.open("students_screen_data.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<StudentResponse>() {}.type
 
-            model  = Gson().fromJson(jsonString, listPersonType)
+            model  = gson.fromJson(jsonString, listPersonType)
 
             data.postValue(model)
             error.postValue(false)

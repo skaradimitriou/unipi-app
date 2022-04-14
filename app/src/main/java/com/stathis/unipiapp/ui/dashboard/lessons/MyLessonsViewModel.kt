@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassLessonCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
+import com.stathis.unipiapp.di.gson.DaggerGsonComponent
 import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
@@ -19,8 +20,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.io.IOException
+import javax.inject.Inject
 
 class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {
+
+    @Inject
+    lateinit var gson : Gson
 
     val adapter = MyLessonsAdapter(this)
     val data = MutableLiveData<List<EclassLesson>>()
@@ -29,6 +34,8 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
     private lateinit var callback: EclassLessonCallback
 
     init {
+        DaggerGsonComponent.create().inject(this)
+
         getData()
     }
 
@@ -50,9 +57,9 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
 
     private fun getEclassLessons(){
         try {
-            val jsonString =app.assets.open("eclass_lessons_mppl.json").bufferedReader().use { it.readText() }
+            val jsonString = app.assets.open("eclass_lessons_mppl.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<List<EclassLesson>>() {}.type
-            eclassLessons = Gson().fromJson(jsonString, listPersonType)
+            eclassLessons = gson.fromJson(jsonString, listPersonType)
 
             data.postValue(eclassLessons)
             error.postValue(false)
@@ -74,9 +81,9 @@ class MyLessonsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallb
     fun observe(owner: LifecycleOwner, callback: EclassLessonCallback) {
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             it?.let { adapter.submitList(it) }
-        })
+        }
     }
 
     fun release(owner: LifecycleOwner) {
