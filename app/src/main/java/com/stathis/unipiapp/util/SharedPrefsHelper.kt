@@ -20,8 +20,4 @@ object SharedPrefsHelper {
     fun getUpdateTime(): Long {
         return prefs.getLong(PREF_TIME, 0)
     }
-
-    fun getCacheDuration(): String? {
-        return prefs.getString("pref_cache_duration", "")
-    }
 }

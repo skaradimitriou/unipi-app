@@ -59,7 +59,7 @@ class ProfessorsViewModel(val app: Application) : UnipiViewModel(app), UnipiCall
 
     fun getProfessors() {
         try {
-            val jsonString =app.assets.open("professors.json").bufferedReader().use { it.readText() }
+            val jsonString = app.assets.open("professors.json").bufferedReader().use { it.readText() }
             val listPersonType = object : TypeToken<List<Professor>>() {}.type
             professorList = gson.fromJson(jsonString, listPersonType)
             data.postValue(professorList)

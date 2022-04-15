@@ -20,27 +20,6 @@ class StudentsApiClient {
         DaggerStudentApiComponent.create().inject(this)
     }
 
-    suspend fun loginGuestUser(
-        data: MutableLiveData<Result<StudentsResponseDto>>
-    ) {
-
-        val loginForm = LoginForm(
-            username = GUEST,
-            password = GUEST,
-            cookies = null
-        )
-
-        val apiCall = api.postStudentData(GUEST, loginForm)
-        Timber.d("RESPONSE => $apiCall")
-
-        if (apiCall.code() == 200) {
-            // call was successful
-            data.setData(apiCall.body())
-        } else {
-            data.setError(apiCall.message())
-        }
-    }
-
     suspend fun postStudentData(
         username: String,
         password: String,

@@ -1,5 +1,6 @@
 package com.stathis.unipiapp.di.student
 
+import com.google.gson.Gson
 import com.stathis.unipiapp.network.students.StudentsApiClient
 import com.stathis.unipiapp.network.students.StudentsEndpoints
 import com.stathis.unipiapp.util.STUDENTS_API_BASE_URL
@@ -34,5 +35,11 @@ class StudentApiModule {
     @Provides
     fun provideService() : StudentsApiClient {
         return StudentsApiClient()
+    }
+
+    @Singleton
+    @Provides
+    fun provideGson() : Gson{
+        return Gson()
     }
 }
