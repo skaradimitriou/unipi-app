@@ -1,11 +1,9 @@
 package com.stathis.unipiapp.ui.department
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -18,12 +16,11 @@ import com.stathis.unipiapp.models.CarouselItem
 import com.stathis.unipiapp.models.CarouselParent
 import com.stathis.unipiapp.ui.department.adapter.DepartmentAdapter
 import com.stathis.unipiapp.ui.department.model.DepartmentResponse
-import com.stathis.unipiapp.ui.department.model.HorizontalDepartmentItem
 import com.stathis.unipiapp.ui.department.model.Programme
 import com.stathis.unipiapp.ui.department.model.VerticalDepartmentItem
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 
@@ -66,9 +63,7 @@ class DepartmentViewModel(val app : Application) : UnipiViewModel(app), UnipiCal
     fun getDepartmentData(){
         try {
             val jsonString = app.assets.open("department_data.json").bufferedReader().use { it.readText() }
-            val listPersonType = object : TypeToken<DepartmentResponse>() {}.type
-
-            model  = gson.fromJson(jsonString, listPersonType)
+            model  = gson.fromJson(jsonString, DepartmentResponse::class.java)
 
             data.postValue(model)
             error.postValue(false)
