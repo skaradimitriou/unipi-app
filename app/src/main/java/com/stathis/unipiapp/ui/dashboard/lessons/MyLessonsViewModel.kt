@@ -4,7 +4,6 @@ import android.app.Application
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -12,7 +11,6 @@ import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassLessonCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.di.gson.DaggerGsonComponent
-import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.ui.dashboard.lessons.adapter.MyLessonsAdapter
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import com.stathis.unipiapp.util.ShimmerHelper

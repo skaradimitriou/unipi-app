@@ -4,13 +4,11 @@ import android.app.Application
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.di.eclass.DaggerEclassApiComponent
-import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.eclass.EclassApiClient
 import com.stathis.unipiapp.ui.eclassAnnouncements.adapter.EclassAnnouncementsAdapter
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.Channel
@@ -18,7 +16,6 @@ import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
 import com.stathis.unipiapp.util.ShimmerHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class EclassAnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {

@@ -30,7 +30,7 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
         binding.viewModel = viewModel
 
         binding.deptFabBtn.setOnClickListener {
-            startActivity(Intent(this,ContactActivity::class.java))
+            startActivity(Intent(this, ContactActivity::class.java))
         }
 
         observe()
@@ -45,7 +45,7 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
             override fun openCarouselItem(model: CarouselItem) = when(model.title){
                 getString(R.string.dept_research) -> openUrl(model.url)
                 getString(R.string.dept_events) -> openUrl(model.url)
-                getString(R.string.dept_contact) -> startActivity(Intent(this@DepartmentActivity,ContactActivity::class.java))
+                getString(R.string.dept_contact) -> startActivity(Intent(this@DepartmentActivity, ContactActivity::class.java))
                 else -> Unit
             }
             override fun openProgramme(model: Programme) {
@@ -53,12 +53,12 @@ class DepartmentActivity : UnipiActivity<ActivityDepartmentBinding>(R.layout.act
             }
         })
 
-        viewModel.error.observe(this, Observer {
+        viewModel.error.observe(this) {
             when(it){
                 true -> Snackbar.make(binding.deptScreenParent,getString(R.string.snackbar_error),Snackbar.LENGTH_LONG).show()
                 false -> Unit
             }
-        })
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){

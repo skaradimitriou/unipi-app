@@ -1,15 +1,12 @@
 package com.stathis.unipiapp.ui.lessons
 
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.stathis.unipiapp.R
-import com.stathis.unipiapp.BR
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityLessonsBinding
-import com.stathis.unipiapp.models.Professor
 import com.stathis.unipiapp.models.Semester
 
 class LessonsActivity : UnipiActivity<ActivityLessonsBinding>(R.layout.activity_lessons) {

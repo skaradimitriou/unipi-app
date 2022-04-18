@@ -3,7 +3,6 @@ package com.stathis.unipiapp.ui.lessons.adapter
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.stathis.unipiapp.BR
-import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiViewHolder
 import com.stathis.unipiapp.databinding.HolderLessonItemBinding
 import com.stathis.unipiapp.models.InfoModel

@@ -2,25 +2,23 @@ package com.stathis.unipiapp.ui.announcements
 
 import android.app.Application
 import android.view.View
-import androidx.lifecycle.*
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.callbacks.AnnouncementCallback
 import com.stathis.unipiapp.callbacks.UnipiCallback
 import com.stathis.unipiapp.database.UnipiDatabase
 import com.stathis.unipiapp.di.announcements.DaggerSiteApiComponent
 import com.stathis.unipiapp.models.EmptyItem
-import com.stathis.unipiapp.models.ShimmerModel
 import com.stathis.unipiapp.network.site.SiteApiClient
 import com.stathis.unipiapp.ui.announcements.adapter.AnnouncementAdapter
 import com.stathis.unipiapp.ui.announcements.model.DeptAnnouncement
-import com.stathis.unipiapp.ui.announcements.model.DeptChannel
 import com.stathis.unipiapp.util.SharedPrefsHelper
 import com.stathis.unipiapp.util.ShimmerHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import timber.log.Timber
-import java.lang.Exception
 import javax.inject.Inject
 
 class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiCallback {

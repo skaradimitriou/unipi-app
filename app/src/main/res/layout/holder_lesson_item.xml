@@ -41,7 +41,7 @@
                 android:padding="@dimen/dimen_16"
                 android:text="@{model.title}"
                 android:textColor="@color/unipi_blue"
-                android:textStyle="bold"
+                android:textSize="@dimen/text_15"
                 app:layout_constraintEnd_toStartOf="@id/icon_more"
                 app:layout_constraintStart_toEndOf="@id/lesson_ribbon"
                 app:layout_constraintTop_toTopOf="parent"
@@ -52,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_right"
+                android:layout_marginEnd="@dimen/dimen_10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/lesson_title"
                 app:layout_constraintTop_toTopOf="@id/lesson_title"/>

@@ -8,7 +8,6 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
@@ -17,12 +16,10 @@ import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.callbacks.EclassAnnouncementsCallback
 import com.stathis.unipiapp.databinding.ActivityEclassAnnouncementsBinding
 import com.stathis.unipiapp.databinding.EclassAnnouncementBottomSheetBinding
-import com.stathis.unipiapp.databinding.ProfessorsBottomSheetBinding
 import com.stathis.unipiapp.ui.dashboard.lessons.model.EclassLesson
 import com.stathis.unipiapp.ui.eclassAnnouncements.model.EclassAnnouncement
 import com.stathis.unipiapp.util.LESSON
 import com.stathis.unipiapp.util.toNonHtmlText
-import org.jsoup.Jsoup
 
 class EclassAnnouncementsActivity :
     UnipiActivity<ActivityEclassAnnouncementsBinding>(R.layout.activity_eclass_announcements) {

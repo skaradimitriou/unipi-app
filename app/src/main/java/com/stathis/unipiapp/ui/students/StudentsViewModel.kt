@@ -1,11 +1,9 @@
 package com.stathis.unipiapp.ui.students
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -17,8 +15,6 @@ import com.stathis.unipiapp.di.gson.DaggerGsonComponent
 import com.stathis.unipiapp.models.CarouselItem
 import com.stathis.unipiapp.models.CarouselParent
 import com.stathis.unipiapp.models.UnipiService
-import com.stathis.unipiapp.ui.department.model.DepartmentResponse
-import com.stathis.unipiapp.ui.department.model.VerticalDepartmentItem
 import com.stathis.unipiapp.ui.students.adapter.StudentsAdapter
 import com.stathis.unipiapp.ui.students.model.StudentResponse
 import com.stathis.unipiapp.ui.students.model.VerticalStudentItem

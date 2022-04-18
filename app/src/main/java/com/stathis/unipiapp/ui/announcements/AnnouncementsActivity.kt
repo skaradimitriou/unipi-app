@@ -3,7 +3,6 @@ package com.stathis.unipiapp.ui.announcements
 import android.content.Intent
 import android.net.Uri
 import android.view.MenuItem
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.stathis.unipiapp.R

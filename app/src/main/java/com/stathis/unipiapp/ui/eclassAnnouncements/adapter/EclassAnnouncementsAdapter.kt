@@ -3,7 +3,6 @@ package com.stathis.unipiapp.ui.eclassAnnouncements.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.facebook.shimmer.Shimmer
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.MyDiffUtil
 import com.stathis.unipiapp.callbacks.UnipiCallback

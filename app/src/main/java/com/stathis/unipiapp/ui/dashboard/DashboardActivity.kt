@@ -1,11 +1,8 @@
 package com.stathis.unipiapp.ui.dashboard
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.MenuItem
-import android.widget.PopupMenu
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
@@ -18,10 +15,8 @@ import com.google.gson.Gson
 import com.stathis.unipiapp.R
 import com.stathis.unipiapp.abstraction.UnipiActivity
 import com.stathis.unipiapp.databinding.ActivityDashboardBinding
-import com.stathis.unipiapp.databinding.ContactScreenBottomSheetBinding
 import com.stathis.unipiapp.databinding.LeaveAppBottomSheetBinding
 import com.stathis.unipiapp.di.gson.DaggerGsonComponent
-import com.stathis.unipiapp.models.ContactItem
 import com.stathis.unipiapp.models.grading.StudentsResponseDto
 import com.stathis.unipiapp.ui.about.AboutActivity
 import com.stathis.unipiapp.ui.announcements.AnnouncementsActivity
@@ -84,7 +79,7 @@ class DashboardActivity : UnipiActivity<ActivityDashboardBinding>(R.layout.activ
         }
         dialog.show()
 
-        binding.bottomSheetYesBtn.setOnClickListener { super.onBackPressed() }
+        binding.bottomSheetYesBtn.setOnClickListener { finish() }
         binding.bottomSheetCancelBtn.setOnClickListener { dialog.hide() }
     }
 

@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.stathis.unipiapp.callbacks.ContactCallback

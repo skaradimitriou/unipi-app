@@ -1,7 +1,6 @@
 package com.stathis.unipiapp.ui.lessons
 
 import android.app.Application
-import android.util.Log
 import com.stathis.unipiapp.abstraction.UnipiViewModel
 import com.stathis.unipiapp.models.InfoModel
 import com.stathis.unipiapp.models.Lesson
