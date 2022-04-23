@@ -56,66 +56,75 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/login_app_name" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailField"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/input_fields_constraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_30"
-            android:hint="@string/login_username_hint"
+            app:layout_constraintBottom_toTopOf="@id/login_as_guest"
             app:layout_constraintTop_toBottomOf="@id/login_app_desc">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_input_field"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:maxLines="1" />
+                android:hint="@string/login_username_hint"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_input_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:maxLines="1" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_16"
-            android:hint="@string/login_password_hint"
-            android:inputType="textPassword"
-            app:layout_constraintTop_toBottomOf="@id/emailField"
-            app:passwordToggleEnabled="true">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pass_input_field"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
-                android:maxLines="1" />
+                app:layout_constraintTop_toBottomOf="@id/emailField"
+                app:passwordToggleEnabled="true">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pass_input_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/login_remember_me_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:paddingTop="@dimen/dimen_10"
-            android:text="@string/keep_me_logged_in"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@id/passField"
-            app:layout_constraintTop_toBottomOf="@id/passField" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/login_btn"
-            setLoginButton="@{isCtaEnabled}"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/unipi_btn_height"
-            android:layout_marginTop="@dimen/dimen_20"
-            android:backgroundTint="@color/unipi_blue"
-            android:text="@string/login_btn_txt"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_remember_me_switch" />
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/login_remember_me_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:paddingTop="@dimen/dimen_10"
+                android:text="@string/keep_me_logged_in"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@id/passField"
+                app:layout_constraintTop_toBottomOf="@id/passField" />
+
+            <Button
+                android:id="@+id/login_btn"
+                setLoginButton="@{isCtaEnabled}"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/unipi_btn_height"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:backgroundTint="@color/unipi_blue"
+                android:text="@string/login_btn_txt"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_remember_me_switch" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/login_as_guest"

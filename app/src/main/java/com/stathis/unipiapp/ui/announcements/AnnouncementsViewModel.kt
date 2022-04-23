@@ -66,9 +66,15 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     }
 
     private fun getAnnouncementsFromDb() {
+        startShimmer()
+
         viewModelScope.launch(Dispatchers.IO){
             val announcements = database.getAll()
-            data.postValue(announcements)
+            if(announcements.isNullOrEmpty()){
+                getData()
+            } else {
+                data.postValue(announcements)
+            }
         }
     }
 
@@ -84,14 +90,14 @@ class AnnouncementsViewModel(val app: Application) : UnipiViewModel(app), UnipiC
     fun observe(owner: LifecycleOwner, callback: AnnouncementCallback) {
         this.callback = callback
 
-        data.observe(owner, Observer {
+        data.observe(owner) {
             it?.let {
                 deleteAllFromDb()
                 insertAllToDb(it)
 
                 adapter.submitList(it)
             }
-        })
+        }
     }
 
     private fun deleteAllFromDb(){
