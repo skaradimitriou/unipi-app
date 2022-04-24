@@ -1,5 +1,7 @@
 # University of Piraeus (UoP) University App
 
+![unipi-promo-banner](https://user-images.githubusercontent.com/64270931/164971810-323859ba-394d-4c6b-a81e-daaa5c79d92c.jpg)
+
 This app is live at [Google Play](https://play.google.com/store/apps/details?id=com.stathis.unipiapp) <br/>
 
 ## Main Goal
