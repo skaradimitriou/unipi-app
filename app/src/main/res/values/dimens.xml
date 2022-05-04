@@ -19,5 +19,5 @@
     <dimen name="image_24">24dp</dimen>
     <dimen name="image_85">85dp</dimen>
     <dimen name="dimen_30">30dp</dimen>
-    <dimen name="unipi_btn_height">56dp</dimen>
+    <dimen name="unipi_btn_height">64dp</dimen>
 </resources>
